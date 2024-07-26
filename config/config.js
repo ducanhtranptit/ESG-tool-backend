@@ -1,6 +1,8 @@
-require("dotenv").config();
+import dotenv from "dotenv";
 
-module.exports = {
+dotenv.config();
+
+const config = {
 	development: {
 		username: process.env.DB_USER,
 		password: process.env.DB_PASS,
@@ -8,7 +10,7 @@ module.exports = {
 		host: process.env.DB_HOST,
 		port: process.env.DB_PORT,
 		dialect: "mysql",
-		loggig: false,
+		logging: false,
 	},
 	test: {
 		username: process.env.DB_USER,
@@ -17,7 +19,7 @@ module.exports = {
 		host: process.env.DB_HOST,
 		port: process.env.DB_PORT,
 		dialect: "mysql",
-		loggig: false,
+		logging: false,
 	},
 	production: {
 		username: process.env.DB_USER,
@@ -26,7 +28,9 @@ module.exports = {
 		host: process.env.DB_HOST,
 		port: process.env.DB_PORT,
 		dialect: "mysql",
-		loggig: false,
+		logging: false,
 	},
 	baseUrl: "/api/v1/core",
 };
+
+export default config;

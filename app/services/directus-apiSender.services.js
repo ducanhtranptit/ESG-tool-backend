@@ -1,0 +1,5 @@
+
+
+class DirectusApiSender {
+    get
+}

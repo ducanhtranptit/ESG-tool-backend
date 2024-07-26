@@ -1,17 +1,13 @@
-const createError = require("http-errors");
+import createError from "http-errors";
 
-function notFoundHandlerMiddleware(req, res, next) {
-  next(createError(404));
+export function notFoundHandlerMiddleware(req, res, next) {
+	next(createError(404));
 }
 
-function errorHandlerMiddleware(err, req, res, next) {
-  res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
-  res.status(err.status || 500);
-  res.send("error");
-}
+export function errorHandlerMiddleware(err, req, res, next) {
+	res.locals.message = err.message;
+	res.locals.error = req.app.get("env") === "development" ? err : {};
 
-module.exports = {
-  notFoundHandlerMiddleware,
-  errorHandlerMiddleware,
-};
+	res.status(err.status || 500);
+	res.send("error");
+}

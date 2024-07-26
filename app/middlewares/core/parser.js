@@ -1,13 +1,7 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
+import express from 'express';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 
-const jsonParserMiddleware = express.json();
-const urlEncodedParserMiddleware = express.urlencoded({ extended: false });
-const cookieParserMiddleware = cookieParser();
-
-module.exports = {
-  jsonParserMiddleware,
-  urlEncodedParserMiddleware,
-  cookieParserMiddleware,
-};
+export const jsonParserMiddleware = express.json();
+export const urlEncodedParserMiddleware = express.urlencoded({ extended: false });
+export const cookieParserMiddleware = cookieParser();

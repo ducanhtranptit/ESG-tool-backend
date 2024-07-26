@@ -1,4 +1,4 @@
-const path = require("path");
+import path from "path";
 
 class UploadFileController {
 	uploadFile(req, res) {
@@ -13,9 +13,9 @@ class UploadFileController {
 
 	getFile(req, res) {
 		const filename = req.params.filename;
-		const filepath = path.join(__dirname, "../../uploads", filename);
+		const filepath = path.join(process.cwd(), "uploads", filename);
 		res.sendFile(filepath);
 	}
 }
 
-module.exports = new UploadFileController();
+export default new UploadFileController();
