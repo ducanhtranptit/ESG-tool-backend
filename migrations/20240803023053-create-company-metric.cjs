@@ -30,6 +30,21 @@ module.exports = {
 			companyId: {
 				type: Sequelize.INTEGER,
 			},
+			noOfCompaniesWithAValue: {
+				type: Sequelize.INTEGER,
+			},
+			noOfCompaniesWithTheSameValueIncludedInTheCurrentOne: {
+				type: Sequelize.INTEGER,
+			},
+			noOfCompaniesWithAWorse: {
+				type: Sequelize.INTEGER,
+			},
+			rank: {
+				type: Sequelize.INTEGER,
+			},
+			score: {
+				type: Sequelize.INTEGER,
+			},
 			createdAt: {
 				allowNull: false,
 				type: Sequelize.DATE,

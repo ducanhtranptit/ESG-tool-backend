@@ -24,6 +24,12 @@ module.exports = {
 			metricId: {
 				type: Sequelize.INTEGER,
 			},
+			scoreMultipleNewCriteriaWeight: {
+				type: Sequelize.FLOAT,
+			},
+			scoreMultipleCriteriaWeight: {
+				type: Sequelize.FLOAT,
+			},
 			score: {
 				type: Sequelize.FLOAT,
 			},
