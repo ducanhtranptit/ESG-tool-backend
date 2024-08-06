@@ -51,6 +51,9 @@ module.exports = {
 			pillarWeight: {
 				type: Sequelize.FLOAT,
 			},
+			newCriteriaWeight: {
+				type: Sequelize.FLOAT,
+			},
 			createdAt: {
 				allowNull: false,
 				type: Sequelize.DATE,
