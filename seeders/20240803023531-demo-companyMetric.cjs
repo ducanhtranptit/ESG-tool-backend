@@ -6,7 +6,7 @@ module.exports = {
 			"CompanyMetrics",
 			dummyData.map((company) => ({
 				metricId: +company.metricId,
-				companysCode: company.companysCode,
+				companyCode: company.companyCode,
 				year: +company.year,
 				metric: +company.metric,
 				criteriaCode: +company.criteriaCode,

@@ -12,7 +12,7 @@ module.exports = {
 			criteriaCode: {
 				type: Sequelize.INTEGER,
 			},
-			companysCode: {
+			companyCode: {
 				type: Sequelize.STRING,
 			},
 			criteriaId: {

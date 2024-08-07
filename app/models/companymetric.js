@@ -1,23 +1,30 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class CompanyMetric extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
-  CompanyMetric.init({
-    firstName: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'CompanyMetric',
-  });
-  return CompanyMetric;
+import { Model, DataTypes } from "sequelize";
+
+export default (sequelize) => {
+	class CompanyMetric extends Model {
+		static associate(models) {}
+	}
+
+	CompanyMetric.init(
+		{
+			metricId: DataTypes.INTEGER,
+			companyCode: DataTypes.STRING,
+			year: DataTypes.INTEGER,
+			metric: DataTypes.INTEGER,
+			criteriaCode: DataTypes.INTEGER,
+			criteriaId: DataTypes.INTEGER,
+			companyId: DataTypes.INTEGER,
+			noOfCompaniesWithAValue: DataTypes.INTEGER,
+			noOfCompaniesWithTheSameValueIncludedInTheCurrentOne: DataTypes.INTEGER,
+			noOfCompaniesWithAWorse: DataTypes.INTEGER,
+			rank: DataTypes.INTEGER,
+			score: DataTypes.INTEGER,
+		},
+		{
+			sequelize,
+			modelName: "CompanyMetric",
+		}
+	);
+
+	return CompanyMetric;
 };
