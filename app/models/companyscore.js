@@ -7,7 +7,13 @@ export default (sequelize) => {
 
 	CompanyScore.init(
 		{
-			firstName: DataTypes.STRING,
+			companyId: DataTypes.INTEGER,
+			companyCode: DataTypes.STRING,
+			year: DataTypes.INTEGER,
+			environmentScore: DataTypes.FLOAT,
+			socialScore: DataTypes.FLOAT,
+			governanceScore: DataTypes.FLOAT,
+			esgScore: DataTypes.FLOAT,
 		},
 		{
 			sequelize,

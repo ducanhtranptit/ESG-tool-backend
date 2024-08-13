@@ -10,6 +10,7 @@ module.exports = {
 				criteriaId: +company.criteriaId,
 				year: +company.year,
 				metricId: +company.metricId,
+				pillarId: +company.pillarId,
 				createdAt: new Date(),
 				updatedAt: new Date(),
 			}))

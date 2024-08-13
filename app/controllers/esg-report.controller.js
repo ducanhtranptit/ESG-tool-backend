@@ -4,8 +4,8 @@ import EsgReportAction from "../actions/esg-report.action.js";
 class EsgReportController {
 	static async calculateESGReport(req, res) {
 		try {
-			const data = await EsgReportAction.calculateESGReport();
-			return new SuccessResponse().send(req, res, data);
+			await EsgReportAction.calculateESGReport();
+			return new SuccessResponse().send(req, res);
 		} catch (error) {
 			console.log(error);
 			return new ErrorResponse().send(req, res);

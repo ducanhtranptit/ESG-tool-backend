@@ -3,7 +3,7 @@ const dummyData = require("./dummy/companys.dummy.cjs");
 module.exports = {
 	async up(queryInterface, Sequelize) {
 		await queryInterface.bulkInsert(
-			"Companys",
+			"Companies",
 			dummyData.map((company) => ({
 				companyCode: company.companyCode,
 				companyName: company.companyName,
@@ -16,6 +16,6 @@ module.exports = {
 	},
 
 	async down(queryInterface, Sequelize) {
-		await queryInterface.bulkDelete("Companys", null, {});
+		await queryInterface.bulkDelete("Companies", null, {});
 	},
 };

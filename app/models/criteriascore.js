@@ -7,7 +7,15 @@ export default (sequelize) => {
 
 	CriteriaScore.init(
 		{
-			firstName: DataTypes.STRING,
+			criteriaCode: DataTypes.INTEGER,
+			companyCode: DataTypes.STRING,
+			criteriaId: DataTypes.INTEGER,
+			year: DataTypes.INTEGER,
+			metricId: DataTypes.INTEGER,
+			scoreMultipleNewCriteriaWeight: DataTypes.FLOAT,
+			scoreMultipleCriteriaWeight: DataTypes.FLOAT,
+			score: DataTypes.FLOAT,
+			pillarId: DataTypes.INTEGER,
 		},
 		{
 			sequelize,

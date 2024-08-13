@@ -1,10 +1,349 @@
 import model from "../models/index.js";
 
-
 class EsgReportAction {
 	static async calculateESGReport() {
-		const data = await model.CompanyMetric.findAll();
-		return data;
+		const currentYear = new Date().getFullYear();
+
+		for (let year = currentYear; year > currentYear - 5; year--) {
+			// Lấy tất cả các metrics của công ty cho năm hiện tại
+			const companyMetrics = await model.CompanyMetric.findAll({
+				where: {
+					year: year,
+				},
+				attributes: ["companyCode", "metric", "criteriaCode", "year", "criteriaId", "metricId", "noOfCompaniesWithAValue", "rank", "noOfCompaniesWithTheSameValueIncludedInTheCurrentOne"],
+			});
+
+			const companies = await model.Company.findAll({
+				attributes: ["companyCode", "industryCodeLevel3"],
+			});
+
+			// Nhóm các metrics theo year, industryCodeLevel3, và criteriaCode
+			const groupedByIndustryCriteria = {};
+
+			companyMetrics.forEach((metric) => {
+				const { companyCode, criteriaCode, year } = metric;
+
+				const company = companies.find((c) => c.companyCode === companyCode);
+				if (company) {
+					const { industryCodeLevel3 } = company;
+
+					const groupKey = `${year}-${industryCodeLevel3}-${criteriaCode}`;
+
+					if (!groupedByIndustryCriteria[groupKey]) {
+						groupedByIndustryCriteria[groupKey] = {
+							year,
+							industryCodeLevel3,
+							criteriaCode,
+							companyCodes: [],
+							metrics: [],
+						};
+					}
+
+					groupedByIndustryCriteria[groupKey].companyCodes.push(companyCode);
+					groupedByIndustryCriteria[groupKey].metrics.push(metric);
+				}
+			});
+
+			for (const groupKey in groupedByIndustryCriteria) {
+				const group = groupedByIndustryCriteria[groupKey];
+				const count = group.companyCodes.length;
+
+				// Lưu số lượng vào cột noOfCompaniesWithAValue
+				await model.CompanyMetric.update(
+					{ noOfCompaniesWithAValue: count },
+					{
+						where: {
+							companyCode: group.companyCodes,
+							year: group.year,
+							criteriaCode: group.criteriaCode,
+						},
+					}
+				);
+
+				// Lấy giá trị của cột polarityIndicating từ bảng Criteria
+				const criteria = await model.Criteria.findOne({
+					where: {
+						criteriaCode: group.criteriaCode,
+					},
+					attributes: ["polarityIndicating"],
+				});
+
+				const polarity = criteria.dataValues.polarityIndicating;
+
+				// Sắp xếp theo polarityIndicating
+				if (polarity === "positive" || polarity === "") {
+					group.metrics.sort((a, b) => b.dataValues.metric - a.dataValues.metric);
+				} else if (polarity === "negative") {
+					group.metrics.sort((a, b) => a.dataValues.metric - b.dataValues.metric);
+				}
+
+				const metricsList = group.metrics.map((item) => item.dataValues.metricId);
+
+				let currentRank = 1;
+				for (let i = 0; i < metricsList.length; i++) {
+					// Nếu đây không phải là phần tử đầu tiên và metric hiện tại bằng với metric trước đó
+					if (i === 0 || group.metrics[i].dataValues.metric !== group.metrics[i - 1].dataValues.metric) {
+						currentRank = i + 1;
+					}
+					await model.CompanyMetric.update({ rank: currentRank }, { where: { metricId: metricsList[i] } });
+				}
+
+				console.log(`Processed groupKey ${groupKey}: ${count} companies updated and ranked`);
+			}
+
+			// Nhóm các metrics theo metric, year, và criteriaId
+			const groupedByMetric = companyMetrics.reduce((acc, metric) => {
+				const { metric: metricValue, criteriaId, year } = metric;
+
+				const groupKey = `${metricValue}-${year}-${criteriaId}`;
+
+				if (!acc[groupKey]) {
+					acc[groupKey] = [];
+				}
+				acc[groupKey].push(metric);
+
+				return acc;
+			}, {});
+
+			for (const groupKey in groupedByMetric) {
+				const metrics = groupedByMetric[groupKey];
+				// Chia nhóm các công ty theo metric
+				const companyCodes = metrics.map((m) => m.companyCode);
+				const chunks = [];
+				for (let i = 0; i < companyCodes.length; i += 10) {
+					chunks.push(companyCodes.slice(i, i + 10));
+				}
+
+				// Xử lý từng chunk
+				for (const chunk of chunks) {
+					const count = chunk.length;
+
+					await model.CompanyMetric.update(
+						{ noOfCompaniesWithTheSameValueIncludedInTheCurrentOne: count },
+						{
+							where: {
+								metric: metrics[0].metric,
+								year: metrics[0].year,
+								criteriaId: metrics[0].criteriaId,
+								companyCode: chunk,
+							},
+						}
+					);
+
+					console.log(`Processed ${count} companies for metric groupKey ${groupKey}`);
+				}
+			}
+		}
+
+		const companyMetricsToCalculateNoOfCompaniesWithAWorseValue = await model.CompanyMetric.findAll({
+			attributes: ["noOfCompaniesWithAValue", "rank", "noOfCompaniesWithTheSameValueIncludedInTheCurrentOne", "metricId"],
+		});
+
+		for (const companyMetric of companyMetricsToCalculateNoOfCompaniesWithAWorseValue) {
+			const { noOfCompaniesWithAValue, rank, noOfCompaniesWithTheSameValueIncludedInTheCurrentOne, metricId } = companyMetric.dataValues;
+			const noOfCompaniesWithAWorseValue = noOfCompaniesWithAValue - rank - noOfCompaniesWithTheSameValueIncludedInTheCurrentOne + 1;
+			const companyScore = (noOfCompaniesWithAWorseValue + noOfCompaniesWithTheSameValueIncludedInTheCurrentOne / 2) / noOfCompaniesWithAValue;
+			await model.CompanyMetric.update(
+				{ noOfCompaniesWithAWorse: noOfCompaniesWithAWorseValue },
+				{
+					where: {
+						metricId: metricId,
+					},
+				}
+			);
+			await model.CriteriaScore.update(
+				{ score: companyScore },
+				{
+					where: {
+						metricId: metricId,
+					},
+				}
+			);
+			console.log(`Finished calculating and updating noOfCompaniesWithAWorseValue for metricId ${metricId} by value: ${noOfCompaniesWithAWorseValue}`);
+			console.log(`Finished calculating and updating company score for metricId ${metricId} by value: ${companyScore}`);
+		}
+
+		// Tính tổng weight và cập nhật pillarWeight
+		const criteriaList = await model.Criteria.findAll({
+			attributes: ["pillarId", "applicableIndustryCode", "criteriaId", "weight"],
+		});
+
+		const groupedCriteria = criteriaList.reduce((acc, criterion) => {
+			const { pillarId, applicableIndustryCode, criteriaId, weight } = criterion.dataValues;
+			const key = `${pillarId}-${applicableIndustryCode}`;
+
+			if (!acc[key]) {
+				acc[key] = {
+					pillarId,
+					applicableIndustryCode,
+					totalWeight: 0,
+					criteriaIds: [],
+				};
+			}
+
+			acc[key].totalWeight += weight;
+			acc[key].criteriaIds.push(criteriaId);
+
+			return acc;
+		}, {});
+
+		for (const key in groupedCriteria) {
+			const { totalWeight, criteriaIds } = groupedCriteria[key];
+			await model.Criteria.update(
+				{ pillarWeight: totalWeight },
+				{
+					where: {
+						criteriaId: criteriaIds,
+					},
+				}
+			);
+
+			console.log(`Updated pillarWeight to ${totalWeight} for criteriaIds`);
+		}
+		const criteriasForCalculateNewCriteriaWeight = await model.Criteria.findAll({
+			attributes: ["criteriaCode", "weight", "pillarWeight"],
+		});
+		for (const criteria of criteriasForCalculateNewCriteriaWeight) {
+			const { weight, pillarWeight, criteriaCode } = criteria.dataValues;
+			const newCriteriaWeight = weight / pillarWeight;
+			await model.Criteria.update(
+				{ newCriteriaWeight: newCriteriaWeight },
+				{
+					where: {
+						criteriaCode: criteriaCode,
+					},
+				}
+			);
+			console.log(`Updated newCriteriaWeight to ${newCriteriaWeight} for criteriaCode: ${criteriaCode}`);
+		}
+
+		// Tính scoreMultipleNewCriteriaWeight
+		const criteriaScoresToCalculatescoreMultipleNewCriteriaWeight = await model.CriteriaScore.findAll({
+			attributes: ["metricId", "criteriaCode", "score"],
+		});
+
+		for (const criteriaScore of criteriaScoresToCalculatescoreMultipleNewCriteriaWeight) {
+			const { criteriaCode, score, metricId } = criteriaScore.dataValues;
+			const criteria = await model.Criteria.findOne({
+				where: {
+					criteriaCode: criteriaCode,
+				},
+				attributes: ["newCriteriaWeight"],
+			});
+
+			const newCriteriaWeight = criteria.dataValues.newCriteriaWeight;
+			const scoreMultipleNewCriteriaWeight = score * newCriteriaWeight;
+			await model.CriteriaScore.update(
+				{ scoreMultipleNewCriteriaWeight: scoreMultipleNewCriteriaWeight },
+				{
+					where: {
+						metricId: metricId,
+					},
+				}
+			);
+
+			console.log(`Updated scoreMultipleNewCriteriaWeight to ${scoreMultipleNewCriteriaWeight} for metricId ${metricId}`);
+		}
+
+		// Tính scoreMultipleCriteriaWeight
+		const criteriaScoresToCalculatescoreMultipleCriteriaWeight = await model.CriteriaScore.findAll({
+			attributes: ["metricId", "criteriaCode", "score"],
+		});
+
+		for (const criteriaScore of criteriaScoresToCalculatescoreMultipleCriteriaWeight) {
+			const { criteriaCode, score, metricId } = criteriaScore.dataValues;
+			const criteria = await model.Criteria.findOne({
+				where: {
+					criteriaCode: criteriaCode,
+				},
+				attributes: ["weight"],
+			});
+
+			const weight = criteria.dataValues.weight;
+			const scoreMultipleCriteriaWeight = score * weight;
+			await model.CriteriaScore.update(
+				{ scoreMultipleCriteriaWeight: scoreMultipleCriteriaWeight },
+				{
+					where: {
+						metricId: metricId,
+					},
+				}
+			);
+
+			console.log(`Updated scoreMultipleCriteriaWeight to ${scoreMultipleCriteriaWeight} for metricId ${metricId}`);
+		}
+
+		// Tính điểm E - S - G. ESG
+		const pillars = [
+			{ id: 1, scoreField: "environmentScore", logMessage: "Environment Score" },
+			{ id: 2, scoreField: "socialScore", logMessage: "Social Score" },
+			{ id: 3, scoreField: "governanceScore", logMessage: "Governance Score" },
+		];
+
+		const companyCodes = await model.Company.findAll({ attributes: ["companyCode"] });
+
+		for (const company of companyCodes) {
+			const { companyCode } = company.dataValues;
+
+			// Tính điểm E - S - G
+			for (const pillar of pillars) {
+				for (let year = currentYear; year > currentYear - 5; year--) {
+					let totalScore = 0;
+					const criteriaScoresOfCompany = await model.CriteriaScore.findAll({
+						where: {
+							companyCode,
+							year,
+							pillarId: pillar.id,
+						},
+						attributes: ["criteriaId", "scoreMultipleNewCriteriaWeight"],
+					});
+
+					if (criteriaScoresOfCompany.length) {
+						for (const criteriaScore of criteriaScoresOfCompany) {
+							totalScore += criteriaScore.dataValues.scoreMultipleNewCriteriaWeight;
+						}
+						await model.CompanyScore.update(
+							{ [pillar.scoreField]: totalScore },
+							{
+								where: {
+									companyCode,
+									year,
+								},
+							}
+						);
+						console.log(`Year: ${year}, Company: ${companyCode}, ${pillar.logMessage}: ${totalScore}`);
+					}
+				}
+			}
+
+			// Tính điểm ESG
+			for (let year = currentYear; year > currentYear - 5; year--) {
+				let totalScore = 0;
+				const criteriaScoresOfCompany = await model.CriteriaScore.findAll({
+					where: {
+						companyCode,
+						year,
+					},
+					attributes: ["criteriaId", "scoreMultipleCriteriaWeight"],
+				});
+
+				if (criteriaScoresOfCompany.length) {
+					for (const criteriaScore of criteriaScoresOfCompany) {
+						totalScore += criteriaScore.dataValues.scoreMultipleCriteriaWeight;
+					}
+					await model.CompanyScore.update(
+						{ esgScore: totalScore },
+						{
+							where: {
+								companyCode,
+								year,
+							},
+						}
+					);
+					console.log(`Year: ${year}, Company: ${companyCode}, ESG Score: ${totalScore}`);
+				}
+			}
+		}
 	}
 }
 

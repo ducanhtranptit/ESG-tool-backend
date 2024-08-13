@@ -1,22 +1,20 @@
-import { Model, DataTypes } from "sequelize";
-
-export default (sequelize) => {
+"use strict";
+import { Model } from "sequelize";
+export default (sequelize, DataTypes) => {
 	class Company extends Model {
 		static associate(models) {}
 	}
-
 	Company.init(
 		{
 			companyCode: DataTypes.STRING,
 			companyName: DataTypes.STRING,
 			industryId: DataTypes.INTEGER,
-			industryCodeLevel3: DataTypes.STRING,
+			industryCodeLevel3: DataTypes.INTEGER,
 		},
 		{
 			sequelize,
-			modelName: "CompanyMetric",
+			modelName: "Company",
 		}
 	);
-
 	return Company;
 };
