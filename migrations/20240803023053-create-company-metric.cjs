@@ -12,7 +12,7 @@ module.exports = {
 			metricId: {
 				type: Sequelize.INTEGER,
 			},
-			companysCode: {
+			companyCode: {
 				type: Sequelize.STRING,
 			},
 			year: {

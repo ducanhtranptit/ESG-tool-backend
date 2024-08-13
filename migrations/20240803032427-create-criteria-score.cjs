@@ -12,7 +12,7 @@ module.exports = {
 			criteriaCode: {
 				type: Sequelize.INTEGER,
 			},
-			companysCode: {
+			companyCode: {
 				type: Sequelize.STRING,
 			},
 			criteriaId: {
@@ -32,6 +32,9 @@ module.exports = {
 			},
 			score: {
 				type: Sequelize.FLOAT,
+			},
+			pillarId: {
+				type: Sequelize.INTEGER,
 			},
 			createdAt: {
 				allowNull: false,
