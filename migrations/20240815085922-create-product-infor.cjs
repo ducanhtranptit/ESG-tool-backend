@@ -2,26 +2,41 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
 	async up(queryInterface, Sequelize) {
-		await queryInterface.createTable("Companies", {
+		await queryInterface.createTable("ProductInfors", {
 			id: {
 				allowNull: false,
 				autoIncrement: true,
 				primaryKey: true,
 				type: Sequelize.INTEGER,
 			},
-			companyCode: {
+			companyId: {
+				type: Sequelize.INTEGER,
+				references: {
+					model: {
+						tableName: "OverallInfors",
+					},
+					key: "id",
+				},
+			},
+			productType: {
+				type: Sequelize.INTEGER,
+				references: {
+					model: {
+						tableName: "ProductTypes",
+					},
+					key: "id",
+				},
+			},
+			productName: {
 				type: Sequelize.STRING,
 			},
-			companyName: {
+			revenue: {
+				type: Sequelize.INTEGER,
+			},
+			comment: {
 				type: Sequelize.STRING,
 			},
-			industryId: {
-				type: Sequelize.INTEGER,
-			},
-			industryCodeLevel3: {
-				type: Sequelize.INTEGER,
-			},
-			createdAt: {  
+			createdAt: {
 				allowNull: false,
 				type: Sequelize.DATE,
 			},
@@ -32,6 +47,6 @@ module.exports = {
 		});
 	},
 	async down(queryInterface, Sequelize) {
-		await queryInterface.dropTable("Companies");
+		await queryInterface.dropTable("ProductInfors");
 	},
 };

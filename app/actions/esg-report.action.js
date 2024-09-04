@@ -1,6 +1,6 @@
 import model from "../models/index.js";
 
-class EsgReportAction {
+export default class EsgReportAction {
 	static async calculateESGReport() {
 		const currentYear = new Date().getFullYear();
 
@@ -346,5 +346,3 @@ class EsgReportAction {
 		}
 	}
 }
-
-export default EsgReportAction;

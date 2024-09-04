@@ -2,26 +2,23 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
 	async up(queryInterface, Sequelize) {
-		await queryInterface.createTable("Companies", {
+		await queryInterface.createTable("BlackLists", {
 			id: {
 				allowNull: false,
 				autoIncrement: true,
 				primaryKey: true,
 				type: Sequelize.INTEGER,
 			},
-			companyCode: {
+			token: {
 				type: Sequelize.STRING,
 			},
-			companyName: {
-				type: Sequelize.STRING,
-			},
-			industryId: {
+			expiresIn: {
 				type: Sequelize.INTEGER,
 			},
-			industryCodeLevel3: {
+			userId: {
 				type: Sequelize.INTEGER,
 			},
-			createdAt: {  
+			createdAt: {
 				allowNull: false,
 				type: Sequelize.DATE,
 			},
@@ -32,6 +29,6 @@ module.exports = {
 		});
 	},
 	async down(queryInterface, Sequelize) {
-		await queryInterface.dropTable("Companies");
+		await queryInterface.dropTable("BlackLists");
 	},
 };
