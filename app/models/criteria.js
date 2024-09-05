@@ -9,7 +9,7 @@ export default (sequelize) => {
 		{
 			criteriaId: DataTypes.INTEGER,
 			criteriaCode: DataTypes.INTEGER,
-			name: DataTypes.STRING,
+			name: DataTypes.TEXT,
 			dataType: DataTypes.STRING,
 			description: DataTypes.STRING,
 			pillarId: DataTypes.INTEGER,

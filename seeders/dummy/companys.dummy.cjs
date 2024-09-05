@@ -1280,4 +1280,11 @@ module.exports = [
 		industryId: "1177",
 		industryCodeLevel3: "102",
 	},
+	{
+		"": "",
+		companyCode: "MMVN",
+		companyName: " MegaMarket Việt Nam",
+		industryId: "1614",
+		industryCodeLevel3: "474",
+	},
 ];
