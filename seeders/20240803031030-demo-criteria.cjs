@@ -13,7 +13,10 @@ module.exports = {
 					description: company.description,
 					pillarId: +company.pillarId,
 					categoryId: +company.categoryId,
-					measurementMethod: company.measurementMethod,
+					measurementMethod:
+						company.measurementMethod === "0"
+							? null
+							: company.measurementMethod,
 					applicableIndustryCode: +company.applicableIndustryCode,
 					transformationMethod: company.transformationMethod,
 					weight: +company.weight,

@@ -4,17 +4,22 @@ module.exports = {
 	async up(queryInterface, Sequelize) {
 		await queryInterface.bulkInsert(
 			"CompanyMetrics",
-			dummyData.map((company) => ({
-				metricId: +company.metricId,
-				companyCode: company.companyCode,
-				year: +company.year,
-				metric: +company.metric,
-				criteriaCode: +company.criteriaCode,
-				criteriaId: +company.criteriaId,
-				companyId: +company.companyId,
-				createdAt: new Date(),
-				updatedAt: new Date(),
-			}))
+			dummyData.map((company) => {
+				return {
+					metricId: +company.metricId,
+					companyCode: company.companyCode,
+					year: +company.year,
+					metric:
+						company.metric === ""
+							? null
+							: parseFloat(company.metric),
+					criteriaCode: +company.criteriaCode,
+					criteriaId: +company.criteriaId,
+					companyId: +company.companyId,
+					createdAt: new Date(),
+					updatedAt: new Date(),
+				};
+			})
 		);
 	},
 

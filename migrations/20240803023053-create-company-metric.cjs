@@ -19,7 +19,7 @@ module.exports = {
 				type: Sequelize.INTEGER,
 			},
 			metric: {
-				type: Sequelize.INTEGER,
+				type: Sequelize.FLOAT,
 			},
 			criteriaCode: {
 				type: Sequelize.INTEGER,

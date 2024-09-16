@@ -10,7 +10,7 @@ export default (sequelize) => {
 			metricId: DataTypes.INTEGER,
 			companyCode: DataTypes.STRING,
 			year: DataTypes.INTEGER,
-			metric: DataTypes.INTEGER,
+			metric: DataTypes.FLOAT,
 			criteriaCode: DataTypes.INTEGER,
 			criteriaId: DataTypes.INTEGER,
 			companyId: DataTypes.INTEGER,
