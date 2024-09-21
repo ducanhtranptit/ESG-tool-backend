@@ -7,7 +7,7 @@ module.exports = {
 			{
 				username: "admin",
 				password: "$2a$10$oxmJPbDuSxQKQeGx8gbHFeyqJQj.b88u4R5WGnSNZ2ZQYksbosMfC",
-				companyId: 1,
+				companyId: 32,
 				type: 1,
 				createdAt: new Date(),
 				updatedAt: new Date(),
