@@ -4,7 +4,8 @@ import verifyTokenMiddleware from "../middlewares/auth/verify-token.middleware.j
 
 const router = express.Router();
 
+router.post("/register", AuthController.register);
 router.post("/login", AuthController.login);
-router.post("/logout/:userId", verifyTokenMiddleware, AuthController.logout);
+router.get("/logout", verifyTokenMiddleware, AuthController.logout);
 
 export default router;

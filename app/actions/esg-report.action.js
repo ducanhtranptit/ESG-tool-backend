@@ -514,23 +514,4 @@ export default class EsgReportAction {
 			}
 		}
 	}
-
-	static async readMesurementMethod(mesurementMethod, dictionary) {
-		const regex = /Q\d+/g;
-		const matches = mesurementMethod.match(regex);
-		let evalString = mesurementMethod;
-		matches.forEach((code) => {
-			if (dictionary[code] !== undefined33) {
-				evalString = evalString.replace(
-					new RegExp(code, "g"),
-					dictionary[code]
-				);
-			}
-		});
-		const result = eval(evalString);
-		return {
-			index: matches,
-			result: result,
-		};
-	}
 }

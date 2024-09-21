@@ -1,9 +1,35 @@
 import model from "../models/index.js";
-import { comparePassword } from "../utils/bcrypt.js";
+import { comparePassword, hashPassword } from "../utils/bcrypt.js";
 import { signToken } from "../utils/jwt.js";
 import config from "../../config/config.js";
 
 export default class AuthActions {
+	static async handleRegister(username, password) {
+		const existingUser = await this.checkExist(username);
+		if (existingUser) {
+			return false;
+		}
+		const hashedPassword = await hashPassword(password);
+		const newUser = await model.User.create({
+			username,
+			password: hashedPassword,
+		});
+		if (newUser) {
+			const tokens = this.signToken({ id: newUser.id });
+			if (tokens) {
+				await model.User.update(
+					{ refreshToken: tokens.refreshToken },
+					{ where: { id: newUser.id } }
+				);
+				return { id: newUser.id, ...tokens };
+			} else {
+				return false;
+			}
+		}
+
+		return false;
+	}
+
 	static async handleLogin(username, password) {
 		const user = await this.checkExist(username);
 		if (!user) {
@@ -17,7 +43,10 @@ export default class AuthActions {
 		if (!tokens) {
 			return false;
 		}
-		await model.User.update({ refreshToken: tokens.refreshToken }, { where: { id: user.id } });
+		await model.User.update(
+			{ refreshToken: tokens.refreshToken },
+			{ where: { id: user.id } }
+		);
 		return { id: user.id, ...tokens };
 	}
 
@@ -39,8 +68,12 @@ export default class AuthActions {
 	}
 
 	static signToken(payload) {
-		const accessToken = signToken(payload, config.accessTokenSecret, { expiresIn: config.accessTokenExpires });
-		const refreshToken = signToken(payload, config.refreshTokenSecret, { expiresIn: config.refreshTokenExpires });
+		const accessToken = signToken(payload, config.accessTokenSecret, {
+			expiresIn: config.accessTokenExpires,
+		});
+		const refreshToken = signToken(payload, config.refreshTokenSecret, {
+			expiresIn: config.refreshTokenExpires,
+		});
 		if (!accessToken || !refreshToken) {
 			return false;
 		}

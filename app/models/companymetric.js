@@ -15,7 +15,8 @@ export default (sequelize) => {
 			criteriaId: DataTypes.INTEGER,
 			companyId: DataTypes.INTEGER,
 			noOfCompaniesWithAValue: DataTypes.INTEGER,
-			noOfCompaniesWithTheSameValueIncludedInTheCurrentOne: DataTypes.INTEGER,
+			noOfCompaniesWithTheSameValueIncludedInTheCurrentOne:
+				DataTypes.INTEGER,
 			noOfCompaniesWithAWorse: DataTypes.INTEGER,
 			rank: DataTypes.INTEGER,
 			score: DataTypes.INTEGER,
@@ -23,6 +24,12 @@ export default (sequelize) => {
 		{
 			sequelize,
 			modelName: "CompanyMetric",
+			hooks: {
+				afterCreate: async (instance, options) => {
+					instance.metricId = instance.id;
+					await instance.save();
+				},
+			},
 		}
 	);
 
