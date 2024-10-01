@@ -8,11 +8,7 @@ import {
 export default class AuthController {
 	static async register(req, res) {
 		try {
-			console.log("88888888888");
-
 			const { username, password } = req.body;
-			console.log(username, password);
-
 			if (!username?.trim() || !password?.trim()) {
 				return new BadRequestResponse().send(req, res);
 			}
@@ -29,11 +25,6 @@ export default class AuthController {
 			if (!username?.trim() || !password?.trim()) {
 				return new BadRequestResponse().send(req, res);
 			}
-
-			console.log("99999999999");
-
-			console.log(username, password);
-
 			const data = await AuthActions.handleLogin(username, password);
 			if (!data) {
 				return new BadRequestResponse().send(req, res);

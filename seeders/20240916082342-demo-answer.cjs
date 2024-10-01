@@ -9,7 +9,10 @@ module.exports = {
 					questionCode: company.questionCode,
 					companyCode: company.companyCode,
 					year: +company.year,
-					answer: parseFloat(company.answer),
+					answer:
+						company.answer === ""
+							? null
+							: parseFloat(company.answer),
 					createdAt: new Date(),
 					updatedAt: new Date(),
 				};

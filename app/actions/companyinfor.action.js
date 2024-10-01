@@ -5,7 +5,6 @@ export default class CompanyInfoAction {
 		const result = await model.OverallInfor.findAll({
 			attributes: ["id", "companyName"],
 		});
-		console.log(result);
 		return result;
 	}
 
@@ -31,7 +30,7 @@ export default class CompanyInfoAction {
 		return result;
 	}
 
-	static async updateCompanyInfor(overallInfor, siteInfors, productInfors) {
+	static async updateCompanyInfor(overallInfor, siteInfors, productInfors, userId) {
 		// Cập nhật thông tin tổng quan về công ty
 		const updatedCompany = await model.OverallInfor.update(
 			{

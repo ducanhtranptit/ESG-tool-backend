@@ -139,15 +139,14 @@ export default class EsgReportAction {
 			for (const groupKey in groupedByMetric) {
 				const metrics = groupedByMetric[groupKey];
 				// Chia nhóm các công ty theo metric
-				const companyCodes = metrics.map((m) => m.companyCode);
-				const chunks = [];
-				for (let i = 0; i < companyCodes.length; i += 10) {
-					chunks.push(companyCodes.slice(i, i + 10));
-				}
-
-				// Xử lý từng chunk
-				for (const chunk of chunks) {
-					const count = chunk.length;
+				const companyCodes = metrics.map((m) => {
+					return {
+						companyCode: m.dataValues.companyCode,
+						metricId: m.dataValues.metricId,
+					};
+				});
+				for (let company of companyCodes) {
+					const count = companyCodes.length;
 					await model.CompanyMetric.update(
 						{
 							noOfCompaniesWithTheSameValueIncludedInTheCurrentOne:
@@ -155,11 +154,10 @@ export default class EsgReportAction {
 						},
 						{
 							where: {
-								metricId: metrics[0].metricId,
+								metricId: company.metricId,
 							},
 						}
 					);
-
 					console.log(
 						`Processed ${count} companies for metric groupKey ${groupKey}`
 					);
@@ -405,9 +403,9 @@ export default class EsgReportAction {
 								companyCode,
 								year,
 								pillarId: pillar.id,
-								score: {
-									[Op.ne]: null, // Điều kiện để cột score khác NULL
-								},
+								// score: {
+								// 	[Op.ne]: null, // Điều kiện để cột score khác NULL
+								// },
 							},
 							attributes: [
 								"criteriaId",
@@ -440,8 +438,7 @@ export default class EsgReportAction {
 						);
 
 						// Chia totalScore cho tổng trọng số nếu totalWeight > 0
-						const normalizedScore =
-							totalWeight > 0 ? totalScore / totalWeight : 0;
+						const normalizedScore = totalScore / totalWeight;
 
 						// Cập nhật điểm số cho công ty
 						await model.CompanyScore.update(
@@ -470,9 +467,9 @@ export default class EsgReportAction {
 						where: {
 							companyCode,
 							year,
-							score: {
-								[Op.ne]: null,
-							},
+							// score: {
+							// 	[Op.ne]: null,
+							// },
 						},
 						attributes: [
 							"criteriaId",

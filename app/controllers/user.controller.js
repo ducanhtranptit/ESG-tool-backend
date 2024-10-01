@@ -10,8 +10,6 @@ export default class UserController {
 	static async getProfile(req, res) {
 		try {
 			const userId = req?.data.id;
-			console.log(userId);
-			
 			if (!userId) {
 				return new UnauthorizedResponse().send(req, res);
 			}

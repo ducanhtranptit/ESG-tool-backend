@@ -21,6 +21,8 @@ export default class CompanyInfoController {
 	}
 
 	static async updateCompanyInfor(req, res) {
+		const id = req?.data?.id;
+		if (!id) return new BadRequestResponse().send(req, res);
 		const data = req.body;
 		const overallInfor = {
 			companyName: data.companyName,
@@ -41,7 +43,8 @@ export default class CompanyInfoController {
 		await CompanyInfoAction.createCompanyInfor(
 			overallInfor,
 			siteInfors,
-			productInfors
+			productInfors,
+			id
 		);
 		return new SuccessResponse().send(req, res);
 	}

@@ -7,7 +7,7 @@ class EsgReportController {
 			await EsgReportAction.calculateESGReport();
 			return new SuccessResponse().send(req, res);
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 			return new ErrorResponse().send(req, res);
 		}
 	}

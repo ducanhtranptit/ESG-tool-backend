@@ -30,7 +30,7 @@ export default class UserActions {
 			return null;
 		}
 
-		const newToken = this.signToken({ id: user.id });
+		const newToken = signToken({ id: user.id });
 		if (!newToken) {
 			return null;
 		}

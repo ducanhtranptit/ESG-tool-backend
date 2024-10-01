@@ -7,7 +7,7 @@ export default class QuestionController {
 			const data = await QuestionAction.getAllTopicsAndQuestions();
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 			return new ErrorResponse().send(req, res);
 		}
 	}
@@ -22,7 +22,7 @@ export default class QuestionController {
 			);
 			return new SuccessResponse().send(req, res);
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 			return new ErrorResponse().send(req, res);
 		}
 	}
