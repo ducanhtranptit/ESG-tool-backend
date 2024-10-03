@@ -4,7 +4,8 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"start": "nodemon ./app/index.js"
+		"start": "nodemon ./app/index.js",
+		"database": "npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
 	},
 	"dependencies": {
 		"axios": "^1.7.2",

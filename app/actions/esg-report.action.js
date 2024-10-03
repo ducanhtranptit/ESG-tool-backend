@@ -1,5 +1,6 @@
 import model from "../models/index.js";
 import { Op } from "sequelize";
+import ESGPillar from "../constants/esg-pillars.constant.js";
 
 export default class EsgReportAction {
 	static async calculateESGReport() {
@@ -366,25 +367,6 @@ export default class EsgReportAction {
 		}
 
 		// Tính điểm E - S - G. ESG
-
-		const pillars = [
-			{
-				id: 1,
-				scoreField: "environmentScore",
-				logMessage: "Environment Score",
-			},
-			{
-				id: 2,
-				scoreField: "socialScore",
-				logMessage: "Social Score",
-			},
-			{
-				id: 3,
-				scoreField: "governanceScore",
-				logMessage: "Governance Score",
-			},
-		];
-
 		const companyCodes = await model.Company.findAll({
 			attributes: ["companyCode"],
 		});
@@ -393,7 +375,7 @@ export default class EsgReportAction {
 			const { companyCode } = company.dataValues;
 
 			// Tính điểm E - S - G
-			for (const pillar of pillars) {
+			for (const pillar of ESGPillar) {
 				for (let year = currentYear; year > currentYear - 5; year--) {
 					let totalScore = 0;
 					// Lấy danh sách các CriteriaScore với score khác NULL
