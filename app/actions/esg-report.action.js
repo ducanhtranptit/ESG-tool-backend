@@ -492,5 +492,6 @@ export default class EsgReportAction {
 				}
 			}
 		}
+		console.log("ESG score calculation has been completed successfully!");
 	}
 }

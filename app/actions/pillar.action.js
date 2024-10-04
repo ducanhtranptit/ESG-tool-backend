@@ -28,7 +28,7 @@ export default class PillarActions {
 				pillarId: pillarId,
 				applicableIndustryCode: companyInfor.industryCodeLevel3,
 			},
-			attributes: ["criteriaId", "pillarId"],
+			attributes: ["criteriaId", "pillarId", "name"],
 			raw: true,
 		});
 		const result = [];
@@ -47,6 +47,7 @@ export default class PillarActions {
 			const IChart = criteriaItem ? criteriaItem.IChart : null;
 			result.push({
 				criteriaId: criteria.criteriaId,
+				name: criteria.name,
 				IChart: IChart,
 				dataChart: dataChart,
 			});

@@ -15,22 +15,15 @@ export default class UserActions {
 		};
 	}
 	static async refreshToken(refreshToken) {
-		const payload = verifyToken(
-			refreshToken,
-			config.refreshTokenSecret
-		);
-		if (!payload?.decoded) {
-			return null;
-		}
-
 		const user = await model.User.findOne({
-			where: { id: payload.decoded.id, refreshToken },
+			where: { refreshToken },
 		});
 		if (!user) {
 			return null;
 		}
 
-		const newToken = signToken({ id: user.id });
+		const newToken = UserActions.signToken({ id: user.id });
+
 		if (!newToken) {
 			return null;
 		}
@@ -43,7 +36,7 @@ export default class UserActions {
 		return newToken;
 	}
 
-	signToken(payload) {
+	static signToken(payload) {
 		const accessToken = signToken(payload, config.accessTokenSecret, {
 			expiresIn: config.accessTokenExpires,
 		});
