@@ -18,6 +18,39 @@ module.exports = {
 			name: {
 				type: Sequelize.TEXT,
 			},
+			answer1: {
+				type: Sequelize.STRING,
+			},
+			answer2: {
+				type: Sequelize.STRING,
+			},
+			answer3: {
+				type: Sequelize.STRING,
+			},
+			answer4: {
+				type: Sequelize.STRING,
+			},
+			answer5: {
+				type: Sequelize.STRING,
+			},
+			answer6: {
+				type: Sequelize.STRING,
+			},
+			answer7: {
+				type: Sequelize.STRING,
+			},
+			answer8: {
+				type: Sequelize.STRING,
+			},
+			answer9: {
+				type: Sequelize.STRING,
+			},
+			answer10: {
+				type: Sequelize.STRING,
+			},
+			type: {
+				type: Sequelize.INTEGER,
+			},
 			createdAt: {
 				allowNull: false,
 				type: Sequelize.DATE,

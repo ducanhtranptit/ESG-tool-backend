@@ -1,5 +1,5 @@
 import QuestionAction from "../actions/questions.action.js";
-import { SuccessResponse, ErrorResponse } from "../core/ApiResponse.js";
+import { SuccessResponse, ErrorResponse, BadRequestResponse } from "../core/ApiResponse.js";
 
 export default class QuestionController {
 	static async getAllTopicsAndQuestions(req, res) {
@@ -14,9 +14,13 @@ export default class QuestionController {
 
 	static async addAnswerAndCalculateMetricOfCompany(req, res) {
 		try {
-			const { companyCode, year, answers } = req.body;
+			const { id: userId } = req.data;
+			if (!userId) {
+				return new BadRequestResponse().send(req, res);
+			}
+			const { year, answers } = req.body;
 			await QuestionAction.addAnswerAndCalculateMetricOfCompany(
-				companyCode,
+				userId,
 				year,
 				answers
 			);
