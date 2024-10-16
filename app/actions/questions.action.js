@@ -2,9 +2,11 @@ import model from "../models/index.js";
 
 export default class QuestionAction {
 	static async calculateMetric(measurementMethod, dictionary) {
+		// console.log('dictionary: ', dictionary);
 		const regex = /AS\d+/g;
 		if (measurementMethod === null || dictionary === null) return null;
 		const matches = measurementMethod.match(regex);
+		// console.log('matches: ', matches);
 
 		// Nếu không tìm thấy mã nào trong measurementMethod, trả về null
 		if (!matches) {
@@ -12,6 +14,7 @@ export default class QuestionAction {
 		}
 
 		let evalString = measurementMethod;
+		// console.log('evalString: ', evalString);
 
 		// Duyệt qua từng mã questionCode trong measurementMethod
 		for (let code of matches) {
@@ -34,6 +37,23 @@ export default class QuestionAction {
 		return isNaN(result) ? null : result;
 	}
 
+	// static async calculateMetric(mesurementMethod, dictionary) {
+	// 	const regex = /AS\d+/g;
+	// 	if (mesurementMethod === null || dictionary === null) return null;
+	// 	const matches = mesurementMethod.match(regex);
+	// 	let evalString = mesurementMethod;
+	// 	matches.forEach((code) => {
+	// 		const entry = dictionary.find((item) => item.questionCode === code);
+	// 		if (entry && entry.answer !== undefined) {
+	// 			evalString = evalString.replace(
+	// 				new RegExp(code, "g"),
+	// 				entry.answer
+	// 			);
+	// 		}
+	// 	});
+	// 	const result = eval(evalString);
+	// 	return result;
+	// }
 	static async getAllTopicsAndQuestions() {
 		const topics = await model.Topic.findAll({
 			attributes: ["topicCode", "name", "answerGuide"],
@@ -76,6 +96,7 @@ export default class QuestionAction {
 	}
 
 	static async addAnswerAndCalculateMetricOfCompany(userId, year, answers) {
+		// console.log('answers: ', answers);
 		// Lấy thông tin người dùng và công ty
 		const userInfor = await model.User.findOne({
 			where: {
@@ -112,46 +133,20 @@ export default class QuestionAction {
 					continue;
 				}
 			}
-
-			// Kiểm tra xem câu trả lời đã tồn tại chưa
-			const existingAnswer = await model.Answer.findOne({
-				where: {
-					companyCode: companyCode,
-					year: year,
-					questionCode: questionCode,
-				},
-			});
-
-			if (existingAnswer) {
-				// Nếu đã có, cập nhật câu trả lời
-				await model.Answer.update(
-					{ answer: answer.answer },
-					{
-						where: {
-							companyCode: companyCode,
-							year: year,
-							questionCode: questionCode,
-						},
-					}
-				);
-			} else {
-				// Nếu chưa có, tạo mới câu trả lời
-				await model.Answer.create({
-					companyCode: companyCode,
-					year: year,
-					questionCode: questionCode,
-					answer: answer.answer,
-				});
-			}
+			// await model.Answer.create({
+			// 	companyCode: companyCode,
+			// 	year: year,
+			// 	questionCode: questionCode,
+			// 	answer: answer.answer,
+			// });
 		}
 
 		// Lấy mã ngành công nghiệp của công ty để tính toán chỉ số
 		const company = await model.Company.findOne({
 			where: { companyCode },
-			attributes: ["industryCodeLevel3"],
+			attributes: ["industryCodeLevel3", "id"],
 		});
 		const industryCodeLevel3 = company.dataValues.industryCodeLevel3;
-
 		const criterias = await model.Criteria.findAll({
 			where: {
 				applicableIndustryCode: industryCodeLevel3,
@@ -165,11 +160,9 @@ export default class QuestionAction {
 				measurementMethod,
 				answers
 			);
-
-			console.log("metric: ", metric);
-
 			await model.CompanyMetric.create({
 				companyCode,
+				companyId,
 				year,
 				metric,
 				criteriaId,

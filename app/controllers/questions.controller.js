@@ -19,6 +19,7 @@ export default class QuestionController {
 				return new BadRequestResponse().send(req, res);
 			}
 			const { year, answers } = req.body;
+			console.log('answers: ', answers);
 			await QuestionAction.addAnswerAndCalculateMetricOfCompany(
 				userId,
 				year,

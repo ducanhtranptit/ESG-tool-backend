@@ -41,10 +41,12 @@ export default class PillarActions {
 				attributes: ["year", "metric"],
 				raw: true,
 			});
+			dataChart.sort((a, b) => a.year - b.year);
 			const criteriaItem = criteriaItems.find(
 				(item) => item.criteriaId === criteria.criteriaId
 			);
 			const IChart = criteriaItem ? criteriaItem.IChart : null;
+
 			result.push({
 				criteriaId: criteria.criteriaId,
 				name: criteria.name,
