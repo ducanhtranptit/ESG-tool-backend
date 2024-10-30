@@ -21,14 +21,26 @@ module.exports = {
 			environmentScore: {
 				type: Sequelize.FLOAT,
 			},
+			environmentRank: {
+				type: Sequelize.INTEGER,
+			},
 			socialScore: {
 				type: Sequelize.FLOAT,
+			},
+			socialRank: {
+				type: Sequelize.INTEGER,
 			},
 			governanceScore: {
 				type: Sequelize.FLOAT,
 			},
+			governanceRank: {
+				type: Sequelize.INTEGER,
+			},
 			esgScore: {
 				type: Sequelize.FLOAT,
+			},
+			esgRank: {
+				type: Sequelize.INTEGER,
 			},
 			createdAt: {
 				allowNull: false,

@@ -62,7 +62,7 @@ module.exports = [
 	{
 		questionCode: "AS193",
 		topicCode: "S71",
-		name: "Số nhân viên là người nước ngoài của doanh nghiệp",
+		name: "Số nhân viên là người nước ngoài của doanh nghiệp (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -77,8 +77,8 @@ module.exports = [
 	},
 	{
 		questionCode: "AS194",
-		topicCode: " ",
-		name: "Giá nước trung bình năm trước",
+		topicCode: "E12",
+		name: "Giá nước trung bình năm trước (Đơn vị: Triệu đồng/ Mét khối)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -110,7 +110,7 @@ module.exports = [
 	{
 		questionCode: "AS191",
 		topicCode: "G52",
-		name: "Có bao nhiêu nhà cung cấp được doanh nghiệp đánh giá lại hàng năm",
+		name: "Có bao nhiêu nhà cung cấp được doanh nghiệp đánh giá lại hàng năm (Đơn vị: Nhà cung ứng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -126,7 +126,7 @@ module.exports = [
 	{
 		questionCode: "AS190",
 		topicCode: "G51",
-		name: "Số thành viên giới tính nam trong HĐQT",
+		name: "Số thành viên giới tính nam trong HĐQT (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -142,7 +142,7 @@ module.exports = [
 	{
 		questionCode: "AS189",
 		topicCode: "G50",
-		name: "Số thành viên giới tính nữ trong HĐQT",
+		name: "Số thành viên giới tính nữ trong HĐQT (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -158,7 +158,7 @@ module.exports = [
 	{
 		questionCode: "AS187",
 		topicCode: "G44",
-		name: "Số trường hợp vi phạm hình sự của doanh nghiệp",
+		name: "Số trường hợp vi phạm hình sự của doanh nghiệp (Đơn vị: Trường hợp)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -174,7 +174,7 @@ module.exports = [
 	{
 		questionCode: "AS186",
 		topicCode: "G44",
-		name: "Số trường hợp vi phạm hành chính của doanh nghiệp",
+		name: "Số trường hợp vi phạm hành chính của doanh nghiệp (Đơn vị: Trường hợp)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -190,7 +190,7 @@ module.exports = [
 	{
 		questionCode: "AS185",
 		topicCode: "G44",
-		name: "Số trường hợp vi phạm kỷ luật của doanh nghiệp",
+		name: "Số trường hợp vi phạm kỷ luật của doanh nghiệp (Đơn vị: Trường hợp)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -222,7 +222,7 @@ module.exports = [
 	{
 		questionCode: "AS183",
 		topicCode: "G42",
-		name: "Số vụ việc vi phạm quy định về hạn chế cạnh tranh",
+		name: "Số vụ việc vi phạm quy định về hạn chế cạnh tranh (Đơn vị: Vụ)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -238,7 +238,7 @@ module.exports = [
 	{
 		questionCode: "AS182",
 		topicCode: "G41",
-		name: "Số vụ việc vi phạm quy định về quảng cáo (Luật quảng cáo 2012)",
+		name: "Số vụ việc vi phạm quy định về quảng cáo - Theo Luật quảng cáo 2012 (Đơn vị: Vụ)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -254,7 +254,7 @@ module.exports = [
 	{
 		questionCode: "AS181",
 		topicCode: "G40",
-		name: "Số vụ việc vi phạm quy định về tham ô tài sản; đưa, nhận và môi giới hối lộ qua từng năm",
+		name: "Số vụ việc vi phạm quy định về tham ô tài sản; đưa, nhận và môi giới hối lộ trong năm gần nhất (Đơn vị: Vụ)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -270,7 +270,7 @@ module.exports = [
 	{
 		questionCode: "AS180",
 		topicCode: "G39",
-		name: "Số lượng nhà cung ứng quan trọng của doanh nghiệp",
+		name: "Số lượng nhà cung ứng quan trọng của doanh nghiệp (Đơn vị: Nhà cung ứng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -286,7 +286,7 @@ module.exports = [
 	{
 		questionCode: "AS179",
 		topicCode: "G38",
-		name: "Số lượng nhà cung ứng cấp 1 của doanh nghiệp",
+		name: "Số lượng nhà cung ứng cấp 1 của doanh nghiệp (Đơn vị: Nhà cung ứng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -318,7 +318,7 @@ module.exports = [
 	{
 		questionCode: "AS177",
 		topicCode: "G35",
-		name: "Doanh nghiệp có tất cả bao nhiêu nhà cung ứng",
+		name: "Doanh nghiệp có tất cả bao nhiêu nhà cung ứng (Đơn vị: Nhà cung ứng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -385,7 +385,7 @@ module.exports = [
 		name: "Trong trường hợp doanh nghiệp bắt buộc phải có Kiểm toán độc lập theo pháp luật Việt Nam, doanh nghiệp có công bố đã bổ nhiệm một bên độc lập (kiểm tra, giám sát viên) là Kiểm toán độc lập không?",
 		answer1: "Không",
 		answer2: "Có",
-		answer3: "Không áp dụng do pháp luật Việt Nam không yêu cầu",
+		answer3: "0",
 		answer4: "0",
 		answer5: "0",
 		answer6: "0",
@@ -393,14 +393,14 @@ module.exports = [
 		answer8: "0",
 		answer9: "0",
 		answer10: "0",
-		type: "2",
+		type: "1",
 	},
 	{
 		questionCode: "AS169",
 		topicCode: "G30",
 		name: "Trong năm gần nhất, doanh nghiệp có công bố và sử dụng tài liệu họp, biên bản họp, nghị quyết Đại Hội Đồng Cổ Đông bằng tiếng Việt và tiếng Anh?",
 		answer1: "Không",
-		answer2: "Có  - Bằng tiếng Việt",
+		answer2: "Có - Bằng tiếng Việt",
 		answer3: "Có - Bằng tiếng Anh",
 		answer4: "Có - Bằng cả tiếng Việt và tiếng Anh",
 		answer5: "0",
@@ -430,7 +430,7 @@ module.exports = [
 	{
 		questionCode: "AS167",
 		topicCode: "G28",
-		name: "Trong năm gần nhất, tài liệu họp Đại Hội Đồng Cổ Đông có cung cấp thông tin về các ứng viên Hội đồng quản trị và Ban Kiểm Soát (nếu có) tối thiểu 10 ngày\ntrước ngày khai mạc đại hội không",
+		name: "Trong năm gần nhất, tài liệu họp Đại Hội Đồng Cổ Đông có cung cấp thông tin về các ứng viên Hội đồng quản trị và Ban Kiểm Soát (nếu có) tối thiểu 10 ngày trước ngày khai mạc đại hội không?",
 		answer1: "Không",
 		answer2: "Có - Trước khai mạc 10-20 ngày",
 		answer3: "Có - Trước khai mạc 21 ngày",
@@ -529,7 +529,7 @@ module.exports = [
 		name: "Trong trường hợp doanh nghiệp bắt buộc phải có Ban Kiểm soát theo pháp luật Việt Nam, doanh nghiệp có thành lập Ban Kiểm soát không?",
 		answer1: "Có",
 		answer2: "Không",
-		answer3: "Không áp dụng do pháp luật Việt Nam không yêu cầu",
+		answer3: "0",
 		answer4: "0",
 		answer5: "0",
 		answer6: "0",
@@ -537,7 +537,7 @@ module.exports = [
 		answer8: "0",
 		answer9: "0",
 		answer10: "0",
-		type: "2",
+		type: "1",
 	},
 	{
 		questionCode: "AS160",
@@ -545,7 +545,7 @@ module.exports = [
 		name: "Trong trường hợp doanh nghiệp bắt buộc phải có Kiểm toán nội bộ theo pháp luật Việt Nam, danh sách các ứng viên kiểm toán có được công bố công khai không?",
 		answer1: "Có",
 		answer2: "Không",
-		answer3: "Không áp dụng do pháp luật Việt Nam không yêu cầu",
+		answer3: "0",
 		answer4: "0",
 		answer5: "0",
 		answer6: "0",
@@ -553,7 +553,7 @@ module.exports = [
 		answer8: "0",
 		answer9: "0",
 		answer10: "0",
-		type: "2",
+		type: "1",
 	},
 	{
 		questionCode: "AS159",
@@ -606,7 +606,7 @@ module.exports = [
 	{
 		questionCode: "AS156",
 		topicCode: "G16",
-		name: "Trong năm gần nhất, tỷ lệ tiểu ban trực thuộc Hội đồng quản trị do Thành viên độc lập làm trưởng ban là bao nhiêu?",
+		name: "Trong năm gần nhất, tỷ lệ tiểu ban trực thuộc Hội đồng quản trị do Thành viên độc lập làm trưởng ban là bao nhiêu? (Đơn vị: Phần trăm)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -846,7 +846,7 @@ module.exports = [
 	{
 		questionCode: "AS141",
 		topicCode: "S68",
-		name: "Số nhân viên là người khuyết tật của doanh nghiệp",
+		name: "Số nhân viên là người khuyết tật của doanh nghiệp (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -862,7 +862,7 @@ module.exports = [
 	{
 		questionCode: "AS140",
 		topicCode: "S67",
-		name: "Tổng số giờ đào tạo nhân viên trong năm gần nhất",
+		name: "Tổng số giờ đào tạo nhân viên trong năm gần nhất (Đơn vị: Giờ)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -878,7 +878,7 @@ module.exports = [
 	{
 		questionCode: "AS139",
 		topicCode: "S66",
-		name: "Mức chi tiêu của doanh nghiệp cho các hệ thống bảo mật thông tin khách hàng",
+		name: "Mức chi tiêu của doanh nghiệp cho các hệ thống bảo mật thông tin khách hàng (Đơn vị: Triệu đồng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -926,7 +926,7 @@ module.exports = [
 	{
 		questionCode: "AS136",
 		topicCode: "S52",
-		name: "Mức chi phí doanh nghiệp bỏ ra để đào tạo và phát triển nhân viên",
+		name: "Mức chi phí doanh nghiệp bỏ ra để đào tạo và phát triển nhân viên (Đơn vị: Triệu đồng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -942,7 +942,7 @@ module.exports = [
 	{
 		questionCode: "AS135",
 		topicCode: "S51",
-		name: "Số nhân viên được đào tạo trong năm gần nhất",
+		name: "Số nhân viên được đào tạo trong năm gần nhất (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -958,7 +958,7 @@ module.exports = [
 	{
 		questionCode: "AS134",
 		topicCode: "S50",
-		name: "Số khoá đào tạo nhân viên của doanh nghiệp trong năm gần nhất",
+		name: "Số khoá đào tạo nhân viên của doanh nghiệp trong năm gần nhất (Đơn vị: Khóa)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1182,7 +1182,7 @@ module.exports = [
 	{
 		questionCode: "AS120",
 		topicCode: "S35",
-		name: "Trong năm gần nhất, những vụ việc phân biệt đối xử được báo cáo có được phân loại không",
+		name: "Trong năm gần nhất, những vụ việc phân biệt đối xử được báo cáo có được phân loại không?",
 		answer1: "Có",
 		answer2: "Không",
 		answer3: "0",
@@ -1373,25 +1373,9 @@ module.exports = [
 		type: "2",
 	},
 	{
-		questionCode: "AS108",
-		topicCode: "S21",
-		name: "Số lượng nhân viên được thuê mới",
-		answer1: "0",
-		answer2: "0",
-		answer3: "0",
-		answer4: "0",
-		answer5: "0",
-		answer6: "0",
-		answer7: "0",
-		answer8: "0",
-		answer9: "0",
-		answer10: "0",
-		type: "3",
-	},
-	{
 		questionCode: "AS107",
 		topicCode: "S21",
-		name: "Số lượng nhân viên nghỉ việc không tự nguyện",
+		name: "Số lượng nhân viên nghỉ việc không tự nguyện (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1407,7 +1391,7 @@ module.exports = [
 	{
 		questionCode: "AS106",
 		topicCode: "S21",
-		name: "Số lượng nhân viên nghỉ việc tự nguyện",
+		name: "Số lượng nhân viên nghỉ việc tự nguyện (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1487,7 +1471,7 @@ module.exports = [
 	{
 		questionCode: "AS101",
 		topicCode: "S16",
-		name: "Số lượng người mắc bệnh nghề nghiệp trong năm gần nhất",
+		name: "Số lượng người mắc bệnh nghề nghiệp trong năm gần nhất (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1503,7 +1487,7 @@ module.exports = [
 	{
 		questionCode: "AS100",
 		topicCode: "S15",
-		name: "Số lượng người bị tử vong do tai nạn lao động trong năm gần nhất",
+		name: "Số lượng người bị tử vong do tai nạn lao động trong năm gần nhất (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1519,7 +1503,7 @@ module.exports = [
 	{
 		questionCode: "AS099",
 		topicCode: "S14",
-		name: "Số vụ tai nạn lao động của doanh nghiệp trong năm gần nhất",
+		name: "Số vụ tai nạn lao động của doanh nghiệp trong năm gần nhất (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1535,7 +1519,7 @@ module.exports = [
 	{
 		questionCode: "AS098",
 		topicCode: "S13",
-		name: "Mức thu nhập trung bình của nhân viên nữ ở cấp nhân viên trong năm trước",
+		name: "Mức thu nhập trung bình của nhân viên nữ ở cấp nhân viên trong năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1551,7 +1535,7 @@ module.exports = [
 	{
 		questionCode: "AS097",
 		topicCode: "S12",
-		name: "Mức thu nhập trung bình của nhân viên nam ở cấp nhân viên trong năm trước",
+		name: "Mức thu nhập trung bình của nhân viên nam ở cấp nhân viên trong năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1567,7 +1551,7 @@ module.exports = [
 	{
 		questionCode: "AS096",
 		topicCode: "S11",
-		name: "Mức thu nhập trung bình của nhân viên nữ ở cấp trưởng dự án, trưởng phòng,… trong năm trước",
+		name: "Mức thu nhập trung bình của nhân viên nữ ở cấp trưởng dự án, trưởng phòng,… trong năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1583,7 +1567,7 @@ module.exports = [
 	{
 		questionCode: "AS095",
 		topicCode: "S10",
-		name: "Mức thu nhập trung bình của nhân viên nam ở cấp trưởng dự án, trưởng phòng,… trong năm trước",
+		name: "Mức thu nhập trung bình của nhân viên nam ở cấp trưởng dự án, trưởng phòng,… trong năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1599,7 +1583,7 @@ module.exports = [
 	{
 		questionCode: "AS094",
 		topicCode: "S9",
-		name: "Mức thu nhập trung bình của nhân viên nữ ở cấp C-level trong năm trước",
+		name: "Mức thu nhập trung bình của nhân viên nữ ở cấp C-level trong năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1615,7 +1599,7 @@ module.exports = [
 	{
 		questionCode: "AS093",
 		topicCode: "S8",
-		name: "Mức thu nhập trung bình của nhân viên nam ở cấp C-level trong năm trước",
+		name: "Mức thu nhập trung bình của nhân viên nam ở cấp C-level trong năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1631,7 +1615,7 @@ module.exports = [
 	{
 		questionCode: "AS092",
 		topicCode: "S63",
-		name: "Số nhân viên nghỉ việc mỗi trong năm trước",
+		name: "Tổng số nhân viên nghỉ việc trong năm trước (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1647,7 +1631,7 @@ module.exports = [
 	{
 		questionCode: "AS091",
 		topicCode: "S62",
-		name: "Số nhân viên được tuyển mới trong năm trước",
+		name: "Số lượng nhân viên được thuê mới (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1663,7 +1647,7 @@ module.exports = [
 	{
 		questionCode: "AS090",
 		topicCode: "S61",
-		name: "Số lượng nhân viên nữ ở cấp bậc nhân viên",
+		name: "Số lượng nhân viên nữ ở cấp bậc nhân viên (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1679,7 +1663,7 @@ module.exports = [
 	{
 		questionCode: "AS089",
 		topicCode: "S60",
-		name: "Số lượng nhân viên nam ở cấp bậc nhân viên",
+		name: "Số lượng nhân viên nam ở cấp bậc nhân viên (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1695,7 +1679,7 @@ module.exports = [
 	{
 		questionCode: "AS088",
 		topicCode: "S59",
-		name: "Số lượng nhân viên nữ ở cấp bậc trưởng dự án, trưởng phòng",
+		name: "Số lượng nhân viên nữ ở cấp bậc trưởng dự án, trưởng phòng (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1711,7 +1695,7 @@ module.exports = [
 	{
 		questionCode: "AS087",
 		topicCode: "S58",
-		name: "Số lượng nhân viên nam ở cấp bậc trưởng dự án, trưởng phòng,…",
+		name: "Số lượng nhân viên nam ở cấp bậc trưởng dự án, trưởng phòng,… (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1727,7 +1711,7 @@ module.exports = [
 	{
 		questionCode: "AS086",
 		topicCode: "S57",
-		name: "Số lượng nhân viên nữ ở cấp bậc C-level",
+		name: "Số lượng nhân viên nữ ở cấp bậc C-level (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1743,7 +1727,7 @@ module.exports = [
 	{
 		questionCode: "AS085",
 		topicCode: "S56",
-		name: "Số lượng nhân viên nam ở cấp bậc C-level",
+		name: "Số lượng nhân viên nam ở cấp bậc C-level (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1759,7 +1743,7 @@ module.exports = [
 	{
 		questionCode: "AS084",
 		topicCode: "S55",
-		name: "Số lượng nhân viên nữ của doanh nghiệp",
+		name: "Số lượng nhân viên nữ của doanh nghiệp (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1775,7 +1759,7 @@ module.exports = [
 	{
 		questionCode: "AS083",
 		topicCode: "S54",
-		name: "Số lượng nhân viên nam của doanh nghiệp",
+		name: "Số lượng nhân viên nam của doanh nghiệp (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1791,7 +1775,7 @@ module.exports = [
 	{
 		questionCode: "AS082",
 		topicCode: "S53",
-		name: "Tổng số lượng nhân viên của doanh nghiệp",
+		name: "Tổng số lượng nhân viên của doanh nghiệp (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1807,7 +1791,7 @@ module.exports = [
 	{
 		questionCode: "AS081",
 		topicCode: "S7",
-		name: "Có bao nhiêu nhân viên của công ty tham gia các tổ chức đại diện người lao động tại cơ sở?",
+		name: "Có bao nhiêu nhân viên của công ty tham gia các tổ chức đại diện người lao động tại cơ sở? (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1839,7 +1823,7 @@ module.exports = [
 	{
 		questionCode: "AS076",
 		topicCode: "S4",
-		name: "Tổng mức chi tiêu của doanh nghiệp cho các hoạt động xã hội",
+		name: "Tổng mức chi tiêu của doanh nghiệp cho các hoạt động xã hội (Đơn vị: Triệu đồng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1855,7 +1839,7 @@ module.exports = [
 	{
 		questionCode: "AS075",
 		topicCode: "S3",
-		name: "Số hoạt động xã hội trung bình mà 1 nhân viên tham gia/ năm",
+		name: "Số hoạt động xã hội trung bình mà 1 nhân viên tham gia/ năm (Đơn vị: Hoạt động/ năm)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -1907,7 +1891,7 @@ module.exports = [
 		answer1: "Không",
 		answer2: "Có - Báo cáo không đầy đủ các thông tin",
 		answer3: "Có - Báo cáo đầy đủ các thông tin",
-		answer4: "Không áp dụng do không sử dụng nguyên vật liệu",
+		answer4: "0",
 		answer5: "0",
 		answer6: "0",
 		answer7: "0",
@@ -1923,7 +1907,7 @@ module.exports = [
 		answer1: "Không",
 		answer2: "Có - Báo cáo không đầy đủ các thông tin",
 		answer3: "Có - Báo cáo đầy đủ các thông tin",
-		answer4: "Không áp dụng do không phát thải chất thải",
+		answer4: "0",
 		answer5: "0",
 		answer6: "0",
 		answer7: "0",
@@ -1939,7 +1923,7 @@ module.exports = [
 		answer1: "Không",
 		answer2: "Có - Báo cáo không đầy đủ các thông tin",
 		answer3: "Có - Báo cáo đầy đủ các thông tin",
-		answer4: "Không áp dụng do không phát thải chất thải",
+		answer4: "0",
 		answer5: "0",
 		answer6: "0",
 		answer7: "0",
@@ -1957,7 +1941,7 @@ module.exports = [
 			"Có - công bố nhưng không chi tiết theo loại nước thải và nguồn phát thải",
 		answer3:
 			"Có - Công bố và báo cáo chi tiết theo loại nước thải và nguồn phát thải",
-		answer4: "Không áp dụng do không phát thải nước thải",
+		answer4: "0",
 		answer5: "0",
 		answer6: "0",
 		answer7: "0",
@@ -1973,8 +1957,7 @@ module.exports = [
 		answer1: "Không",
 		answer2: "Có - Theo pháp luật Việt Nam",
 		answer3: "Có - Theo pháp luật Việt Nam và chuẩn mực quốc tế",
-		answer4:
-			"Không áp dụng do hoạt động của doanh nghiệp không ảnh hưởng đến đa dạng sinh học",
+		answer4: "0",
 		answer5: "0",
 		answer6: "0",
 		answer7: "0",
@@ -2057,7 +2040,7 @@ module.exports = [
 		answer2:
 			"Có - Thực hiện báo cáo và công bố thông tin theo quy định pháp luật hoặc yêu cầu của các bên liên quan",
 		answer3: "Có - Tự nguyện thực hiện báo cáo và công bố thông tin",
-		answer4: "Không áp dụng do loại hình kinh doanh không yêu cầu",
+		answer4: "0",
 		answer5: "0",
 		answer6: "0",
 		answer7: "0",
@@ -2069,7 +2052,7 @@ module.exports = [
 	{
 		questionCode: "AS058",
 		topicCode: "E32",
-		name: "Trong năm gầnn nhất, doanh nghiệp có bị xử phạt vi phạm liên quan tới môi trường không?",
+		name: "Trong năm gần nhất, doanh nghiệp có bị xử phạt vi phạm liên quan tới môi trường không?",
 		answer1: "Có",
 		answer2: "Không",
 		answer3: "0",
@@ -2119,7 +2102,7 @@ module.exports = [
 	{
 		questionCode: "AS055",
 		topicCode: "E25",
-		name: "Doanh nghiệp có hệ thống quản lý tác động môi trường không",
+		name: "Doanh nghiệp có hệ thống quản lý tác động môi trường không?",
 		answer1: "Có",
 		answer2: "Không",
 		answer3: "0",
@@ -2135,7 +2118,7 @@ module.exports = [
 	{
 		questionCode: "AS028",
 		topicCode: "E19",
-		name: "Lượng mực in doanh nghiệp sử dụng trong năm trước",
+		name: "Lượng mực in doanh nghiệp sử dụng trong năm trước. (Đơn vị: Kg)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2151,7 +2134,7 @@ module.exports = [
 	{
 		questionCode: "AS027",
 		topicCode: "E18",
-		name: "Lượng nước doanh nghiệp tái chế trong năm trước",
+		name: "Lượng nước doanh nghiệp tái chế trong năm trước (Đơn vị: Mét khối)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2167,7 +2150,7 @@ module.exports = [
 	{
 		questionCode: "AS026",
 		topicCode: "E17",
-		name: "Mức chi tiêu của doanh nghiệp cho các vấn đề môi trường trong năm trước",
+		name: "Mức chi tiêu của doanh nghiệp cho các vấn đề môi trường trong năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2183,7 +2166,7 @@ module.exports = [
 	{
 		questionCode: "AS025",
 		topicCode: "E16",
-		name: "Lượng giấy doanh nghiệp sử dụng trong năm trước",
+		name: "Lượng giấy doanh nghiệp sử dụng trong năm trước (Đơn vị: kg)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2215,7 +2198,7 @@ module.exports = [
 	{
 		questionCode: "AS023",
 		topicCode: "E14",
-		name: "Lượng điện tiêu thụ của doanh nghiệp từ các nguồn khác",
+		name: "Lượng điện tiêu thụ của doanh nghiệp từ các nguồn khác (Đơn vị: MWh)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2231,7 +2214,7 @@ module.exports = [
 	{
 		questionCode: "AS022",
 		topicCode: "E14",
-		name: "Lượng điện tiêu thụ của doanh nghiệp từ nguồn năng lượng tái tạo",
+		name: "Lượng điện tiêu thụ của doanh nghiệp từ nguồn năng lượng tái tạo (Đơn vị: MWh)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2247,7 +2230,7 @@ module.exports = [
 	{
 		questionCode: "AS021",
 		topicCode: "E14",
-		name: "Lượng điện tiêu thụ của doanh nghiệp từ nguồn điện lưới quốc gia",
+		name: "Lượng điện tiêu thụ của doanh nghiệp từ nguồn điện lưới quốc gia (Đơn vị: MWh)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2263,7 +2246,7 @@ module.exports = [
 	{
 		questionCode: "AS019",
 		topicCode: "E13",
-		name: "Tổng tiền nước của doanh nghiệp ở các chi nhánh năm trước",
+		name: "Tổng tiền nước của doanh nghiệp ở các chi nhánh năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2279,7 +2262,7 @@ module.exports = [
 	{
 		questionCode: "AS018",
 		topicCode: "E12",
-		name: "Tiền nước của doanh nghiệp ở trụ sở chính năm trước năm trước",
+		name: "Tiền nước của doanh nghiệp ở trụ sở chính năm trước năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2295,8 +2278,8 @@ module.exports = [
 	{
 		questionCode: "AS017",
 		topicCode: "E11",
-		name: "Tổng tiền điện của doanh nghiệp ở các chi nhánh năm trước",
-		answer1: "a",
+		name: "Tổng tiền điện của doanh nghiệp ở các chi nhánh năm trước (Đơn vị: Triệu đồng)",
+		answer1: "0",
 		answer2: "0",
 		answer3: "0",
 		answer4: "0",
@@ -2311,7 +2294,7 @@ module.exports = [
 	{
 		questionCode: "AS015",
 		topicCode: "E47",
-		name: "Khối lượng rác thải nguy hại phải xử lí đặc biệt",
+		name: "Khối lượng rác thải nguy hại phải xử lí đặc biệt (Đơn vị: Tấn)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2327,7 +2310,7 @@ module.exports = [
 	{
 		questionCode: "AS014",
 		topicCode: "E10",
-		name: "Tiền điện của doanh nghiệp ở trụ sở chính năm trước",
+		name: "Tiền điện của doanh nghiệp ở trụ sở chính năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2343,7 +2326,7 @@ module.exports = [
 	{
 		questionCode: "AS013",
 		topicCode: "E7",
-		name: "Khối lượng rác thải có thể tái chế",
+		name: "Khối lượng rác thải có thể tái chế (Đơn vị: Tấn)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2359,7 +2342,7 @@ module.exports = [
 	{
 		questionCode: "AS012",
 		topicCode: "E6",
-		name: "Khối lượng rác thải hữu cơ",
+		name: "Khối lượng rác thải hữu cơ (Đơn vị: Tấn)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2375,7 +2358,7 @@ module.exports = [
 	{
 		questionCode: "AS011",
 		topicCode: "E5",
-		name: "Khối lượng rác thải vô cơ",
+		name: "Khối lượng rác thải vô cơ (Đơn vị: Tấn)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2407,7 +2390,7 @@ module.exports = [
 	{
 		questionCode: "AS009",
 		topicCode: "E3",
-		name: "Khối lượng bao bì có thể tái chế được doanh nghiệp sử dụng năm gần nhất",
+		name: "Khối lượng bao bì có thể tái chế được doanh nghiệp sử dụng năm gần nhất (Đơn vị: Tấn)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2423,7 +2406,7 @@ module.exports = [
 	{
 		questionCode: "AS008",
 		topicCode: "E2",
-		name: "Khối lượng bao bì nhựa doanh nghiệp sử dụng năm gần nhất",
+		name: "Khối lượng bao bì nhựa doanh nghiệp sử dụng năm gần nhất (Đơn vị: Tấn)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2439,7 +2422,7 @@ module.exports = [
 	{
 		questionCode: "AS006",
 		topicCode: "A15",
-		name: "Công ty có bao nhiêu chi nhánh?",
+		name: "Công ty có bao nhiêu chi nhánh? (Đơn vị: Chi nhánh)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2455,7 +2438,7 @@ module.exports = [
 	{
 		questionCode: "AS005",
 		topicCode: "A15",
-		name: "Công ty có bao nhiêu cửa hàng?",
+		name: "Công ty có bao nhiêu cửa hàng? (Đơn vị: Cửa hàng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2471,7 +2454,7 @@ module.exports = [
 	{
 		questionCode: "AS004",
 		topicCode: "A14",
-		name: "Số nhân viên toàn thời gian",
+		name: "Số nhân viên toàn thời gian (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2487,7 +2470,7 @@ module.exports = [
 	{
 		questionCode: "AS003",
 		topicCode: "A13",
-		name: "Số nhân viên bán thời gian",
+		name: "Số nhân viên bán thời gian (Đơn vị: Người)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2503,7 +2486,7 @@ module.exports = [
 	{
 		questionCode: "AS002",
 		topicCode: "A12",
-		name: "Lợi nhuận sau thuế của công ty trong năm tài chính trước",
+		name: "Lợi nhuận sau thuế của công ty trong năm tài chính trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",
@@ -2519,7 +2502,7 @@ module.exports = [
 	{
 		questionCode: "AS001",
 		topicCode: "A11",
-		name: "Doanh thu thuần của công ty trong năm tài chính trước",
+		name: "Doanh thu thuần của công ty trong năm tài chính trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
 		answer2: "0",
 		answer3: "0",

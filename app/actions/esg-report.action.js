@@ -1,6 +1,7 @@
 import model from "../models/index.js";
 import { Op } from "sequelize";
 import ESGPillar from "../constants/esg-pillars.constant.js";
+import ESGRank from "../constants/esg-rank.constant.js";
 
 export default class EsgReportAction {
 	static async calculateESGReport() {
@@ -167,26 +168,23 @@ export default class EsgReportAction {
 		}
 
 		const companyMetricsToCalculateNoOfCompaniesWithAWorseValue =
-			await model.CompanyMetric.findAll({
-				attributes: [
-					"noOfCompaniesWithAValue",
-					"rank",
-					"noOfCompaniesWithTheSameValueIncludedInTheCurrentOne",
-					"metricId",
-					"metric",
-				],
-			});
+			await model.CompanyMetric.findAll();
 
 		for (const companyMetric of companyMetricsToCalculateNoOfCompaniesWithAWorseValue) {
 			const {
 				noOfCompaniesWithAValue,
 				rank,
 				noOfCompaniesWithTheSameValueIncludedInTheCurrentOne,
+				year,
+				companyCode,
+				criteriaId,
+				criteriaCode,
 				metricId,
 				metric,
 			} = companyMetric.dataValues;
 
 			// Kiểm tra nếu metric và noOfCompaniesWithAValue khác null
+			let companyScore;
 			if (
 				metric !== null &&
 				noOfCompaniesWithAValue !== null &&
@@ -198,7 +196,7 @@ export default class EsgReportAction {
 					noOfCompaniesWithTheSameValueIncludedInTheCurrentOne +
 					1;
 
-				const companyScore =
+				companyScore =
 					(noOfCompaniesWithAWorseValue +
 						noOfCompaniesWithTheSameValueIncludedInTheCurrentOne /
 							2) /
@@ -213,7 +211,33 @@ export default class EsgReportAction {
 						},
 					}
 				);
+				console.log(
+					`Finished calculating and updating noOfCompaniesWithAWorseValue for metricId ${metricId} by value: ${noOfCompaniesWithAWorseValue}`
+				);
+			} else {
+				companyScore = 0;
+			}
 
+			// Tạo mới hoặc cập nhật CriteriaScore
+			const criteriaScore = await model.CriteriaScore.findAll({
+				where: { metricId: metricId },
+			});
+
+			if (!criteriaScore.length) {
+				const criteria = await model.Criteria.findOne({
+					where: { criteriaId: criteriaId },
+				});
+				const pillarId = criteria.dataValues.pillarId;
+				await model.CriteriaScore.create({
+					companyCode: companyCode,
+					criteriaCode: criteriaCode,
+					criteriaId: criteriaId,
+					year: year,
+					metricId: metricId,
+					pillarId: pillarId,
+					score: companyScore,
+				});
+			} else {
 				await model.CriteriaScore.update(
 					{ score: companyScore },
 					{
@@ -222,18 +246,11 @@ export default class EsgReportAction {
 						},
 					}
 				);
-
-				console.log(
-					`Finished calculating and updating noOfCompaniesWithAWorseValue for metricId ${metricId} by value: ${noOfCompaniesWithAWorseValue}`
-				);
-				console.log(
-					`Finished calculating and updating company score for metricId ${metricId} by value: ${companyScore}`
-				);
-			} else {
-				console.log(
-					`Skipping calculation for metricId ${metricId} due to null or zero values in metric or noOfCompaniesWithAValue.`
-				);
 			}
+
+			console.log(
+				`Finished calculating and updating company score for metricId ${metricId} by value: ${companyScore}`
+			);
 		}
 
 		// Tính tổng weight và cập nhật pillarWeight
@@ -366,14 +383,13 @@ export default class EsgReportAction {
 			);
 		}
 
-		// Tính điểm E - S - G. ESG
+		// Tính điểm E - S - G, ESG
 		const companyCodes = await model.Company.findAll({
-			attributes: ["companyCode"],
+			attributes: ["companyCode", "industryCodeLevel3"],
 		});
 
 		for (const company of companyCodes) {
 			const { companyCode } = company.dataValues;
-
 			// Tính điểm E - S - G
 			for (const pillar of ESGPillar) {
 				for (let year = currentYear; year > currentYear - 5; year--) {
@@ -385,9 +401,6 @@ export default class EsgReportAction {
 								companyCode,
 								year,
 								pillarId: pillar.id,
-								// score: {
-								// 	[Op.ne]: null, // Điều kiện để cột score khác NULL
-								// },
 							},
 							attributes: [
 								"criteriaId",
@@ -422,16 +435,18 @@ export default class EsgReportAction {
 						// Chia totalScore cho tổng trọng số nếu totalWeight > 0
 						const normalizedScore = totalScore / totalWeight;
 
-						// Cập nhật điểm số cho công ty
-						await model.CompanyScore.update(
-							{ [pillar.scoreField]: normalizedScore },
-							{
-								where: {
-									companyCode,
-									year,
-								},
+						// Tìm hoặc tạo bản ghi mới trong bảng CompanyScore
+						await model.CompanyScore.findOrCreate({
+							where: { companyCode, year },
+							defaults: { [pillar.scoreField]: normalizedScore },
+						}).then(([companyScore, created]) => {
+							// Nếu bản ghi đã tồn tại, cập nhật normalizedScore
+							if (!created) {
+								companyScore.update({
+									[pillar.scoreField]: normalizedScore,
+								});
 							}
-						);
+						});
 
 						console.log(
 							`Year: ${year}, Company: ${companyCode}, ${pillar.logMessage}: ${normalizedScore}`
@@ -439,6 +454,7 @@ export default class EsgReportAction {
 					}
 				}
 			}
+
 			// Tính điểm ESG
 			for (let year = currentYear; year > currentYear - 5; year--) {
 				let totalScore = 0;
@@ -449,9 +465,6 @@ export default class EsgReportAction {
 						where: {
 							companyCode,
 							year,
-							// score: {
-							// 	[Op.ne]: null,
-							// },
 						},
 						attributes: [
 							"criteriaId",
@@ -469,7 +482,6 @@ export default class EsgReportAction {
 						});
 
 						totalCriteriaWeight += criteriaWeight.dataValues.weight;
-
 						totalScore +=
 							criteriaScore.dataValues
 								.scoreMultipleCriteriaWeight;
@@ -477,21 +489,114 @@ export default class EsgReportAction {
 
 					esgScore = totalScore / totalCriteriaWeight;
 
-					await model.CompanyScore.update(
-						{ esgScore: esgScore },
-						{
-							where: {
-								companyCode,
-								year,
-							},
+					// Tìm hoặc tạo bản ghi mới trong bảng CompanyScore
+					await model.CompanyScore.findOrCreate({
+						where: { companyCode, year },
+						defaults: { esgScore: esgScore },
+					}).then(([companyScore, created]) => {
+						// Nếu bản ghi đã tồn tại, cập nhật esgScore
+						if (!created) {
+							companyScore.update({ esgScore: esgScore });
 						}
-					);
+					});
+
 					console.log(
 						`Year: ${year}, Company: ${companyCode}, ESG Score: ${esgScore}`
 					);
 				}
 			}
 		}
+
+		for (const company of companyCodes) {
+			const { companyCode, industryCodeLevel3 } = company.dataValues;
+			// Lấy tất cả các công ty có cùng industryCodeLevel3 từ bảng Company
+			const companiesWithSameIndustry = await model.Company.findAll({
+				where: { industryCodeLevel3 },
+				attributes: ["companyCode"],
+			});
+
+			const companyCodesSameIndustry = companiesWithSameIndustry.map(
+				(c) => c.companyCode
+			);
+
+			// Lặp qua từng năm, từ năm hiện tại trở về 5 năm trước
+			for (let year = currentYear; year > currentYear - 5; year--) {
+				for (const rankType of ESGRank) {
+					const rankField = rankType.rankField;
+					const scoreField = rankField.replace("Rank", "Score");
+
+					// Lấy và sắp xếp các điểm của công ty theo scoreField cho năm hiện tại
+					const scores = await model.CompanyScore.findAll({
+						where: {
+							companyCode: companyCodesSameIndustry,
+							year: year,
+						},
+						attributes: ["companyCode", scoreField],
+						order: [[scoreField, "DESC"]],
+					});
+
+					let currentRank = 1;
+					for (let i = 0; i < scores.length; i++) {
+						if (
+							i > 0 &&
+							scores[i][scoreField] !== scores[i - 1][scoreField]
+						) {
+							currentRank = i + 1;
+						}
+
+						// Kiểm tra nếu companyCode hiện tại trùng với công ty trong vòng lặp, lưu rank
+						if (scores[i].companyCode === companyCode) {
+							await model.CompanyScore.update(
+								{ [rankField]: currentRank },
+								{
+									where: {
+										companyCode: companyCode,
+										year: year,
+									},
+								}
+							);
+							break;
+						}
+					}
+				}
+
+				// Xếp hạng tổng thể dựa trên esgScore cho năm hiện tại
+				const esgScores = await model.CompanyScore.findAll({
+					where: {
+						companyCode: companyCodesSameIndustry,
+						year: year,
+					},
+					attributes: ["companyCode", "esgScore"],
+					order: [["esgScore", "ASC"]],
+				});
+
+				let esgCurrentRank = 1;
+				for (let i = 0; i < esgScores.length; i++) {
+					if (
+						i > 0 &&
+						esgScores[i].esgScore !== esgScores[i - 1].esgScore
+					) {
+						esgCurrentRank = i + 1;
+					}
+
+					if (esgScores[i].companyCode === companyCode) {
+						await model.CompanyScore.update(
+							{ esgRank: esgCurrentRank },
+							{
+								where: {
+									companyCode: companyCode,
+									year: year,
+								},
+							}
+						);
+						break;
+					}
+				}
+			}
+
+			console.log("Updated ranks for company:", companyCode);
+		}
+
 		console.log("ESG score calculation has been completed successfully!");
 	}
 }
