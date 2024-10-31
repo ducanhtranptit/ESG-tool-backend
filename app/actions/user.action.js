@@ -19,12 +19,14 @@ export default class UserActions {
 			where: { refreshToken },
 		});
 		if (!user) {
+			console.error("Cannot find user by refreshToken");
 			return null;
 		}
 
 		const newToken = UserActions.signToken({ id: user.id });
 
 		if (!newToken) {
+			console.error("Cannot sign new refreshToken");
 			return null;
 		}
 

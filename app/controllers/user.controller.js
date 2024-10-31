@@ -27,6 +27,7 @@ export default class UserController {
 		try {
 			const refreshToken = req.body?.refreshToken;
 			if (!refreshToken) {
+				console.error("Cannot find refreshToken in request");
 				return new BadRequestResponse().send(req, res);
 			}
 			const newToken = await userActions.refreshToken(refreshToken);
