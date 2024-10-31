@@ -9,7 +9,7 @@ export default (sequelize, DataTypes) => {
 			companyCode: DataTypes.STRING,
 			companyName: DataTypes.STRING,
 			industryId: DataTypes.INTEGER,
-			industryCodeLevel3: DataTypes.INTEGER,
+			industryCodeLevel2: DataTypes.INTEGER,
 		},
 		{
 			sequelize,

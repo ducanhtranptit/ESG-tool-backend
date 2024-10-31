@@ -131,12 +131,12 @@ export default class QuestionAction {
 
 		const company = await model.Company.findOne({
 			where: { companyCode },
-			attributes: ["industryCodeLevel3", "id"],
+			attributes: ["industryCodeLevel2", "id"],
 		});
-		const industryCodeLevel3 = company.dataValues.industryCodeLevel3;
+		const industryCodeLevel2 = company.dataValues.industryCodeLevel2;
 		const criterias = await model.Criteria.findAll({
 			where: {
-				applicableIndustryCode: industryCodeLevel3,
+				applicableIndustryCode: industryCodeLevel2,
 			},
 			attributes: ["criteriaId", "criteriaCode", "measurementMethod"],
 		});

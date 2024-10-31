@@ -18,10 +18,10 @@ module.exports = {
 			industryId: {
 				type: Sequelize.INTEGER,
 			},
-			industryCodeLevel3: {
+			industryCodeLevel2: {
 				type: Sequelize.INTEGER,
 			},
-			createdAt: {  
+			createdAt: {
 				allowNull: false,
 				type: Sequelize.DATE,
 			},

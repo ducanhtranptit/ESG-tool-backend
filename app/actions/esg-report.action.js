@@ -28,10 +28,10 @@ export default class EsgReportAction {
 			});
 
 			const companies = await model.Company.findAll({
-				attributes: ["companyCode", "industryCodeLevel3"],
+				attributes: ["companyCode", "industryCodeLevel2"],
 			});
 
-			// Nhóm các metrics theo year, industryCodeLevel3, và criteriaCode
+			// Nhóm các metrics theo year, industryCodeLevel2, và criteriaCode
 			const groupedByIndustryCriteria = {};
 
 			companyMetrics.forEach((metric) => {
@@ -41,14 +41,14 @@ export default class EsgReportAction {
 					(c) => c.companyCode === companyCode
 				);
 				if (company) {
-					const { industryCodeLevel3 } = company;
+					const { industryCodeLevel2 } = company;
 
-					const groupKey = `${year}-${industryCodeLevel3}-${criteriaCode}`;
+					const groupKey = `${year}-${industryCodeLevel2}-${criteriaCode}`;
 
 					if (!groupedByIndustryCriteria[groupKey]) {
 						groupedByIndustryCriteria[groupKey] = {
 							year,
-							industryCodeLevel3,
+							industryCodeLevel2,
 							criteriaCode,
 							companyCodes: [],
 							metrics: [],
@@ -385,7 +385,7 @@ export default class EsgReportAction {
 
 		// Tính điểm E - S - G, ESG
 		const companyCodes = await model.Company.findAll({
-			attributes: ["companyCode", "industryCodeLevel3"],
+			attributes: ["companyCode", "industryCodeLevel2"],
 		});
 
 		for (const company of companyCodes) {
@@ -508,10 +508,10 @@ export default class EsgReportAction {
 		}
 
 		for (const company of companyCodes) {
-			const { companyCode, industryCodeLevel3 } = company.dataValues;
-			// Lấy tất cả các công ty có cùng industryCodeLevel3 từ bảng Company
+			const { companyCode, industryCodeLevel2 } = company.dataValues;
+			// Lấy tất cả các công ty có cùng industryCodeLevel2 từ bảng Company
 			const companiesWithSameIndustry = await model.Company.findAll({
-				where: { industryCodeLevel3 },
+				where: { industryCodeLevel2 },
 				attributes: ["companyCode"],
 			});
 

@@ -11,7 +11,7 @@ export default class PillarActions {
 			where: {
 				id: companyId,
 			},
-			attributes: ["industryCodeLevel3"],
+			attributes: ["industryCodeLevel2"],
 			raw: true,
 		});
 		const criteriaItems = await model.CriteriaItem.findAll({
@@ -26,7 +26,7 @@ export default class PillarActions {
 			where: {
 				criteriaId: criteriaIds,
 				pillarId: pillarId,
-				applicableIndustryCode: companyInfor.industryCodeLevel3,
+				applicableIndustryCode: companyInfor.industryCodeLevel2,
 			},
 			attributes: ["criteriaId", "pillarId", "name"],
 			raw: true,

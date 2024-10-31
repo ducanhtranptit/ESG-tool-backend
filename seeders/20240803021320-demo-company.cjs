@@ -8,7 +8,7 @@ module.exports = {
 				companyCode: company.companyCode,
 				companyName: company.companyName,
 				industryId: +company.industryId,
-				industryCodeLevel3: +company.industryCodeLevel3,
+				industryCodeLevel2: +company.industryCodeLevel2,
 				createdAt: new Date(),
 				updatedAt: new Date(),
 			}))

@@ -24,11 +24,17 @@ export default class DashboardAction {
 			const companyData = {
 				year: companyScoreESGCurrentYear.dataValues.year,
 				esg: companyScoreESGCurrentYear.dataValues.esgScore,
+				esgRank: companyScoreESGCurrentYear.dataValues.esgRank,
 				environmental:
 					companyScoreESGCurrentYear.dataValues.environmentScore,
+				environmentRank:
+					companyScoreESGCurrentYear.dataValues.environmentRank,
 				social: companyScoreESGCurrentYear.dataValues.socialScore,
+				socialRank: companyScoreESGCurrentYear.dataValues.socialRank,
 				governance:
 					companyScoreESGCurrentYear.dataValues.governanceScore,
+				governanceRank:
+					companyScoreESGCurrentYear.dataValues.governanceRank,
 			};
 			data.push(companyData);
 		}
