@@ -1,6 +1,7 @@
 module.exports = [
 	{
 		questionCode: "AS197",
+		section: "34",
 		topicCode: "E51",
 		name: "Doanh nghiệp của bạn có nhận xác minh từ bên thứ ba cho phạm vi 1 và 2 khí thải và công bố công khai kết quả không?",
 		answer1:
@@ -21,6 +22,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS196",
+		section: "34",
 		topicCode: "E50",
 		name: "Doanh nghiệp của bạn có theo dõi và công bố công khai mức sử dụng năng lượng không?",
 		answer1:
@@ -41,6 +43,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS195",
+		section: "34",
 		topicCode: "E49",
 		name: "Doanh nghiệp của bạn có tính toán và công bố công khai lượng khí thải phạm vi 1 và phạm vi 2 không?",
 		answer1:
@@ -61,6 +64,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS193",
+		section: "5",
 		topicCode: "S71",
 		name: "Số nhân viên là người nước ngoài của doanh nghiệp (Đơn vị: Người)",
 		answer1: "0",
@@ -77,6 +81,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS194",
+		section: "34",
 		topicCode: "E12",
 		name: "Giá nước trung bình năm trước (Đơn vị: Triệu đồng/ Mét khối)",
 		answer1: "0",
@@ -93,6 +98,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS192",
+		section: "30",
 		topicCode: "G53",
 		name: "Doanh nghiệp có đạt được chứng nhận ISO 37001 về hệ thống quản lý chống hối lộ chưa?",
 		answer1: "Có",
@@ -109,6 +115,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS191",
+		section: "33",
 		topicCode: "G52",
 		name: "Có bao nhiêu nhà cung cấp được doanh nghiệp đánh giá lại hàng năm (Đơn vị: Nhà cung ứng)",
 		answer1: "0",
@@ -125,6 +132,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS190",
+		section: "33",
 		topicCode: "G51",
 		name: "Số thành viên giới tính nam trong HĐQT (Đơn vị: Người)",
 		answer1: "0",
@@ -141,6 +149,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS189",
+		section: "33",
 		topicCode: "G50",
 		name: "Số thành viên giới tính nữ trong HĐQT (Đơn vị: Người)",
 		answer1: "0",
@@ -157,6 +166,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS187",
+		section: "32",
 		topicCode: "G44",
 		name: "Số trường hợp vi phạm hình sự của doanh nghiệp (Đơn vị: Trường hợp)",
 		answer1: "0",
@@ -173,6 +183,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS186",
+		section: "32",
 		topicCode: "G44",
 		name: "Số trường hợp vi phạm hành chính của doanh nghiệp (Đơn vị: Trường hợp)",
 		answer1: "0",
@@ -189,6 +200,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS185",
+		section: "32",
 		topicCode: "G44",
 		name: "Số trường hợp vi phạm kỷ luật của doanh nghiệp (Đơn vị: Trường hợp)",
 		answer1: "0",
@@ -205,6 +217,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS184",
+		section: "32",
 		topicCode: "G43",
 		name: "Doanh nghiệp có thống kê về các trường hợp vi phạm của lao động trong  doanh nghiệp hàng năm không?",
 		answer1: "Có",
@@ -221,6 +234,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS183",
+		section: "31",
 		topicCode: "G42",
 		name: "Số vụ việc vi phạm quy định về hạn chế cạnh tranh (Đơn vị: Vụ)",
 		answer1: "0",
@@ -237,6 +251,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS182",
+		section: "31",
 		topicCode: "G41",
 		name: "Số vụ việc vi phạm quy định về quảng cáo - Theo Luật quảng cáo 2012 (Đơn vị: Vụ)",
 		answer1: "0",
@@ -253,6 +268,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS181",
+		section: "31",
 		topicCode: "G40",
 		name: "Số vụ việc vi phạm quy định về tham ô tài sản; đưa, nhận và môi giới hối lộ trong năm gần nhất (Đơn vị: Vụ)",
 		answer1: "0",
@@ -269,6 +285,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS180",
+		section: "30",
 		topicCode: "G39",
 		name: "Số lượng nhà cung ứng quan trọng của doanh nghiệp (Đơn vị: Nhà cung ứng)",
 		answer1: "0",
@@ -285,6 +302,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS179",
+		section: "30",
 		topicCode: "G38",
 		name: "Số lượng nhà cung ứng cấp 1 của doanh nghiệp (Đơn vị: Nhà cung ứng)",
 		answer1: "0",
@@ -301,6 +319,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS178",
+		section: "30",
 		topicCode: "G36",
 		name: "Doanh nghiệp có đánh giá các nhà cung ứng qua các năm không?",
 		answer1: "Có",
@@ -317,6 +336,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS177",
+		section: "30",
 		topicCode: "G35",
 		name: "Doanh nghiệp có tất cả bao nhiêu nhà cung ứng (Đơn vị: Nhà cung ứng)",
 		answer1: "0",
@@ -333,6 +353,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS176",
+		section: "29",
 		topicCode: "G34",
 		name: "Doanh nghiệp có thực hiện chi trả cổ tức đầy đủ trong thời hạn 06 tháng, kể từ ngày kết thúc họp Đại hội đồng cổ đông thường niên?",
 		answer1: "Có",
@@ -349,6 +370,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS175",
+		section: "29",
 		topicCode: "G33",
 		name: "Trong năm gần nhất, đại hội đồng cổ đông có thông qua thù lao hoặc lương thưởng, chi phí, các khoản lợi ích do doanh nghiệp thanh toán cho từng thành viên Hội đồng Quản trị không?",
 		answer1: "Có",
@@ -365,6 +387,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS174",
+		section: "29",
 		topicCode: "G32",
 		name: "Doanh nghiệp có xây dựng và công bố chính sách liên quan đến việc khiếu nại của cổ đông không?",
 		answer1: "Có",
@@ -381,6 +404,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS173",
+		section: "28",
 		topicCode: "G31",
 		name: "Trong trường hợp doanh nghiệp bắt buộc phải có Kiểm toán độc lập theo pháp luật Việt Nam, doanh nghiệp có công bố đã bổ nhiệm một bên độc lập (kiểm tra, giám sát viên) là Kiểm toán độc lập không?",
 		answer1: "Không",
@@ -397,6 +421,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS169",
+		section: "28",
 		topicCode: "G30",
 		name: "Trong năm gần nhất, doanh nghiệp có công bố và sử dụng tài liệu họp, biên bản họp, nghị quyết Đại Hội Đồng Cổ Đông bằng tiếng Việt và tiếng Anh?",
 		answer1: "Không",
@@ -413,6 +438,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS168",
+		section: "28",
 		topicCode: "G29",
 		name: "Trong thư mời tham dự Đại Hội Đồng Cổ Đông, cổ đông có được hướng dẫn để đóng góp ý kiến trong thời gian trước ngày tham dự đại hội về (các) vấn đề thảo luận trong chương trình nghị sự của Đại Hội Đồng Cổ Đông không?",
 		answer1: "Có",
@@ -429,6 +455,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS167",
+		section: "28",
 		topicCode: "G28",
 		name: "Trong năm gần nhất, tài liệu họp Đại Hội Đồng Cổ Đông có cung cấp thông tin về các ứng viên Hội đồng quản trị và Ban Kiểm Soát (nếu có) tối thiểu 10 ngày trước ngày khai mạc đại hội không?",
 		answer1: "Không",
@@ -445,6 +472,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS166",
+		section: "28",
 		topicCode: "G26",
 		name: "Trong năm gần nhất, doanh nghiệp có công bố tính độc lập của thành viên HĐQT không?",
 		answer1: "Có",
@@ -461,6 +489,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS165",
+		section: "27",
 		topicCode: "G25",
 		name: "Doanh nghiệp có bộ phận chịu trách nhiệm giám sát truyền thông ra bên ngoài và lưu trữ thông tin theo quy định của pháp luật không?",
 		answer1: "Có",
@@ -477,6 +506,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS164",
+		section: "27",
 		topicCode: "G24",
 		name: "Chủ tịch Ủy ban Quản lý rủi ro có phải là thành viên độc lập HĐQT không?",
 		answer1: "Có",
@@ -493,6 +523,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS163",
+		section: "27",
 		topicCode: "G23",
 		name: "Doanh nghiệp có thành lập Ủy ban Quản lý rủi ro không?",
 		answer1: "Có",
@@ -509,6 +540,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS162",
+		section: "26",
 		topicCode: "G22",
 		name: "Trong năm qua, chủ tịch Ủy ban kiểm toán có phải là Thành viên độc lập HĐQT không?",
 		answer1: "Có",
@@ -525,6 +557,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS161",
+		section: "26",
 		topicCode: "G21",
 		name: "Trong trường hợp doanh nghiệp bắt buộc phải có Ban Kiểm soát theo pháp luật Việt Nam, doanh nghiệp có thành lập Ban Kiểm soát không?",
 		answer1: "Có",
@@ -541,6 +574,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS160",
+		section: "26",
 		topicCode: "G20",
 		name: "Trong trường hợp doanh nghiệp bắt buộc phải có Kiểm toán nội bộ theo pháp luật Việt Nam, danh sách các ứng viên kiểm toán có được công bố công khai không?",
 		answer1: "Có",
@@ -557,6 +591,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS159",
+		section: "26",
 		topicCode: "G19",
 		name: "Doanh nghiệp có thành lập bộ phận Kiểm toán nội bộ không?",
 		answer1: "Có",
@@ -573,6 +608,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS158",
+		section: "26",
 		topicCode: "G18",
 		name: "Trong năm gần nhất, báo cáo đánh giá về hoạt động của HĐQT có phải do thành viên độc lập đánh giá không?",
 		answer1: "Có",
@@ -589,6 +625,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS157",
+		section: "26",
 		topicCode: "G17",
 		name: "Doanh nghiệp có đảm bảo tối thiểu 20% tổng số thành viên của HĐQT là thành viên độc lập không?",
 		answer1: "Có",
@@ -605,6 +642,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS156",
+		section: "25",
 		topicCode: "G16",
 		name: "Trong năm gần nhất, tỷ lệ tiểu ban trực thuộc Hội đồng quản trị do Thành viên độc lập làm trưởng ban là bao nhiêu? (Đơn vị: Phần trăm)",
 		answer1: "0",
@@ -621,6 +659,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS155",
+		section: "25",
 		topicCode: "G15",
 		name: "Doanh nghiệp niêm yết có thành lập các tiểu ban sau: tiểu ban chính sách phát triển, tiểu ban nhân sự, tiểu ban lương thưởng hay các đơn vị tương đương không?",
 		answer1: "Có",
@@ -637,6 +676,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS154",
+		section: "25",
 		topicCode: "G14",
 		name: "Báo cáo thường niên có công bố phát biểu, tuyên bố khẳng định sự tuân thủ đầy đủ của doanh nghiệp với các quy tắc quản trị doanh nghiệp và trong trường hợp có việc không tuân thủ, báo cáo có nếu rõ và giải thích lý do cho mỗi vấn đề đó không?",
 		answer1: "Có",
@@ -653,6 +693,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS153",
+		section: "25",
 		topicCode: "G13",
 		name: "Báo cáo thường niên có công bố mức lương, thưởng, các khoản thu nhập khác, quỹ phúc lợi và chi phí mà doanh nghiệp chi trả, thanh toán cho từng thành viên trong HĐQT hoặc HĐTV hoặc Ban Giám đốc không?",
 		answer1: "Có",
@@ -669,6 +710,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS152",
+		section: "25",
 		topicCode: "G12",
 		name: "Trong năm gần nhất, tiền lương của người điều hành hoạt động kinh doanh (Giám đốc, Tổng giám đốc, v.v) có được thể hiện thành mục riêng trong Báo cáo tài chính hàng năm của doanh nghiệp và được công khai hoặc báo cáo Đại hội đồng cổ đông, hoặc Ban giám đốc tại cuộc họp thường niên không?",
 		answer1: "Có",
@@ -685,6 +727,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS151",
+		section: "24",
 		topicCode: "G11",
 		name: "Trong năm gần nhất, doanh nghiệp có thường xuyên cập nhật các nội dung trên website doanh nghiệp và bảo đảm mọi thông tin được cập nhật đều bằng cả tiếng Việt và tiếng Anh không?",
 		answer1: "Có",
@@ -701,6 +744,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS150",
+		section: "24",
 		topicCode: "G10",
 		name: "Trong năm gần nhất, doanh nghiệp có xây dựng và công bố Báo cáo đánh giá liên quan đến trách nhiệm về môi trường, xã hội và tình hình tài chính không?",
 		answer1: "Có",
@@ -717,6 +761,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS149",
+		section: "24",
 		topicCode: "G9",
 		name: "Doanh nghiệp có cơ chế tiếp nhận tố giác, khiếu nại, góp ý và giải quyết tố giác, khiếu nại, ý kiến từ các bên liên quan về các hoạt động của doanh nghiệp không?",
 		answer1: "Có",
@@ -733,6 +778,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS148",
+		section: "24",
 		topicCode: "G8",
 		name: "Doanh nghiệp có cá nhân, thành viên của ban điều hành chịu trách nhiệm tiếp nhận ý kiến từ các bên liên quan không?",
 		answer1: "Có",
@@ -749,6 +795,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS147",
+		section: "24",
 		topicCode: "G7",
 		name: "Doanh nghiệp có ban hành và công bố Bộ quy tắc ứng xử/ Đạo đức riêng hoặc có các nội dung về quy tắc ứng xử/ Đạo đức trong nội quy công ty không? (Điều 118 Bộ Luật Lao động 2019)",
 		answer1: "Có",
@@ -765,6 +812,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS146",
+		section: "23",
 		topicCode: "G6",
 		name: "Doanh nghiệp có thiết lập quy trình để theo dõi việc thực hiện các khuyến nghị mà kiểm toán độc lập đưa ra không?",
 		answer1: "Có",
@@ -781,6 +829,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS145",
+		section: "23",
 		topicCode: "G5",
 		name: "Doanh nghiệp có chính sách giới hạn về số năm đương nhiệm của thành viên HĐQT hoặc HĐTV hoặc Ban Giám đốc không?",
 		answer1: "Có",
@@ -797,6 +846,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS144",
+		section: "23",
 		topicCode: "G4",
 		name: "Trong năm gần nhất, HĐQT hoặc HĐTV hoặc Ban Giám đốc có ban hành quy trình theo dõi, đánh giá công tác quản trị doanh nghiệp và việc tuân thủ pháp luật về quản trị doanh nghiệp không?",
 		answer1: "Có",
@@ -813,6 +863,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS143",
+		section: "23",
 		topicCode: "G2",
 		name: "Cơ cấu HĐQT hoặc HĐTV hoặc ban Giám đốc có đa dạng về kiến thức và kinh nghiệm về pháp luật, tài chính, lĩnh vực hoạt động kinh doanh của doanh nghiệp\nkhông?",
 		answer1: "Có",
@@ -829,6 +880,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS142",
+		section: "23",
 		topicCode: "G1",
 		name: "Doanh nghiệp có chính sách phát triển bền vững rõ ràng và cam kết thực hiện các chính sách và hoạt động hướng đến phát triển bền vững không?",
 		answer1: "Có",
@@ -845,6 +897,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS141",
+		section: "15",
 		topicCode: "S68",
 		name: "Số nhân viên là người khuyết tật của doanh nghiệp (Đơn vị: Người)",
 		answer1: "0",
@@ -861,6 +914,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS140",
+		section: "22",
 		topicCode: "S67",
 		name: "Tổng số giờ đào tạo nhân viên trong năm gần nhất (Đơn vị: Giờ)",
 		answer1: "0",
@@ -877,6 +931,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS139",
+		section: "21",
 		topicCode: "S66",
 		name: "Mức chi tiêu của doanh nghiệp cho các hệ thống bảo mật thông tin khách hàng (Đơn vị: Triệu đồng)",
 		answer1: "0",
@@ -893,6 +948,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS138",
+		section: "21",
 		topicCode: "S65",
 		name: "Doanh nghiệp có biện pháp kiểm soát việc sử dụng lao động cưỡng bức đối với các bên liên quan trong chuỗi cung ứng không?",
 		answer1: "Có",
@@ -909,6 +965,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS137",
+		section: "21",
 		topicCode: "S64",
 		name: "Doanh nghiệp có trao đổi với các bên liên quan trong chuỗi cung ứng về vấn đề kiểm soát sử dụng lao động trẻ em thường xuyên không?",
 		answer1: "Có",
@@ -925,6 +982,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS136",
+		section: "22",
 		topicCode: "S52",
 		name: "Mức chi phí doanh nghiệp bỏ ra để đào tạo và phát triển nhân viên (Đơn vị: Triệu đồng)",
 		answer1: "0",
@@ -941,6 +999,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS135",
+		section: "22",
 		topicCode: "S51",
 		name: "Số nhân viên được đào tạo trong năm gần nhất (Đơn vị: Người)",
 		answer1: "0",
@@ -957,6 +1016,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS134",
+		section: "22",
 		topicCode: "S50",
 		name: "Số khoá đào tạo nhân viên của doanh nghiệp trong năm gần nhất (Đơn vị: Khóa)",
 		answer1: "0",
@@ -973,6 +1033,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS133",
+		section: "21",
 		topicCode: "S48",
 		name: "Trong năm gần nhất, doanh nghiệp có bị khiếu nại liên quan đến vi phạm bảo mật thông tin khách hàng không?",
 		answer1: "Có",
@@ -989,6 +1050,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS132",
+		section: "21",
 		topicCode: "S47",
 		name: "Doanh nghiệp có thông báo đầy đủ và đúng thông tin sản phẩm, dịch vụ đến khách hàng hay không?",
 		answer1: "Có",
@@ -1005,6 +1067,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS131",
+		section: "21",
 		topicCode: "S46",
 		name: "Trong năm gần nhất, doanh nghiệp có các vụ việc vi phạm các quy định về an toàn của sản phẩm với sức khỏe của người sử dụng không?",
 		answer1: "Có",
@@ -1021,6 +1084,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS130",
+		section: "21",
 		topicCode: "S45",
 		name: "Doanh nghiệp có quy trình đánh giá nhằm đảm bảo sản phẩm, dịch vụ an toàn cho khách hàng không?",
 		answer1: "Không",
@@ -1037,6 +1101,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS129",
+		section: "21",
 		topicCode: "S44",
 		name: "Doanh nghiệp có tiêu chí/ tiêu chuẩn xã hội cho nhà cung cấp không?",
 		answer1: "Không",
@@ -1053,6 +1118,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS128",
+		section: "20",
 		topicCode: "S43",
 		name: "Trong năm gần nhất, doanh nghiệp có tổ chức các hoạt động gắn kết với cộng đồng địa phương, có sự tham gia của cộng đồng địa phương hay tác động tích cực đến cộng đồng địa phương không?",
 		answer1: "Có",
@@ -1069,6 +1135,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS127",
+		section: "20",
 		topicCode: "S42",
 		name: "Trong năm gần nhất, doanh nghiệp có tiến hành đào tạo cho nhân viên hiểu về quyền lợi của mình khi làm việc tại doanh nghiệp cũng như các quyền lợi cơ bản khác theo quy định pháp luật không?",
 		answer1: "Không",
@@ -1085,6 +1152,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS126",
+		section: "20",
 		topicCode: "S41",
 		name: "Trong năm gần nhất, doanh nghiệp có sử dụng lao động cưỡng bức không?",
 		answer1: "Có",
@@ -1101,6 +1169,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS125",
+		section: "20",
 		topicCode: "S40",
 		name: "Trong năm gần nhất, doanh nghiệp có lao động từ đủ 15 đến dưới 18 tuổi trái quy định pháp luật không?",
 		answer1: "Có",
@@ -1117,6 +1186,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS124",
+		section: "20",
 		topicCode: "S39",
 		name: "Trong năm gần nhất, doanh nghiệp có sử dụng lao động từ đủ 13 đến dưới 15 tuổi ngoài danh mục cho phép không?",
 		answer1: "Có",
@@ -1133,6 +1203,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS123",
+		section: "19",
 		topicCode: "S38",
 		name: "Doanh nghiệp có thúc đẩy người lao động tham gia công đoàn, các tổ chức đoàn thể khác và thúc đẩy các hoạt động thương lượng tập thể nhưng không vi phạm pháp luật và chính sách doanh nghiệp không?",
 		answer1: "Có",
@@ -1149,6 +1220,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS122",
+		section: "19",
 		topicCode: "S37",
 		name: "Doanh nghiệp có chính sách và sáng kiến tạo điều kiện khuyến khích sự tham gia của nhóm yếu thế vào chuỗi giá trị của doanh nghiệp hay không?",
 		answer1: "Có",
@@ -1165,6 +1237,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS121",
+		section: "19",
 		topicCode: "S36",
 		name: "Doanh nghiệp có cơ chế tố giác và bảo vệ danh tính và sự an toàn của người tố cáo về các vấn đề phân biệt đối xử, bất bình đẳng, quấy rối tình dục không?",
 		answer1: "Có",
@@ -1181,6 +1254,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS120",
+		section: "19",
 		topicCode: "S35",
 		name: "Trong năm gần nhất, những vụ việc phân biệt đối xử được báo cáo có được phân loại không?",
 		answer1: "Có",
@@ -1197,6 +1271,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS119",
+		section: "18",
 		topicCode: "S34",
 		name: "Trong năm gần nhất, doanh nghiệp có lập báo cáo vụ việc phân biệt đối xử xảy ra trong khoảng thời gian này không?",
 		answer1: "Có",
@@ -1213,6 +1288,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS118",
+		section: "18",
 		topicCode: "S32",
 		name: "Trong năm gần nhất, doanh nghiệp có tổng hợp, lưu trữ thông tin/dữ liệu sự đa dạng của lực lượng lao động trong ban quản lý không?",
 		answer1: "Có",
@@ -1229,6 +1305,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS117",
+		section: "18",
 		topicCode: "S31",
 		name: "Trong năm gần nhất, doanh nghiệp có tổng hợp, lưu trữ thông tin/ dữ liệu về sự đa dạng của toàn bộ người lao động trong doanh nghiệp không?",
 		answer1: "Có",
@@ -1245,6 +1322,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS116",
+		section: "18",
 		topicCode: "S30",
 		name: "Trong năm gần nhất, doanh nghiệp có tiến hành tập huấn cho nhân viên về các chính sách an toàn và sức khoẻ của doanh nghiệp không?",
 		answer1: "Không",
@@ -1261,6 +1339,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS115",
+		section: "18",
 		topicCode: "S29",
 		name: "Trong năm gần nhất, doanh nghiệp có trao đổi chính thức với Công đoàn hoặc các bên liên quan về các vấn đề sức khỏe và an toàn cho người lao động không?",
 		answer1: "Có",
@@ -1277,6 +1356,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS114",
+		section: "17",
 		topicCode: "S28",
 		name: "Trong năm gần nhất, doanh nghiệp có tổng hợp, lưu trữ và công bố thông tin/ dữ liệu về tỷ lệ người lao động có nguy cơ cao mắc các bệnh nghề nghiệp không?",
 		answer1: "Có",
@@ -1293,6 +1373,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS113",
+		section: "17",
 		topicCode: "S69",
 		name: "Doanh nghiệp có tuân thủ tiêu chuẩn OHSAS 18001 hoặc UNI EN ISO 45001 về sức khoẻ và an toàn nghề nghiệp của nhân viên không?",
 		answer1: "Có",
@@ -1309,6 +1390,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS112",
+		section: "17",
 		topicCode: "S26",
 		name: "Doanh nghiệp có nhân sự phụ trách về các vấn đề an toàn và sức khoẻ nghề nghiệp không?",
 		answer1: "Không",
@@ -1325,6 +1407,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS111",
+		section: "17",
 		topicCode: "S24",
 		name: "Trong năm gần nhất, doanh nghiệp có tuân thủ thời gian làm việc theo luật lao động bao gồm cả trả lương làm thêm giờ, làm ca đêm và làm việc vào ngày lễ, ngày nghỉ chính thức cho người lao động không?",
 		answer1: "Có",
@@ -1341,6 +1424,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS110",
+		section: "17",
 		topicCode: "S23",
 		name: "Doanh nghiệp có tổng hợp, lưu trữ thông tin/ dữ liệu về người lao động toàn thời gian nghỉ thai sản, quay trở lại làm việc và giữ được việc sau 12 tháng không?",
 		answer1: "Có",
@@ -1357,6 +1441,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS109",
+		section: "16",
 		topicCode: "S22",
 		name: "Trong năm gần nhất, doanh nghiệp có thực hiện đầy đủ các chế độ phúc lợi cho người lao động theo quy định của pháp luật về lao động không?",
 		answer1: "Không",
@@ -1374,6 +1459,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS107",
+		section: "13",
 		topicCode: "S21",
 		name: "Số lượng nhân viên nghỉ việc không tự nguyện (Đơn vị: Người)",
 		answer1: "0",
@@ -1390,6 +1476,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS106",
+		section: "13",
 		topicCode: "S21",
 		name: "Số lượng nhân viên nghỉ việc tự nguyện (Đơn vị: Người)",
 		answer1: "0",
@@ -1406,6 +1493,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS105",
+		section: "16",
 		topicCode: "S20",
 		name: "Doanh nghiệp có xây dựng quy chế trả lương cho người lao động và chi trả ở mức bằng hoặc cao hơn lương tối thiểu vùng theo quy định của pháp luật không?",
 		answer1: "Có",
@@ -1422,6 +1510,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS104",
+		section: "16",
 		topicCode: "S19",
 		name: "Doanh nghiệp có ký kết đầy đủ các loại hợp đồng với tất cả người lao động theo quy định của pháp luật không?",
 		answer1: "Có",
@@ -1438,6 +1527,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS103",
+		section: "16",
 		topicCode: "S18",
 		name: "Điểm hài lòng của nhân viên về công ty là bao nhiêu",
 		answer1: "0",
@@ -1454,6 +1544,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS102",
+		section: "16",
 		topicCode: "S17",
 		name: "Doanh nghiệp có thường xuyên khảo sát mức độ hài lòng của nhân viên về công ty không?",
 		answer1: "Có - <3 Tháng 1 lần",
@@ -1470,6 +1561,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS101",
+		section: "15",
 		topicCode: "S16",
 		name: "Số lượng người mắc bệnh nghề nghiệp trong năm gần nhất (Đơn vị: Người)",
 		answer1: "0",
@@ -1486,6 +1578,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS100",
+		section: "15",
 		topicCode: "S15",
 		name: "Số lượng người bị tử vong do tai nạn lao động trong năm gần nhất (Đơn vị: Người)",
 		answer1: "0",
@@ -1502,6 +1595,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS099",
+		section: "15",
 		topicCode: "S14",
 		name: "Số vụ tai nạn lao động của doanh nghiệp trong năm gần nhất (Đơn vị: Người)",
 		answer1: "0",
@@ -1518,6 +1612,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS098",
+		section: "14",
 		topicCode: "S13",
 		name: "Mức thu nhập trung bình của nhân viên nữ ở cấp nhân viên trong năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
@@ -1534,6 +1629,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS097",
+		section: "14",
 		topicCode: "S12",
 		name: "Mức thu nhập trung bình của nhân viên nam ở cấp nhân viên trong năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
@@ -1550,6 +1646,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS096",
+		section: "14",
 		topicCode: "S11",
 		name: "Mức thu nhập trung bình của nhân viên nữ ở cấp trưởng dự án, trưởng phòng,… trong năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
@@ -1566,6 +1663,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS095",
+		section: "14",
 		topicCode: "S10",
 		name: "Mức thu nhập trung bình của nhân viên nam ở cấp trưởng dự án, trưởng phòng,… trong năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
@@ -1582,6 +1680,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS094",
+		section: "14",
 		topicCode: "S9",
 		name: "Mức thu nhập trung bình của nhân viên nữ ở cấp C-level trong năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
@@ -1598,6 +1697,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS093",
+		section: "14",
 		topicCode: "S8",
 		name: "Mức thu nhập trung bình của nhân viên nam ở cấp C-level trong năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
@@ -1614,6 +1714,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS092",
+		section: "13",
 		topicCode: "S63",
 		name: "Tổng số nhân viên nghỉ việc trong năm trước (Đơn vị: Người)",
 		answer1: "0",
@@ -1630,6 +1731,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS091",
+		section: "13",
 		topicCode: "S62",
 		name: "Số lượng nhân viên được thuê mới (Đơn vị: Người)",
 		answer1: "0",
@@ -1646,6 +1748,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS090",
+		section: "12",
 		topicCode: "S61",
 		name: "Số lượng nhân viên nữ ở cấp bậc nhân viên (Đơn vị: Người)",
 		answer1: "0",
@@ -1662,6 +1765,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS089",
+		section: "12",
 		topicCode: "S60",
 		name: "Số lượng nhân viên nam ở cấp bậc nhân viên (Đơn vị: Người)",
 		answer1: "0",
@@ -1678,6 +1782,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS088",
+		section: "12",
 		topicCode: "S59",
 		name: "Số lượng nhân viên nữ ở cấp bậc trưởng dự án, trưởng phòng (Đơn vị: Người)",
 		answer1: "0",
@@ -1694,6 +1799,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS087",
+		section: "12",
 		topicCode: "S58",
 		name: "Số lượng nhân viên nam ở cấp bậc trưởng dự án, trưởng phòng,… (Đơn vị: Người)",
 		answer1: "0",
@@ -1710,6 +1816,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS086",
+		section: "12",
 		topicCode: "S57",
 		name: "Số lượng nhân viên nữ ở cấp bậc C-level (Đơn vị: Người)",
 		answer1: "0",
@@ -1726,6 +1833,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS085",
+		section: "12",
 		topicCode: "S56",
 		name: "Số lượng nhân viên nam ở cấp bậc C-level (Đơn vị: Người)",
 		answer1: "0",
@@ -1742,6 +1850,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS084",
+		section: "11",
 		topicCode: "S55",
 		name: "Số lượng nhân viên nữ của doanh nghiệp (Đơn vị: Người)",
 		answer1: "0",
@@ -1758,6 +1867,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS083",
+		section: "11",
 		topicCode: "S54",
 		name: "Số lượng nhân viên nam của doanh nghiệp (Đơn vị: Người)",
 		answer1: "0",
@@ -1774,6 +1884,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS082",
+		section: "11",
 		topicCode: "S53",
 		name: "Tổng số lượng nhân viên của doanh nghiệp (Đơn vị: Người)",
 		answer1: "0",
@@ -1790,6 +1901,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS081",
+		section: "10",
 		topicCode: "S7",
 		name: "Có bao nhiêu nhân viên của công ty tham gia các tổ chức đại diện người lao động tại cơ sở? (Đơn vị: Người)",
 		answer1: "0",
@@ -1806,6 +1918,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS080",
+		section: "10",
 		topicCode: "S6",
 		name: "Doanh nghiệp có tổ chức đại diện người lao động tại cơ sở (Công đoàn) không?",
 		answer1: "Có",
@@ -1822,6 +1935,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS076",
+		section: "10",
 		topicCode: "S4",
 		name: "Tổng mức chi tiêu của doanh nghiệp cho các hoạt động xã hội (Đơn vị: Triệu đồng)",
 		answer1: "0",
@@ -1838,6 +1952,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS075",
+		section: "10",
 		topicCode: "S3",
 		name: "Số hoạt động xã hội trung bình mà 1 nhân viên tham gia/ năm (Đơn vị: Hoạt động/ năm)",
 		answer1: "0",
@@ -1854,6 +1969,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS073",
+		section: "10",
 		topicCode: "S1",
 		name: "Doanh nghiệp có quyên góp, tổ chức, tham gia các hoạt động xã hội hàng năm không?",
 		answer1: "Có",
@@ -1870,6 +1986,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS072",
+		section: "10",
 		topicCode: "S70",
 		name: "Doanh nghiệp có tuân thủ tiêu chuẩn ISO 26000 về trách nhiệm xã hội không",
 		answer1: "Có",
@@ -1886,6 +2003,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS071",
+		section: "8",
 		topicCode: "E46",
 		name: "Trong năm trước, doanh nghiệp có theo dõi và báo cáo về tỷ trọng các loại nguyên vật liệu có thể tái chế trong cơ cấu sản phẩm không? (bao gồm cả nguyên liệu đóng gói trong quá trình phân phối)",
 		answer1: "Không",
@@ -1902,6 +2020,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS070",
+		section: "9",
 		topicCode: "E45",
 		name: "Trong năm gần nhất, doanh nghiệp có tổng hợp, lưu trữ và công bố thông tin/ dữ liệu việc vận chuyển chất thải nguy hại không?",
 		answer1: "Không",
@@ -1918,6 +2037,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS069",
+		section: "9",
 		topicCode: "E44",
 		name: "Trong năm gần nhất, doanh nghiệp có tổng hợp, lưu trữ và công bố thông tin/ dữ liệu về tổng lượng chất thải, bao gồm chất thải nguy hại, chất thải không nguy hại, và phương pháp xử lý chất thải không?",
 		answer1: "Không",
@@ -1934,6 +2054,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS068",
+		section: "9",
 		topicCode: "E43",
 		name: "Trong năm gần nhất, doanh nghiệp có tổng hợp, lưu trữ và công bố thông tin/ dữ liệu về tổng lượng nước thải theo chất lượng không?",
 		answer1: "Không",
@@ -1952,6 +2073,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS066",
+		section: "9",
 		topicCode: "E41",
 		name: "Trong năm gần nhất, doanh nghiệp có đánh giá và giám sát các hoạt động của doanh nghiệp mà có tác động đáng kể đến đa dạng sinh học không?",
 		answer1: "Không",
@@ -1968,6 +2090,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS065",
+		section: "9",
 		topicCode: "E40",
 		name: "Trong năm gần nhất, doanh nghiệp có theo dõi và thống kê lượng nước đầu vào (nước mặt, nước sâu), nước tuần hoàn và tái sử dụng không?",
 		answer1: "Không",
@@ -1986,6 +2109,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS063",
+		section: "8",
 		topicCode: "E37",
 		name: "Doanh nghiệp có tiêu chí/ tiêu chuẩn môi trường cho nhà cung ứng không?",
 		answer1: "Không",
@@ -2002,6 +2126,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS062",
+		section: "8",
 		topicCode: "E36",
 		name: "Trong năm gần nhất, doanh nghiệp có tập huấn nội bộ chính sách môi trường của doanh nghiệp không?",
 		answer1: "Không",
@@ -2018,6 +2143,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS061",
+		section: "7",
 		topicCode: "E35",
 		name: "Doanh nghiệp có nhân sự phụ trách về vấn đề môi trường không?",
 		answer1: "Không",
@@ -2034,6 +2160,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS059",
+		section: "8",
 		topicCode: "E33",
 		name: "Trong năm gần nhất, doanh nghiệp có thực hiện báo cáo, công bố thông tin về công tác quản lý môi trường không?",
 		answer1: "Không",
@@ -2051,6 +2178,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS058",
+		section: "8",
 		topicCode: "E32",
 		name: "Trong năm gần nhất, doanh nghiệp có bị xử phạt vi phạm liên quan tới môi trường không?",
 		answer1: "Có",
@@ -2067,6 +2195,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS057",
+		section: "7",
 		topicCode: "E31",
 		name: "Doanh nghiệp có chính sách quản lý, giám sát và đánh giá tác động môi trường và công bố chính sách rộng rãi (ví dụ trên website của doanh nghiệp) này không?",
 		answer1:
@@ -2085,6 +2214,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS056",
+		section: "7",
 		topicCode: "E26",
 		name: "Doanh nghiệp có triển khai hoạt động nghiên cứu và phát triển sản phẩm theo hướng phát triển bền vững không?",
 		answer1: "Có",
@@ -2101,6 +2231,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS055",
+		section: "7",
 		topicCode: "E25",
 		name: "Doanh nghiệp có hệ thống quản lý tác động môi trường không?",
 		answer1: "Có",
@@ -2117,6 +2248,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS028",
+		section: "6",
 		topicCode: "E19",
 		name: "Lượng mực in doanh nghiệp sử dụng trong năm trước. (Đơn vị: Kg)",
 		answer1: "0",
@@ -2133,6 +2265,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS027",
+		section: "5",
 		topicCode: "E18",
 		name: "Lượng nước doanh nghiệp tái chế trong năm trước (Đơn vị: Mét khối)",
 		answer1: "0",
@@ -2149,6 +2282,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS026",
+		section: "6",
 		topicCode: "E17",
 		name: "Mức chi tiêu của doanh nghiệp cho các vấn đề môi trường trong năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
@@ -2165,6 +2299,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS025",
+		section: "6",
 		topicCode: "E16",
 		name: "Lượng giấy doanh nghiệp sử dụng trong năm trước (Đơn vị: kg)",
 		answer1: "0",
@@ -2181,6 +2316,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS024",
+		section: "7",
 		topicCode: "E15",
 		name: "Doanh nghiệp có áp dụng chuyển đối số, IoT trong tiết kiệm năng lượng không?",
 		answer1: "Có",
@@ -2197,6 +2333,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS023",
+		section: "4",
 		topicCode: "E14",
 		name: "Lượng điện tiêu thụ của doanh nghiệp từ các nguồn khác (Đơn vị: MWh)",
 		answer1: "0",
@@ -2213,6 +2350,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS022",
+		section: "4",
 		topicCode: "E14",
 		name: "Lượng điện tiêu thụ của doanh nghiệp từ nguồn năng lượng tái tạo (Đơn vị: MWh)",
 		answer1: "0",
@@ -2229,6 +2367,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS021",
+		section: "4",
 		topicCode: "E14",
 		name: "Lượng điện tiêu thụ của doanh nghiệp từ nguồn điện lưới quốc gia (Đơn vị: MWh)",
 		answer1: "0",
@@ -2245,6 +2384,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS019",
+		section: "5",
 		topicCode: "E13",
 		name: "Tổng tiền nước của doanh nghiệp ở các chi nhánh năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
@@ -2261,6 +2401,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS018",
+		section: "5",
 		topicCode: "E12",
 		name: "Tiền nước của doanh nghiệp ở trụ sở chính năm trước năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
@@ -2277,6 +2418,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS017",
+		section: "4",
 		topicCode: "E11",
 		name: "Tổng tiền điện của doanh nghiệp ở các chi nhánh năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
@@ -2293,6 +2435,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS015",
+		section: "3",
 		topicCode: "E47",
 		name: "Khối lượng rác thải nguy hại phải xử lí đặc biệt (Đơn vị: Tấn)",
 		answer1: "0",
@@ -2309,6 +2452,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS014",
+		section: "4",
 		topicCode: "E10",
 		name: "Tiền điện của doanh nghiệp ở trụ sở chính năm trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
@@ -2325,6 +2469,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS013",
+		section: "3",
 		topicCode: "E7",
 		name: "Khối lượng rác thải có thể tái chế (Đơn vị: Tấn)",
 		answer1: "0",
@@ -2341,6 +2486,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS012",
+		section: "3",
 		topicCode: "E6",
 		name: "Khối lượng rác thải hữu cơ (Đơn vị: Tấn)",
 		answer1: "0",
@@ -2357,6 +2503,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS011",
+		section: "3",
 		topicCode: "E5",
 		name: "Khối lượng rác thải vô cơ (Đơn vị: Tấn)",
 		answer1: "0",
@@ -2373,6 +2520,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS010",
+		section: "2",
 		topicCode: "E4",
 		name: "Doanh nghiệp có quy định về việc phân loại rác thải tại nguồn không?",
 		answer1: "Có",
@@ -2389,6 +2537,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS009",
+		section: "2",
 		topicCode: "E3",
 		name: "Khối lượng bao bì có thể tái chế được doanh nghiệp sử dụng năm gần nhất (Đơn vị: Tấn)",
 		answer1: "0",
@@ -2405,6 +2554,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS008",
+		section: "2",
 		topicCode: "E2",
 		name: "Khối lượng bao bì nhựa doanh nghiệp sử dụng năm gần nhất (Đơn vị: Tấn)",
 		answer1: "0",
@@ -2421,6 +2571,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS006",
+		section: "1",
 		topicCode: "A15",
 		name: "Công ty có bao nhiêu chi nhánh? (Đơn vị: Chi nhánh)",
 		answer1: "0",
@@ -2437,6 +2588,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS005",
+		section: "1",
 		topicCode: "A15",
 		name: "Công ty có bao nhiêu cửa hàng? (Đơn vị: Cửa hàng)",
 		answer1: "0",
@@ -2453,6 +2605,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS004",
+		section: "1",
 		topicCode: "A14",
 		name: "Số nhân viên toàn thời gian (Đơn vị: Người)",
 		answer1: "0",
@@ -2469,6 +2622,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS003",
+		section: "1",
 		topicCode: "A13",
 		name: "Số nhân viên bán thời gian (Đơn vị: Người)",
 		answer1: "0",
@@ -2485,6 +2639,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS002",
+		section: "1",
 		topicCode: "A12",
 		name: "Lợi nhuận sau thuế của công ty trong năm tài chính trước (Đơn vị: Triệu đồng)",
 		answer1: "0",
@@ -2501,6 +2656,7 @@ module.exports = [
 	},
 	{
 		questionCode: "AS001",
+		section: "1",
 		topicCode: "A11",
 		name: "Doanh thu thuần của công ty trong năm tài chính trước (Đơn vị: Triệu đồng)",
 		answer1: "0",

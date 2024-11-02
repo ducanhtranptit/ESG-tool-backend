@@ -1,30 +1,30 @@
 import express from "express";
-import EnvironmentController from "../controllers/environment.controller.js";
-import verifyTokenMiddleware from "../middlewares/auth/verify-token.middleware.js";
+import EnvironmentController from "../../controllers/environment.controller.js";
+import verifyTokenMiddleware from "../../middlewares/auth/verify-token.middleware.js";
 const router = express.Router();
 
 router.get(
-	"/chart-emission",
+	"/webapp/environment/chart-emission",
 	verifyTokenMiddleware,
 	EnvironmentController.dataEmissionChart
 );
 router.get(
-	"/chart-water",
+	"/webapp/environment/chart-water",
 	verifyTokenMiddleware,
 	EnvironmentController.dataWaterChart
 );
 router.get(
-	"/chart-waste",
+	"/webapp/environment/chart-waste",
 	verifyTokenMiddleware,
 	EnvironmentController.dataWasteChart
 );
 router.get(
-	"/chart-electricity",
+	"/webapp/environment/chart-electricity",
 	verifyTokenMiddleware,
 	EnvironmentController.dataElectricityChart
 );
 router.get(
-	"/chart-ink-papers",
+	"/webapp/environment/chart-ink-papers",
 	verifyTokenMiddleware,
 	EnvironmentController.dataInkPapersChart
 );

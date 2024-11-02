@@ -1,5 +1,5 @@
 import model from "../models/index.js";
-
+import sections from "../constants/section.constant.js";
 export default class QuestionAction {
 	static async calculateMetric(measurementMethod, dictionary) {
 		const regex = /AS\d+/g;
@@ -24,47 +24,63 @@ export default class QuestionAction {
 		return isNaN(result) ? null : result;
 	}
 
-	static async getAllTopicsAndQuestions() {
-		const topics = await model.Topic.findAll({
-			attributes: ["topicCode", "name", "answerGuide"],
+	static async getAllTopicsAndQuestions(sectionName) {
+		const sectionId = sections[sectionName];
+		if (!sectionId) {
+			throw new Error("Invalid section name provided.");
+		}
+
+		// Truy vấn tất cả câu hỏi trong section tương ứng
+		const questions = await model.Question.findAll({
+			where: {
+				section: sectionId,
+			},
+			attributes: [
+				"topicCode",
+				"questionCode",
+				"name",
+				"type",
+				"answer1",
+				"answer2",
+				"answer3",
+				"answer4",
+				"answer5",
+				"answer6",
+				"answer7",
+				"answer8",
+				"answer9",
+				"answer10",
+			],
 			raw: true,
 		});
 
-		const result = [];
+		// Lấy danh sách topicCode duy nhất từ các câu hỏi để truy vấn bảng Topic
+		const topicCodes = [...new Set(questions.map((q) => q.topicCode))];
 
-		for (const topic of topics) {
-			const questions = await model.Question.findAll({
-				where: {
-					topicCode: topic.topicCode,
-				},
-				attributes: [
-					"questionCode",
-					"name",
-					"type",
-					"answer1",
-					"answer2",
-					"answer3",
-					"answer4",
-					"answer5",
-					"answer6",
-					"answer7",
-					"answer8",
-					"answer9",
-					"answer10",
-				],
-			});
+		// Truy vấn bảng Topic để lấy answerGuide cho mỗi topicCode
+		const topics = await model.Topic.findAll({
+			where: {
+				topicCode: topicCodes,
+			},
+			attributes: ["topicCode", "answerGuide"],
+			raw: true,
+		});
 
-			result.push({
-				topicCode: topic.topicCode,
-				name: topic.name,
-				answerGuide: topic.answerGuide,
-				questions,
-			});
-		}
+		// Tạo một map để tra cứu nhanh answerGuide theo topicCode
+		const topicMap = topics.reduce((map, topic) => {
+			map[topic.topicCode] = topic.answerGuide;
+			return map;
+		}, {});
 
-		return result;
+		// Gán answerGuide vào từng câu hỏi
+		const questionsWithAnswerGuide = questions.map((question) => ({
+			...question,
+			answerGuide: topicMap[question.topicCode] || null,
+		}));
+
+		return questionsWithAnswerGuide;
 	}
-
+	
 	static async addAnswerAndCalculateMetricOfCompany(userId, year, answers) {
 		const userInfor = await model.User.findOne({
 			where: {

@@ -6,6 +6,8 @@ export default (sequelize, DataTypes) => {
 			questionCode: DataTypes.STRING,
 			topicCode: DataTypes.STRING,
 			name: DataTypes.TEXT,
+			type: DataTypes.INTEGER,
+			section: DataTypes.INTEGER,
 			answer1: DataTypes.STRING,
 			answer2: DataTypes.STRING,
 			answer3: DataTypes.STRING,
@@ -16,7 +18,6 @@ export default (sequelize, DataTypes) => {
 			answer8: DataTypes.STRING,
 			answer9: DataTypes.STRING,
 			answer10: DataTypes.STRING,
-			type: DataTypes.INTEGER,
 		},
 		{
 			sequelize,

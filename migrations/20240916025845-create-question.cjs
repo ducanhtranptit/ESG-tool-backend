@@ -18,6 +18,9 @@ module.exports = {
 			name: {
 				type: Sequelize.TEXT,
 			},
+			section: {
+				type: Sequelize.INTEGER
+			},
 			answer1: {
 				type: Sequelize.STRING,
 			},

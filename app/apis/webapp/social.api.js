@@ -1,30 +1,30 @@
 import express from "express";
-import SocialController from "../controllers/social.controller.js";
-import verifyTokenMiddleware from "../middlewares/auth/verify-token.middleware.js";
+import SocialController from "../../controllers/social.controller.js";
+import verifyTokenMiddleware from "../../middlewares/auth/verify-token.middleware.js";
 const router = express.Router();
 
 router.get(
-	"/chart-sex-ratio",
+	"/webapp/social/chart-sex-ratio",
 	verifyTokenMiddleware,
 	SocialController.dataSexRatioChart
 );
 router.get(
-	"/chart-training",
+	"/webapp/social/chart-training",
 	verifyTokenMiddleware,
 	SocialController.dataTrainingChart
 );
 router.get(
-	"/chart-salary-change",
+	"/webapp/social/chart-salary-change",
 	verifyTokenMiddleware,
 	SocialController.dataSalaryChangeChart
 );
 router.get(
-	"/chart-risk",
+	"/webapp/social/chart-risk",
 	verifyTokenMiddleware,
 	SocialController.dataRiskChart
 );
 router.get(
-	"/chart-expenditure",
+	"/webapp/social/chart-expenditure",
 	verifyTokenMiddleware,
 	SocialController.dataExpenditureChart
 );

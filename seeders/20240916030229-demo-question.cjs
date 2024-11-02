@@ -9,6 +9,7 @@ module.exports = {
 					questionCode: company.questionCode,
 					topicCode: company.topicCode,
 					name: company.name,
+					section: parseInt(company.section),
 					answer1: company.answer1,
 					answer2: company.answer2,
 					answer3: company.answer3,

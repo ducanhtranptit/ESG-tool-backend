@@ -1,28 +1,34 @@
 import express from "express";
-import UploadApi from "./upload.api.js";
-import ESGReportApi from "./esg-report.js";
-import AuthApi from "./auth.api.js";
-import QuestionApi from "./question.api.js";
-import EnvironmentApi from "./environment.js";
-import SocialApi from "./social.api.js";
-import GovernanceApi from "./governance.api.js";
-import UserApi from "./user.js";
-import DashboardApi from "./dashboard.js";
-import CompanyInforApi from "./companyinfor.js";
-import config from "../../config/config.js";
+
+//Upload Router
+import UploadRouter from "./upload/upload.api.js";
+
+//Auth Router
+import AuthRouter from "./auth/auth.api.js";
+import UserRouter from "./auth/user.api.js";
+
+//Webapp Router
+import ESGReportRouter from "./webapp/esg-report.api.js";
+import QuestionRouter from "./webapp/question.api.js";
+import EnvironmentRouter from "./webapp/environment.api.js";
+import SocialRouter from "./webapp/social.api.js";
+import GovernanceRouter from "./webapp/governance.api.js";
+import DashboardRouter from "./webapp/dashboard.api.js";
+import CompanyInforRouter from "./webapp/companyinfor.api.js";
 
 const router = express.Router();
-const baseUrl = config.baseUrl;
 
-router.use(`${baseUrl}/upload`, UploadApi);
-router.use(`${baseUrl}/esg`, ESGReportApi);
-router.use(`${baseUrl}/auth`, AuthApi);
-router.use(`${baseUrl}/questions`, QuestionApi);
-router.use(`${baseUrl}/environment`, EnvironmentApi);
-router.use(`${baseUrl}/social`, SocialApi);
-router.use(`${baseUrl}/governance`, GovernanceApi);
-router.use(`${baseUrl}/users`, UserApi);
-router.use(`${baseUrl}/dashboard`, DashboardApi);
-router.use(`${baseUrl}/user`, CompanyInforApi);
+router.use("/", UploadRouter);
+
+router.use("/", AuthRouter);
+router.use("/", UserRouter);
+
+router.use("/", ESGReportRouter);
+router.use("/", QuestionRouter);
+router.use("/", EnvironmentRouter);
+router.use("/", SocialRouter);
+router.use("/", GovernanceRouter);
+router.use("/", DashboardRouter);
+router.use("/", CompanyInforRouter);
 
 export default router;
