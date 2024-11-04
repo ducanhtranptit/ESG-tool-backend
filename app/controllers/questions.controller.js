@@ -20,6 +20,18 @@ export default class QuestionController {
 		}
 	}
 
+	static async getAnswersOfYear(req, res) {
+		try {
+			const { section, year } = req.query;
+			const { id: userId } = req.data;
+			const data = await QuestionAction.getAnswersOfYear(userId, section, year)
+			return new SuccessResponse().send(req, res, data);
+		} catch (error) {
+			console.error(error);
+			return new ErrorResponse().send(req, res);
+		}
+	}
+
 	static async addAnswerAndCalculateMetricOfCompany(req, res) {
 		try {
 			const { id: userId } = req.data;
@@ -27,7 +39,6 @@ export default class QuestionController {
 				return new BadRequestResponse().send(req, res);
 			}
 			const { year, answers } = req.body;
-			console.log("answers: ", answers);
 			await QuestionAction.addAnswerAndCalculateMetricOfCompany(
 				userId,
 				year,

@@ -14,4 +14,11 @@ router.post(
 	QuestionController.addAnswerAndCalculateMetricOfCompany
 );
 
+router.get(
+    "/webapp/questions/get-all-answers-of-year/",
+    verifyTokenMiddleware,
+    QuestionController.getAnswersOfYear
+);
+
+
 export default router;

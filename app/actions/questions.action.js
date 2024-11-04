@@ -1,5 +1,6 @@
 import model from "../models/index.js";
 import sections from "../constants/section.constant.js";
+import { raw } from "mysql2";
 export default class QuestionAction {
 	static async calculateMetric(measurementMethod, dictionary) {
 		const regex = /AS\d+/g;
@@ -80,7 +81,7 @@ export default class QuestionAction {
 
 		return questionsWithAnswerGuide;
 	}
-	
+
 	static async addAnswerAndCalculateMetricOfCompany(userId, year, answers) {
 		const userInfor = await model.User.findOne({
 			where: {
@@ -198,5 +199,75 @@ export default class QuestionAction {
 				});
 			}
 		}
+	}
+
+	static async getAnswersOfYear(userId, section, year) {
+		const sectionId = sections[section];
+		if (!sectionId) {
+			throw new Error("Invalid section name provided.");
+		}
+		const userInfor = await model.User.findOne({
+			where: {
+				id: userId,
+			},
+		});
+		const companyId = userInfor.dataValues.companyId;
+		const companyInfor = await model.Company.findOne({
+			where: {
+				id: companyId,
+			},
+			attributes: ["companyCode"],
+			raw: true,
+		});
+		const companyCode = companyInfor.companyCode;
+
+		const questions = await model.Question.findAll({
+			where: {
+				section: sectionId,
+			},
+			attributes: ["questionCode", "type"],
+			raw: true,
+		});
+
+		let result = [];
+
+		for (const question of questions) {
+			const questionCode = question.questionCode;
+			const questionType = question.type;
+			let answerValue = await model.Answer.findOne({
+				where: {
+					questionCode: questionCode,
+					year: year,
+					companyCode: companyCode,
+				},
+				attributes: ["answer"],
+				raw: true,
+			});
+			if (answerValue) {
+				if (questionType === 1 || questionType === 2) {
+					answerValue = await model.Dummy.findOne({
+						where: {
+							questionCode: questionCode,
+							dummy: answerValue.answer,
+						},
+						attributes: ["answer"],
+						raw: true,
+						// logging: console.log,
+					});
+				}
+				result.push({
+					questionCode: questionCode,
+					questionType: questionType,
+					answer: answerValue.answer,
+				});
+			} else {
+				result.push({
+					questionCode: questionCode,
+					questionType: questionType,
+					answer: null,
+				});
+			}
+		}
+		return result;
 	}
 }
