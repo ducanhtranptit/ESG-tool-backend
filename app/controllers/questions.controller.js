@@ -24,7 +24,11 @@ export default class QuestionController {
 		try {
 			const { section, year } = req.query;
 			const { id: userId } = req.data;
-			const data = await QuestionAction.getAnswersOfYear(userId, section, year)
+			const data = await QuestionAction.getAnswersOfYear(
+				userId,
+				section,
+				year
+			);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
@@ -38,13 +42,24 @@ export default class QuestionController {
 			if (!userId) {
 				return new BadRequestResponse().send(req, res);
 			}
-			const { year, answers } = req.body;
+			const { year, answers, section } = req.body;
 			await QuestionAction.addAnswerAndCalculateMetricOfCompany(
 				userId,
 				year,
-				answers
+				answers,
+				section
 			);
 			return new SuccessResponse().send(req, res);
+		} catch (error) {
+			console.error(error);
+			return new ErrorResponse().send(req, res);
+		}
+	}
+
+	static async findAllSubmitCountOfSection(req, res) {
+		try {
+			const data = await QuestionAction.findAllSubmitCountOfSection();
+			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
 			return new ErrorResponse().send(req, res);

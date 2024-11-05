@@ -9,7 +9,6 @@ export default class QuestionAction {
 		if (!matches) {
 			return null;
 		}
-
 		let evalString = measurementMethod;
 		for (let code of matches) {
 			const entry = dictionary.find((item) => item.questionCode === code);
@@ -31,7 +30,6 @@ export default class QuestionAction {
 			throw new Error("Invalid section name provided.");
 		}
 
-		// Truy vấn tất cả câu hỏi trong section tương ứng
 		const questions = await model.Question.findAll({
 			where: {
 				section: sectionId,
@@ -55,10 +53,8 @@ export default class QuestionAction {
 			raw: true,
 		});
 
-		// Lấy danh sách topicCode duy nhất từ các câu hỏi để truy vấn bảng Topic
 		const topicCodes = [...new Set(questions.map((q) => q.topicCode))];
 
-		// Truy vấn bảng Topic để lấy answerGuide cho mỗi topicCode
 		const topics = await model.Topic.findAll({
 			where: {
 				topicCode: topicCodes,
@@ -67,13 +63,11 @@ export default class QuestionAction {
 			raw: true,
 		});
 
-		// Tạo một map để tra cứu nhanh answerGuide theo topicCode
 		const topicMap = topics.reduce((map, topic) => {
 			map[topic.topicCode] = topic.answerGuide;
 			return map;
 		}, {});
 
-		// Gán answerGuide vào từng câu hỏi
 		const questionsWithAnswerGuide = questions.map((question) => ({
 			...question,
 			answerGuide: topicMap[question.topicCode] || null,
@@ -82,7 +76,12 @@ export default class QuestionAction {
 		return questionsWithAnswerGuide;
 	}
 
-	static async addAnswerAndCalculateMetricOfCompany(userId, year, answers) {
+	static async addAnswerAndCalculateMetricOfCompany(
+		userId,
+		year,
+		answers,
+		sectionName
+	) {
 		const userInfor = await model.User.findOne({
 			where: {
 				id: userId,
@@ -157,13 +156,21 @@ export default class QuestionAction {
 			},
 			attributes: ["criteriaId", "criteriaCode", "measurementMethod"],
 		});
+		const answerOfCompany = await model.Answer.findAll({
+			where: {
+				companyCode: companyCode,
+				year: year,
+			},
+			attributes: ["questionCode", "answer"],
+			raw: true,
+		});
+		console.log("answerOfCompany: ", answerOfCompany);
 		for (let criteria of criterias) {
 			const { criteriaId, criteriaCode, measurementMethod } = criteria;
 			const metric = await QuestionAction.calculateMetric(
 				measurementMethod,
-				answers
+				answerOfCompany
 			);
-
 			const existingMetric = await model.CompanyMetric.findOne({
 				where: {
 					companyCode,
@@ -199,6 +206,14 @@ export default class QuestionAction {
 				});
 			}
 		}
+		await model.Section.increment(
+			{ submitCount: 1 },
+			{
+				where: {
+					sectionName: sectionName,
+				},
+			}
+		);
 	}
 
 	static async getAnswersOfYear(userId, section, year) {
@@ -268,6 +283,14 @@ export default class QuestionAction {
 				});
 			}
 		}
+		return result;
+	}
+
+	static async findAllSubmitCountOfSection() {
+		const result = await model.Section.findAll({
+			attributes: ["sectionName", "submitCount"],
+			raw: true,
+		});
 		return result;
 	}
 }

@@ -15,10 +15,15 @@ router.post(
 );
 
 router.get(
-    "/webapp/questions/get-all-answers-of-year/",
-    verifyTokenMiddleware,
-    QuestionController.getAnswersOfYear
+	"/webapp/questions/get-all-answers-of-year/",
+	verifyTokenMiddleware,
+	QuestionController.getAnswersOfYear
 );
 
+router.get(
+	"/webapp/questions/get-all-submitcount-of-section/",
+	verifyTokenMiddleware,
+	QuestionController.findAllSubmitCountOfSection
+);
 
 export default router;
