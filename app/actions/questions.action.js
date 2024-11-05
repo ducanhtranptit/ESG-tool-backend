@@ -1,6 +1,5 @@
 import model from "../models/index.js";
 import sections from "../constants/section.constant.js";
-import { raw } from "mysql2";
 export default class QuestionAction {
 	static async calculateMetric(measurementMethod, dictionary) {
 		const regex = /AS\d+/g;
@@ -21,6 +20,7 @@ export default class QuestionAction {
 			);
 		}
 		const result = eval(evalString);
+		if (result === Infinity) return null;
 		return isNaN(result) ? null : result;
 	}
 
@@ -178,7 +178,6 @@ export default class QuestionAction {
 					criteriaId,
 				},
 			});
-
 			if (existingMetric) {
 				await model.CompanyMetric.update(
 					{
