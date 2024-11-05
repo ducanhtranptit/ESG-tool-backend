@@ -164,7 +164,6 @@ export default class QuestionAction {
 			attributes: ["questionCode", "answer"],
 			raw: true,
 		});
-		console.log("answerOfCompany: ", answerOfCompany);
 		for (let criteria of criterias) {
 			const { criteriaId, criteriaCode, measurementMethod } = criteria;
 			const metric = await QuestionAction.calculateMetric(
@@ -288,7 +287,7 @@ export default class QuestionAction {
 
 	static async findAllSubmitCountOfSection() {
 		const result = await model.Section.findAll({
-			attributes: ["sectionName", "submitCount"],
+			attributes: ["sectionName", "submitCount", "updatedAt"],
 			raw: true,
 		});
 		return result;
