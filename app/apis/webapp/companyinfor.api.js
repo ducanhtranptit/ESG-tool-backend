@@ -10,6 +10,7 @@ router.get(
 );
 router.post(
 	"/webapp/user/update-company-infor",
+	verifyTokenMiddleware,
 	CompanyInfoController.updateCompanyInfor
 );
 

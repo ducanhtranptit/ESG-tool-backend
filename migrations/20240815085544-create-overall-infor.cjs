@@ -12,6 +12,9 @@ module.exports = {
 			companyName: {
 				type: Sequelize.STRING,
 			},
+			userId: {
+				type: Sequelize.INTEGER,
+			},
 			dateFounder: {
 				type: Sequelize.INTEGER,
 			},
@@ -29,18 +32,6 @@ module.exports = {
 			},
 			companyDescription: {
 				type: Sequelize.TEXT,
-			},
-			totalRevenue: {
-				type: Sequelize.INTEGER,
-			},
-			netIncome: {
-				type: Sequelize.INTEGER,
-			},
-			fullTimeEmployee: {
-				type: Sequelize.INTEGER,
-			},
-			partTimeEmployee: {
-				type: Sequelize.INTEGER,
 			},
 			contactInformation: {
 				type: Sequelize.TEXT,

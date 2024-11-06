@@ -8,10 +8,10 @@ import {
 export default class CompanyInfoController {
 	static async getAllCompanyInfors(req, res) {
 		try {
-			const id = req?.data?.id;
-			if (!id) return new BadRequestResponse().send(req, res);
+			const userId = req?.data?.id;
+			if (!userId) return new BadRequestResponse().send(req, res);
 			const data = await CompanyInfoAction.getAllCompanyInfors(
-				parseInt(id)
+				parseInt(userId)
 			);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
@@ -21,8 +21,9 @@ export default class CompanyInfoController {
 	}
 
 	static async updateCompanyInfor(req, res) {
-		const id = req?.data?.id;
-		if (!id) return new BadRequestResponse().send(req, res);
+		const { id: userId } = req.data;
+		if (!userId) return new BadRequestResponse().send(req, res);
+		console.log('userId: ', userId);
 		const data = req.body;
 		const overallInfor = {
 			companyName: data.companyName,
@@ -32,19 +33,15 @@ export default class CompanyInfoController {
 			companyWebsite: data.companyWebsite,
 			companySector: data.companySector,
 			companyDescription: data.companyDescription,
-			totalRevenue: data.totalRevenue,
-			netIncome: data.netIncome,
-			fullTimeEmployees: data.fullTimeEmployees,
-			partTimeEmployees: data.partTimeEmployees,
 			contactInformation: data.contactInformation,
 		};
 		const siteInfors = data.siteInformation;
 		const productInfors = data.productInformation;
-		await CompanyInfoAction.createCompanyInfor(
+		await CompanyInfoAction.updateCompanyInfor(
 			overallInfor,
 			siteInfors,
 			productInfors,
-			id
+			userId
 		);
 		return new SuccessResponse().send(req, res);
 	}

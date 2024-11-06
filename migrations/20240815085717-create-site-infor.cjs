@@ -9,14 +9,8 @@ module.exports = {
 				primaryKey: true,
 				type: Sequelize.INTEGER,
 			},
-			companyId: {
+			overallInforId: {
 				type: Sequelize.INTEGER,
-				references: {
-					model: {
-						tableName: "OverallInfors",
-					},
-					key: "id",
-				},
 			},
 			siteName: {
 				type: Sequelize.STRING,

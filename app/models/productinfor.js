@@ -2,13 +2,11 @@ import { Model } from "sequelize";
 export default (sequelize, DataTypes) => {
 	class ProductInfor extends Model {
 		static associate(models) {
-			ProductInfor.belongsTo(models.OverallInfor, { foreignKey: "companyId" });
-			ProductInfor.belongsTo(models.ProductType, { foreignKey: "productType" });
 		}
 	}
 	ProductInfor.init(
 		{
-			companyId: DataTypes.NUMBER,
+			overallInforId: DataTypes.NUMBER,
 			productType: DataTypes.INTEGER,
 			productName: DataTypes.STRING,
 			revenue: DataTypes.NUMBER,

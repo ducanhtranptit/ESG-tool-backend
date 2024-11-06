@@ -5,50 +5,45 @@ module.exports = {
 	async up(queryInterface, Sequelize) {
 		// Add seed commands here.
 		await queryInterface.bulkInsert(
-			"ProductInfors",
+			"SiteInfors",
 			[
 				{
-					companyId: 1,
-					productType: 1,
-					productName: "Washing machines",
-					revenue: 3000000,
-					comment: "Includes 15 similar models",
+					overallInforId: 1,
+					siteName: "Jonesville plant",
+					numberEmployees: 3000,
+					comment: "Manufacturing plant",
 					createdAt: new Date(),
 					updatedAt: new Date(),
 				},
 				{
-					companyId: 1,
-					productType: 1,
-					productName: "Dryers",
-					revenue: 2000000,
-					comment: "Includes 10 similar models",
+					overallInforId: 1,
+					siteName: "Smithtown warehouse",
+					numberEmployees: 100,
+					comment: "Warehouse",
 					createdAt: new Date(),
 					updatedAt: new Date(),
 				},
 				{
-					companyId: 1,
-					productType: 2,
-					productName: "Instruction manuals",
-					revenue: 1500,
-					comment: "Included with all washers and dryers",
+					overallInforId: 1,
+					siteName: "Brocktown office",
+					numberEmployees: 200,
+					comment: "Branch office",
 					createdAt: new Date(),
 					updatedAt: new Date(),
 				},
 				{
-					companyId: 1,
-					productType: 3,
-					productName: "Wooden pallets",
-					revenue: 500,
-					comment: "Reused",
+					overallInforId: 1,
+					siteName: "Edenville office",
+					numberEmployees: 300,
+					comment: "Branch office",
 					createdAt: new Date(),
 					updatedAt: new Date(),
 				},
 				{
-					companyId: 1,
-					productType: 4,
-					productName: "Maintenance",
-					revenue: 1000000,
-					comment: "",
+					overallInforId: 1,
+					siteName: "HQ",
+					numberEmployees: 500,
+					comment: "Headquarters executives and staff",
 					createdAt: new Date(),
 					updatedAt: new Date(),
 				},
@@ -58,7 +53,6 @@ module.exports = {
 	},
 
 	async down(queryInterface, Sequelize) {
-		// Add commands to revert seed here.
-		await queryInterface.bulkDelete("ProductInfors", null, {});
+		await queryInterface.bulkDelete("SiteInfors", null, {});
 	},
 };
