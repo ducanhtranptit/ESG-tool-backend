@@ -14,6 +14,7 @@ module.exports = {
 			},
 			userId: {
 				type: Sequelize.INTEGER,
+				unique: true,
 			},
 			dateFounder: {
 				type: Sequelize.INTEGER,

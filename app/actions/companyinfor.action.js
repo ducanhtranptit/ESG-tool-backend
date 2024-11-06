@@ -59,10 +59,10 @@ export default class CompanyInfoAction {
 			raw: true,
 		});
 
+		await model.SiteInfor.destroy({
+			where: { overallInforId: updatedCompany.id },
+		});
 		if (siteInfors && siteInfors.length > 0) {
-			await model.SiteInfor.destroy({
-				where: { overallInforId: updatedCompany.id },
-			});
 			for (let site of siteInfors) {
 				await model.SiteInfor.create({
 					overallInforId: updatedCompany.id,
@@ -72,11 +72,11 @@ export default class CompanyInfoAction {
 				});
 			}
 		}
-
+		
+		await model.ProductInfor.destroy({
+			where: { overallInforId: updatedCompany.id },
+		});
 		if (productInfors && productInfors.length > 0) {
-			await model.ProductInfor.destroy({
-				where: { overallInforId: updatedCompany.id },
-			});
 			for (let product of productInfors) {
 				await model.ProductInfor.create({
 					overallInforId: updatedCompany.id,

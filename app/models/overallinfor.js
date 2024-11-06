@@ -6,7 +6,10 @@ export default (sequelize, DataTypes) => {
 	OverallInfor.init(
 		{
 			companyName: DataTypes.STRING,
-			userId: DataTypes.INTEGER,
+			userId: {
+				type: DataTypes.INTEGER,
+				unique: true,
+			},
 			dateFounder: DataTypes.INTEGER,
 			mainAddress: DataTypes.STRING,
 			mainPhoneNumber: DataTypes.STRING,
