@@ -1,5 +1,6 @@
 import model from "../models/index.js";
 import sections from "../constants/section.constant.js";
+import { where } from "sequelize";
 export default class QuestionAction {
 	static async calculateMetric(measurementMethod, dictionary) {
 		const regex = /AS\d+/g;
@@ -204,10 +205,11 @@ export default class QuestionAction {
 				});
 			}
 		}
-		await model.Section.increment(
+		await model.UserSection.increment(
 			{ submitCount: 1 },
 			{
 				where: {
+					userId: userId,
 					sectionName: sectionName,
 				},
 			}
@@ -284,11 +286,28 @@ export default class QuestionAction {
 		return result;
 	}
 
-	static async findAllSubmitCountOfSection() {
-		const result = await model.Section.findAll({
+	static async findAllSubmitCountOfSection(userId) {
+		const result = await model.UserSection.findAll({
+			where: { userId: userId },
 			attributes: ["sectionName", "submitCount", "updatedAt"],
 			raw: true,
 		});
+		if (result.length === 0) {
+			const newRecords = [];
+			for (const sectionName of Object.keys(sections)) {
+				const newRecord = await model.UserSection.create({
+					userId: userId,
+					sectionName: sectionName,
+					sectionId: sections[sectionName],
+					submitCount: 0,
+					createdAt: new Date(),
+					updatedAt: new Date(),
+				});
+				newRecords.push(newRecord);
+			}
+			return newRecords;
+		}
+
 		return result;
 	}
 }

@@ -58,7 +58,8 @@ export default class QuestionController {
 
 	static async findAllSubmitCountOfSection(req, res) {
 		try {
-			const data = await QuestionAction.findAllSubmitCountOfSection();
+			const { id: userId } = req.data;
+			const data = await QuestionAction.findAllSubmitCountOfSection(userId);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);

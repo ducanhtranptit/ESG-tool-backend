@@ -72,7 +72,7 @@ export default class CompanyInfoAction {
 				});
 			}
 		}
-		
+
 		await model.ProductInfor.destroy({
 			where: { overallInforId: updatedCompany.id },
 		});
