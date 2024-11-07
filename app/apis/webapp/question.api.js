@@ -4,7 +4,7 @@ import verifyTokenMiddleware from "../../middlewares/auth/verify-token.middlewar
 const router = express.Router();
 
 router.get(
-	"/webapp/questions/get-all-topics-and-questions/:section",
+	"/webapp/questions/get-all-topics-and-questions",
 	verifyTokenMiddleware,
 	QuestionController.getAllTopicsAndQuestions
 );

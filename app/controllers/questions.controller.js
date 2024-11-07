@@ -8,7 +8,7 @@ import {
 export default class QuestionController {
 	static async getAllTopicsAndQuestions(req, res) {
 		try {
-			const { section } = req.params;
+			const { section, lang } = req.query;
 			if (!section) {
 				throw new BadRequestResponse().send(req, res);
 			}
@@ -43,6 +43,8 @@ export default class QuestionController {
 				return new BadRequestResponse().send(req, res);
 			}
 			const { year, answers, section } = req.body;
+			const { lang } = req.query;
+			console.log('lang: ', lang);
 			await QuestionAction.addAnswerAndCalculateMetricOfCompany(
 				userId,
 				year,
@@ -59,7 +61,9 @@ export default class QuestionController {
 	static async findAllSubmitCountOfSection(req, res) {
 		try {
 			const { id: userId } = req.data;
-			const data = await QuestionAction.findAllSubmitCountOfSection(userId);
+			const data = await QuestionAction.findAllSubmitCountOfSection(
+				userId
+			);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);

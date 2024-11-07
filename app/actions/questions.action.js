@@ -28,7 +28,7 @@ export default class QuestionAction {
 	static async getAllTopicsAndQuestions(sectionName) {
 		const sectionId = sections[sectionName];
 		if (!sectionId) {
-			throw new Error("Invalid section name provided.");
+			return null;
 		}
 
 		const questions = await model.Question.findAll({
