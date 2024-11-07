@@ -25,7 +25,7 @@ export default class QuestionAction {
 		return isNaN(result) ? null : result;
 	}
 
-	static async getAllTopicsAndQuestions(sectionName) {
+	static async getAllTopicsAndQuestions(sectionName, lang) {
 		const sectionId = sections[sectionName];
 		if (!sectionId) {
 			return null;
@@ -34,6 +34,7 @@ export default class QuestionAction {
 		const questions = await model.Question.findAll({
 			where: {
 				section: sectionId,
+				language: lang,
 			},
 			attributes: [
 				"topicCode",
@@ -59,6 +60,7 @@ export default class QuestionAction {
 		const topics = await model.Topic.findAll({
 			where: {
 				topicCode: topicCodes,
+				language: lang,
 			},
 			attributes: ["topicCode", "answerGuide"],
 			raw: true,
@@ -216,7 +218,7 @@ export default class QuestionAction {
 		);
 	}
 
-	static async getAnswersOfYear(userId, section, year) {
+	static async getAnswersOfYear(userId, section, year, lang) {
 		const sectionId = sections[section];
 		if (!sectionId) {
 			throw new Error("Invalid section name provided.");
@@ -239,6 +241,7 @@ export default class QuestionAction {
 		const questions = await model.Question.findAll({
 			where: {
 				section: sectionId,
+				language: lang,
 			},
 			attributes: ["questionCode", "type"],
 			raw: true,
@@ -258,18 +261,23 @@ export default class QuestionAction {
 				attributes: ["answer"],
 				raw: true,
 			});
+			console.log("questionCode: ", questionCode);
+			console.log("answerValue: ", answerValue);
 			if (answerValue) {
 				if (questionType === 1 || questionType === 2) {
 					answerValue = await model.Dummy.findOne({
 						where: {
 							questionCode: questionCode,
 							dummy: answerValue.answer,
+							language: lang,
 						},
 						attributes: ["answer"],
 						raw: true,
 						// logging: console.log,
 					});
 				}
+				console.log("answerValue-after: ", answerValue);
+				console.log("--------------------------------------");
 				result.push({
 					questionCode: questionCode,
 					questionType: questionType,

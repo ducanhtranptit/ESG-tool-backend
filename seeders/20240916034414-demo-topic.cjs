@@ -7,6 +7,7 @@ module.exports = {
 			dummyData.map((company) => {
 				return {
 					topicCode: company.topicCode,
+					language: company.language,
 					name: company.name,
 					answerGuide: company.answerGuide,
 					createdAt: new Date(),

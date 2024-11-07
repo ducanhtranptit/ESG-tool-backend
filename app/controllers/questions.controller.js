@@ -12,7 +12,7 @@ export default class QuestionController {
 			if (!section) {
 				throw new BadRequestResponse().send(req, res);
 			}
-			const data = await QuestionAction.getAllTopicsAndQuestions(section);
+			const data = await QuestionAction.getAllTopicsAndQuestions(section, lang);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
@@ -22,12 +22,13 @@ export default class QuestionController {
 
 	static async getAnswersOfYear(req, res) {
 		try {
-			const { section, year } = req.query;
+			const { section, year, lang } = req.query;
 			const { id: userId } = req.data;
 			const data = await QuestionAction.getAnswersOfYear(
 				userId,
 				section,
-				year
+				year,
+				lang
 			);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
@@ -44,7 +45,6 @@ export default class QuestionController {
 			}
 			const { year, answers, section } = req.body;
 			const { lang } = req.query;
-			console.log('lang: ', lang);
 			await QuestionAction.addAnswerAndCalculateMetricOfCompany(
 				userId,
 				year,

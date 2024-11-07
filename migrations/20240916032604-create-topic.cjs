@@ -12,6 +12,9 @@ module.exports = {
 			topicCode: {
 				type: Sequelize.STRING,
 			},
+			language: {
+				type: Sequelize.STRING,
+			},
 			name: {
 				type: Sequelize.TEXT,
 			},

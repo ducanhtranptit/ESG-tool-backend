@@ -18,8 +18,11 @@ module.exports = {
 			name: {
 				type: Sequelize.TEXT,
 			},
+			language: {
+				type: Sequelize.STRING,
+			},
 			section: {
-				type: Sequelize.INTEGER
+				type: Sequelize.INTEGER,
 			},
 			answer1: {
 				type: Sequelize.STRING,

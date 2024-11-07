@@ -10,6 +10,7 @@ module.exports = {
 					topicCode: company.topicCode,
 					name: company.name,
 					section: parseInt(company.section),
+					language: company.language,
 					answer1: company.answer1,
 					answer2: company.answer2,
 					answer3: company.answer3,

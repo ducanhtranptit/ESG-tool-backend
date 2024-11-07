@@ -9,6 +9,7 @@ module.exports = {
 					questionCode: company.questionCode,
 					answer: company.answer,
 					dummy: parseFloat(company.dummy),
+					language: company.language,
 					createdAt: new Date(),
 					updatedAt: new Date(),
 				};

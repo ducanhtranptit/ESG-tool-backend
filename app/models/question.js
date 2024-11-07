@@ -7,6 +7,7 @@ export default (sequelize, DataTypes) => {
 			topicCode: DataTypes.STRING,
 			name: DataTypes.TEXT,
 			type: DataTypes.INTEGER,
+			language: DataTypes.STRING,
 			section: DataTypes.INTEGER,
 			answer1: DataTypes.STRING,
 			answer2: DataTypes.STRING,

@@ -4,6 +4,7 @@ export default (sequelize, DataTypes) => {
 	Topic.init(
 		{
 			topicCode: DataTypes.STRING,
+			language: DataTypes.STRING,
 			name: DataTypes.TEXT,
 			answerGuide: DataTypes.TEXT,
 		},
