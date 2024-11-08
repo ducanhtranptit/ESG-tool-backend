@@ -262,26 +262,25 @@ export default class QuestionAction {
 				raw: true,
 			});
 			console.log("questionCode: ", questionCode);
+			console.log('questionType: ', questionType);
 			console.log("answerValue: ", answerValue);
-			if (answerValue) {
+			if (answerValue !== null && answerValue.answer !== null) {
 				if (questionType === 1 || questionType === 2) {
 					answerValue = await model.Dummy.findOne({
 						where: {
 							questionCode: questionCode,
 							dummy: answerValue.answer,
-							language: lang,
 						},
 						attributes: ["answer"],
 						raw: true,
 						// logging: console.log,
 					});
+					console.log("answerValue-after: ", answerValue);
 				}
-				console.log("answerValue-after: ", answerValue);
-				console.log("--------------------------------------");
 				result.push({
 					questionCode: questionCode,
 					questionType: questionType,
-					answer: answerValue.answer,
+					answer: parseInt(answerValue.answer),
 				});
 			} else {
 				result.push({
@@ -290,7 +289,9 @@ export default class QuestionAction {
 					answer: null,
 				});
 			}
+			console.log("--------------------------------------");
 		}
+		console.log('result: ', result);
 		return result;
 	}
 

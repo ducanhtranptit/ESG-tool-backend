@@ -6,7 +6,6 @@ export default (sequelize, DataTypes) => {
 			questionCode: DataTypes.STRING,
 			answer: DataTypes.STRING,
 			dummy: DataTypes.FLOAT,
-			language: DataTypes.STRING,
 		},
 		{
 			sequelize,

@@ -49,7 +49,8 @@ export default class QuestionController {
 				userId,
 				year,
 				answers,
-				section
+				section,
+				lang
 			);
 			return new SuccessResponse().send(req, res);
 		} catch (error) {
