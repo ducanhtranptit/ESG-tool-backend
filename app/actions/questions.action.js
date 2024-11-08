@@ -262,7 +262,7 @@ export default class QuestionAction {
 				raw: true,
 			});
 			console.log("questionCode: ", questionCode);
-			console.log('questionType: ', questionType);
+			console.log("questionType: ", questionType);
 			console.log("answerValue: ", answerValue);
 			if (answerValue !== null && answerValue.answer !== null) {
 				if (questionType === 1 || questionType === 2) {
@@ -280,7 +280,7 @@ export default class QuestionAction {
 				result.push({
 					questionCode: questionCode,
 					questionType: questionType,
-					answer: parseInt(answerValue.answer),
+					answer: parseFloat(answerValue.answer),
 				});
 			} else {
 				result.push({
@@ -291,7 +291,7 @@ export default class QuestionAction {
 			}
 			console.log("--------------------------------------");
 		}
-		console.log('result: ', result);
+		console.log("result: ", result);
 		return result;
 	}
 
