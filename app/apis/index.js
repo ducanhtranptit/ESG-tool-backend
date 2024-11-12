@@ -16,6 +16,9 @@ import GovernanceRouter from "./webapp/governance.api.js";
 import DashboardRouter from "./webapp/dashboard.api.js";
 import CompanyInforRouter from "./webapp/companyinfor.api.js";
 
+//Admin Router
+import AccountRouter from "./admin/account.api.js";
+
 const router = express.Router();
 
 router.use("/", UploadRouter);
@@ -30,5 +33,7 @@ router.use("/", SocialRouter);
 router.use("/", GovernanceRouter);
 router.use("/", DashboardRouter);
 router.use("/", CompanyInforRouter);
+
+router.use("/", AccountRouter);
 
 export default router;

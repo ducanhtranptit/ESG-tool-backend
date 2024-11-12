@@ -3,6 +3,28 @@ import config from "../../config/config.js";
 import model from "../models/index.js";
 
 export default class UserActions {
+	static async findAll() {
+		const users = await model.User.findAll({
+			attibutes: ["username", "companyId"],
+			raw: true,
+		});
+		const result = [];
+
+		for (const user of users) {
+			const company = await model.Company.findOne({
+				where: {
+					id: user.companyId,
+				},
+			});
+
+			result.push({
+				username: user.username,
+				company: company.companyCode,
+			});
+		}
+
+		return result;
+	}
 	static async getProfile(id) {
 		const user = await model.User.findByPk(id);
 		if (!user) {
