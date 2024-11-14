@@ -3,7 +3,7 @@ import config from "../../../config/config.js";
 import { verifyToken } from "../../utils/jwt.js";
 import model from "../../models/index.js";
 
-const verifyTokenMiddleware = async (req, res, next) => {
+const adminVerifyTokenMiddleware = async (req, res, next) => {
 	try {
 		const authorizationHeader = req.headers["authorization"];
 		if (
@@ -38,8 +38,8 @@ const verifyTokenMiddleware = async (req, res, next) => {
 			raw: true,
 		});
 
-		if (user.type !== 1) {
-			console.log('user.type : ', user.type );
+		if (user.type !== 2) {
+			console.log("user.type : ", user.type);
 			return new UnauthorizedResponse().send(req, res);
 		}
 
@@ -51,4 +51,4 @@ const verifyTokenMiddleware = async (req, res, next) => {
 	}
 };
 
-export default verifyTokenMiddleware;
+export default adminVerifyTokenMiddleware;

@@ -31,6 +31,14 @@ module.exports = {
 				createdAt: new Date(),
 				updatedAt: new Date(),
 			},
+			{
+				username: "admin",
+				password:
+					"$2a$12$1jdG.VUzaeDBJrda.BGo8eH4C.tWTzaclbO0KWS5UDoMSfwsSGY6W",
+				type: 2,
+				createdAt: new Date(),
+				updatedAt: new Date(),
+			},
 		]);
 	},
 

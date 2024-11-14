@@ -5,10 +5,11 @@ export default class GovernanceController {
 	static async dataSexRatioChart(req, res) {
 		try {
 			const { id: userId } = req.data;
-			if (!userId) {
+			const { lang } = req.query;
+			if (!userId || !lang) {
 				return new BadRequestResponse().send(req, res);
 			}
-			const data = await GovernanceAction.dataSexRatioChart(userId);
+			const data = await GovernanceAction.dataSexRatioChart(userId, lang);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
@@ -18,10 +19,11 @@ export default class GovernanceController {
 	static async dataSupplierRatioChart(req, res) {
 		try {
 			const { id: userId } = req.data;
-			if (!userId) {
+			const { lang } = req.query;
+			if (!userId || !lang) {
 				return new BadRequestResponse().send(req, res);
 			}
-			const data = await GovernanceAction.dataSupplierRatioChart(userId);
+			const data = await GovernanceAction.dataSupplierRatioChart(userId, lang);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
@@ -31,10 +33,11 @@ export default class GovernanceController {
 	static async dataViolateChart(req, res) {
 		try {
 			const { id: userId } = req.data;
-			if (!userId) {
+			const { lang } = req.query;
+			if (!userId || !lang) {
 				return new BadRequestResponse().send(req, res);
 			}
-			const data = await GovernanceAction.dataViolateChart(userId);
+			const data = await GovernanceAction.dataViolateChart(userId, lang);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);

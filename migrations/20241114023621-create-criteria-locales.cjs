@@ -2,21 +2,21 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
 	async up(queryInterface, Sequelize) {
-		await queryInterface.createTable("BlackLists", {
+		await queryInterface.createTable("CriteriaLocales", {
 			id: {
 				allowNull: false,
 				autoIncrement: true,
 				primaryKey: true,
 				type: Sequelize.INTEGER,
 			},
-			token: {
-				type: Sequelize.STRING,
-			},
-			expiresIn: {
-				type: Sequelize.BIGINT,
-			},
-			userId: {
+			criteriaCode: {
 				type: Sequelize.INTEGER,
+			},
+			name: {
+				type: Sequelize.TEXT,
+			},
+			language: {
+				type: Sequelize.STRING,
 			},
 			createdAt: {
 				allowNull: false,
@@ -29,6 +29,6 @@ module.exports = {
 		});
 	},
 	async down(queryInterface, Sequelize) {
-		await queryInterface.dropTable("BlackLists");
+		await queryInterface.dropTable("CriteriaLocales");
 	},
 };

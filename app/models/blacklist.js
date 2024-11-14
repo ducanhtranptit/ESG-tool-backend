@@ -6,7 +6,7 @@ export default (sequelize, DataTypes) => {
 	BlackList.init(
 		{
 			token: DataTypes.STRING,
-			expiresIn: DataTypes.INTEGER,
+			expiresIn: DataTypes.BIGINT,
 			userId: DataTypes.INTEGER,
 		},
 		{

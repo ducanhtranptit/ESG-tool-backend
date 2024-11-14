@@ -5,10 +5,11 @@ export default class SocialController {
 	static async dataSexRatioChart(req, res) {
 		try {
 			const { id: userId } = req.data;
-			if (!userId) {
+			const { lang } = req.query;
+			if (!userId || !lang) {
 				return new BadRequestResponse().send(req, res);
 			}
-			const data = await SocialAction.dataSexRatioChart(userId);
+			const data = await SocialAction.dataSexRatioChart(userId, lang);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
@@ -18,10 +19,11 @@ export default class SocialController {
 	static async dataTrainingChart(req, res) {
 		try {
 			const { id: userId } = req.data;
-			if (!userId) {
+			const { lang } = req.query;
+			if (!userId || !lang) {
 				return new BadRequestResponse().send(req, res);
 			}
-			const data = await SocialAction.dataTrainingChart(userId);
+			const data = await SocialAction.dataTrainingChart(userId, lang);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
@@ -31,10 +33,11 @@ export default class SocialController {
 	static async dataSalaryChangeChart(req, res) {
 		try {
 			const { id: userId } = req.data;
-			if (!userId) {
+			const { lang } = req.query;
+			if (!userId || !lang) {
 				return new BadRequestResponse().send(req, res);
 			}
-			const data = await SocialAction.dataSalaryChangeChart(userId);
+			const data = await SocialAction.dataSalaryChangeChart(userId, lang);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
@@ -44,10 +47,11 @@ export default class SocialController {
 	static async dataRiskChart(req, res) {
 		try {
 			const { id: userId } = req.data;
-			if (!userId) {
+			const { lang } = req.query;
+			if (!userId || !lang) {
 				return new BadRequestResponse().send(req, res);
 			}
-			const data = await SocialAction.dataRiskChart(userId);
+			const data = await SocialAction.dataRiskChart(userId, lang);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
@@ -57,10 +61,11 @@ export default class SocialController {
 	static async dataExpenditureChart(req, res) {
 		try {
 			const { id: userId } = req.data;
-			if (!userId) {
+			const { lang } = req.query;
+			if (!userId || !lang) {
 				return new BadRequestResponse().send(req, res);
 			}
-			const data = await SocialAction.dataExpenditureChart(userId);
+			const data = await SocialAction.dataExpenditureChart(userId, lang);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);

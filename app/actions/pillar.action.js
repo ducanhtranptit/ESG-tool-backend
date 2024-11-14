@@ -1,6 +1,6 @@
 import model from "../models/index.js";
 export default class PillarActions {
-	static async dataForChart(userId, pillarId, itemId) {
+	static async dataForChart(userId, pillarId, itemId, lang) {
 		const userInfor = await model.User.findOne({
 			where: {
 				id: userId,
@@ -28,7 +28,7 @@ export default class PillarActions {
 				pillarId: pillarId,
 				applicableIndustryCode: companyInfor.industryCodeLevel2,
 			},
-			attributes: ["criteriaId", "pillarId", "name"],
+			attributes: ["criteriaId", "criteriaCode", "pillarId", "name"],
 			raw: true,
 		});
 		const result = [];
@@ -47,9 +47,18 @@ export default class PillarActions {
 			);
 			const IChart = criteriaItem ? criteriaItem.IChart : null;
 
+			const criteriaLocale = await model.CriteriaLocale.findOne({
+				where: {
+					criteriaCode: criteria.criteriaCode,
+					language: lang
+				},
+				raw: true,
+			});
+			console.log("CriteriaLocale: ", criteriaLocale);
+
 			result.push({
 				criteriaId: criteria.criteriaId,
-				name: criteria.name,
+				name: criteriaLocale.name,
 				IChart: IChart,
 				dataChart: dataChart,
 			});

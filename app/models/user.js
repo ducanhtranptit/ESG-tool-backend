@@ -11,7 +11,7 @@ export default (sequelize, DataTypes) => {
 			companyId: DataTypes.INTEGER,
 			accessToken: DataTypes.STRING,
 			refreshToken: DataTypes.STRING,
-			type: DataTypes.STRING,
+			type: DataTypes.INTEGER,
 		},
 		{
 			sequelize,
