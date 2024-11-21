@@ -21,6 +21,7 @@ export default class ReportActions {
 			where: {
 				questionCode: "AS001",
 				year: year,
+				companyCode: companyInfor.companyCode,
 			},
 			attributes: ["answer"],
 			raw: true,
@@ -30,6 +31,7 @@ export default class ReportActions {
 			where: {
 				questionCode: "AS002",
 				year: year,
+				companyCode: companyInfor.companyCode,
 			},
 			attributes: ["answer"],
 			raw: true,
@@ -39,6 +41,7 @@ export default class ReportActions {
 			where: {
 				questionCode: "AS004",
 				year: year,
+				companyCode: companyInfor.companyCode,
 			},
 			attributes: ["answer"],
 			raw: true,
@@ -48,6 +51,7 @@ export default class ReportActions {
 			where: {
 				questionCode: "AS009",
 				year: year,
+				companyCode: companyInfor.companyCode,
 			},
 			attributes: ["answer"],
 			raw: true,
@@ -57,6 +61,7 @@ export default class ReportActions {
 			where: {
 				questionCode: "AS022",
 				year: year,
+				companyCode: companyInfor.companyCode,
 			},
 			attributes: ["answer"],
 			raw: true,
@@ -66,6 +71,7 @@ export default class ReportActions {
 			where: {
 				questionCode: "AS027",
 				year: year,
+				companyCode: companyInfor.companyCode,
 			},
 			attributes: ["answer"],
 			raw: true,
@@ -74,6 +80,7 @@ export default class ReportActions {
 			where: {
 				questionCode: "AS013",
 				year: year,
+				companyCode: companyInfor.companyCode,
 			},
 			attributes: ["answer"],
 			raw: true,
@@ -82,6 +89,7 @@ export default class ReportActions {
 			where: {
 				questionCode: "AS082",
 				year: year,
+				companyCode: companyInfor.companyCode,
 			},
 			attributes: ["answer"],
 			raw: true,
@@ -90,6 +98,7 @@ export default class ReportActions {
 			where: {
 				questionCode: "AS103",
 				year: year,
+				companyCode: companyInfor.companyCode,
 			},
 			attributes: ["answer"],
 			raw: true,
@@ -98,6 +107,7 @@ export default class ReportActions {
 			where: {
 				questionCode: "AS136",
 				year: year,
+				companyCode: companyInfor.companyCode,
 			},
 			attributes: ["answer"],
 			raw: true,
@@ -106,6 +116,7 @@ export default class ReportActions {
 			where: {
 				questionCode: "AS076",
 				year: year,
+				companyCode: companyInfor.companyCode,
 			},
 			attributes: ["answer"],
 			raw: true,
@@ -114,6 +125,7 @@ export default class ReportActions {
 			where: {
 				questionCode: "AS075",
 				year: year,
+				companyCode: companyInfor.companyCode,
 			},
 			attributes: ["answer"],
 			raw: true,
@@ -122,6 +134,7 @@ export default class ReportActions {
 			where: {
 				questionCode: "AS091",
 				year: year,
+				companyCode: companyInfor.companyCode,
 			},
 			attributes: ["answer"],
 			raw: true,
@@ -130,6 +143,7 @@ export default class ReportActions {
 			where: {
 				questionCode: "AS099",
 				year: year,
+				companyCode: companyInfor.companyCode,
 			},
 			attributes: ["answer"],
 			raw: true,
@@ -138,6 +152,7 @@ export default class ReportActions {
 			where: {
 				questionCode: "AS157",
 				year: year,
+				companyCode: companyInfor.companyCode,
 			},
 			attributes: ["answer"],
 			raw: true,
