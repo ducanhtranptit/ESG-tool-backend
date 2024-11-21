@@ -1,4 +1,5 @@
 import model from "../models/index.js";
+import UserService from "../services/user.services.js";
 export default class PillarActions {
 	static async dataForChart(userId, pillarId, itemId, lang) {
 		const userInfor = await model.User.findOne({
@@ -54,8 +55,6 @@ export default class PillarActions {
 				},
 				raw: true,
 			});
-			console.log("CriteriaLocale: ", criteriaLocale);
-
 			result.push({
 				criteriaId: criteria.criteriaId,
 				name: criteriaLocale.name,

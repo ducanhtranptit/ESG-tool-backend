@@ -6,13 +6,26 @@ import {
 } from "../core/ApiResponse.js";
 
 export default class QuestionController {
+	static async getAllQuestionsForAdmin(req, res) {
+		try {
+			const data = await QuestionAction.findAll();
+			return new SuccessResponse().send(req, res, data);
+		} catch (error) {
+			console.error(error);
+			return new ErrorResponse().send(req, res);
+		}
+	}
+
 	static async getAllTopicsAndQuestions(req, res) {
 		try {
 			const { section, lang } = req.query;
 			if (!section) {
 				throw new BadRequestResponse().send(req, res);
 			}
-			const data = await QuestionAction.getAllTopicsAndQuestions(section, lang);
+			const data = await QuestionAction.getAllTopicsAndQuestions(
+				section,
+				lang
+			);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);

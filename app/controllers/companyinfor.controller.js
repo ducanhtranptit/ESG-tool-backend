@@ -6,6 +6,15 @@ import {
 } from "../core/ApiResponse.js";
 
 export default class CompanyInfoController {
+	static async getAllOverallInfors(req, res) {
+		try {
+			const data = await CompanyInfoAction.findAll();
+			return new SuccessResponse().send(req, res, data);
+		} catch (error) {
+			console.error(error);
+			return new ErrorResponse().send(req, res);
+		}
+	}
 	static async getAllCompanyInfors(req, res) {
 		try {
 			const userId = req?.data?.id;
@@ -23,7 +32,6 @@ export default class CompanyInfoController {
 	static async updateCompanyInfor(req, res) {
 		const { id: userId } = req.data;
 		if (!userId) return new BadRequestResponse().send(req, res);
-		console.log('userId: ', userId);
 		const data = req.body;
 		const overallInfor = {
 			companyName: data.companyName,

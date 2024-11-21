@@ -1,10 +1,12 @@
 import { signToken, verifyToken } from "../utils/jwt.js";
 import config from "../../config/config.js";
 import model from "../models/index.js";
+import UserType from "../constants/user-type.constant.js";
 
 export default class UserActions {
 	static async findAll() {
 		const users = await model.User.findAll({
+			where: { type: UserType.USER },
 			attibutes: ["username", "companyId"],
 			raw: true,
 		});

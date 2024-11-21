@@ -39,7 +39,6 @@ const adminVerifyTokenMiddleware = async (req, res, next) => {
 		});
 
 		if (user.type !== 2) {
-			console.log("user.type : ", user.type);
 			return new UnauthorizedResponse().send(req, res);
 		}
 

@@ -1,7 +1,31 @@
 import model from "../models/index.js";
 import sections from "../constants/section.constant.js";
+import UserService from "../services/user.services.js";
 import { where } from "sequelize";
 export default class QuestionAction {
+	static async findAll() {
+		const questions = await model.Question.findAll({
+			attributes: [
+				"questionCode",
+				"topicCode",
+				"name",
+				"language",
+				"type",
+				"answer1",
+				"answer2",
+				"answer3",
+				"answer4",
+				"answer5",
+				"answer6",
+				"answer7",
+				"answer8",
+				"answer9",
+				"answer10",
+			],
+			raw: true,
+		});
+		return questions
+	}
 	static async calculateMetric(measurementMethod, dictionary) {
 		const regex = /AS\d+/g;
 		if (measurementMethod === null || dictionary === null) return null;
@@ -223,21 +247,8 @@ export default class QuestionAction {
 		if (!sectionId) {
 			throw new Error("Invalid section name provided.");
 		}
-		const userInfor = await model.User.findOne({
-			where: {
-				id: userId,
-			},
-		});
-		const companyId = userInfor.dataValues.companyId;
-		const companyInfor = await model.Company.findOne({
-			where: {
-				id: companyId,
-			},
-			attributes: ["companyCode"],
-			raw: true,
-		});
+		const companyInfor = await UserService.getCompanyInfor(userId)
 		const companyCode = companyInfor.companyCode;
-
 		const questions = await model.Question.findAll({
 			where: {
 				section: sectionId,
@@ -261,9 +272,6 @@ export default class QuestionAction {
 				attributes: ["answer"],
 				raw: true,
 			});
-			console.log("questionCode: ", questionCode);
-			console.log("questionType: ", questionType);
-			console.log("answerValue: ", answerValue);
 			if (answerValue !== null && answerValue.answer !== null) {
 				if (questionType === 1 || questionType === 2) {
 					answerValue = await model.Dummy.findOne({
@@ -275,7 +283,6 @@ export default class QuestionAction {
 						raw: true,
 						// logging: console.log,
 					});
-					console.log("answerValue-after: ", answerValue);
 				}
 				result.push({
 					questionCode: questionCode,
@@ -289,9 +296,7 @@ export default class QuestionAction {
 					answer: null,
 				});
 			}
-			console.log("--------------------------------------");
 		}
-		console.log("result: ", result);
 		return result;
 	}
 

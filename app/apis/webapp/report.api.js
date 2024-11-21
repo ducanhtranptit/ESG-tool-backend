@@ -1,13 +1,12 @@
 import express from "express";
-import UserController from "../../controllers/user.controller.js";
+import ReportController from "../../controllers/report.controller.js";
 import verifyTokenMiddleware from "../../middlewares/auth/verify-token.middleware.js";
-
 const router = express.Router();
 
 router.get(
-	"/admin/account/get-all-accounts",
+	"/webapp/report/get-all-data",
 	verifyTokenMiddleware,
-	UserController.getAllAccount
+	ReportController.getAllDataForReport
 );
 
 export default router;

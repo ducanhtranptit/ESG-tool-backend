@@ -8,16 +8,18 @@ import AuthRouter from "./auth/auth.api.js";
 import UserRouter from "./auth/user.api.js";
 
 //Webapp Router
-import ESGReportRouter from "./webapp/esg-report.api.js";
-import QuestionRouter from "./webapp/question.api.js";
-import EnvironmentRouter from "./webapp/environment.api.js";
-import SocialRouter from "./webapp/social.api.js";
-import GovernanceRouter from "./webapp/governance.api.js";
-import DashboardRouter from "./webapp/dashboard.api.js";
-import CompanyInforRouter from "./webapp/companyinfor.api.js";
+import WebappESGReportRouter from "./webapp/esg-report.api.js";
+import WebappQuestionRouter from "./webapp/question.api.js";
+import WebappEnvironmentRouter from "./webapp/environment.api.js";
+import WebappSocialRouter from "./webapp/social.api.js";
+import WebappGovernanceRouter from "./webapp/governance.api.js";
+import WebappDashboardRouter from "./webapp/dashboard.api.js";
+import WebappCompanyInforRouter from "./webapp/companyinfor.api.js";
+import WebappReportRouter from "./webapp/report.api.js"
 
 //Admin Router
-import AccountRouter from "./admin/account.api.js";
+import AdminUserRouter from "./admin/user.api.js";
+import AdminQuestionRouter from "./admin/question.api.js"
 
 const router = express.Router();
 
@@ -26,14 +28,16 @@ router.use("/", UploadRouter);
 router.use("/", AuthRouter);
 router.use("/", UserRouter);
 
-router.use("/", ESGReportRouter);
-router.use("/", QuestionRouter);
-router.use("/", EnvironmentRouter);
-router.use("/", SocialRouter);
-router.use("/", GovernanceRouter);
-router.use("/", DashboardRouter);
-router.use("/", CompanyInforRouter);
+router.use("/", WebappESGReportRouter);
+router.use("/", WebappQuestionRouter);
+router.use("/", WebappEnvironmentRouter);
+router.use("/", WebappSocialRouter);
+router.use("/", WebappGovernanceRouter);
+router.use("/", WebappDashboardRouter);
+router.use("/", WebappCompanyInforRouter);
+router.use("/", WebappReportRouter);
 
-router.use("/", AccountRouter);
+router.use("/", AdminUserRouter);
+router.use("/", AdminQuestionRouter);
 
 export default router;

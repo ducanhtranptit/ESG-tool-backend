@@ -2,9 +2,39 @@ import model from "../models/index.js";
 
 export default class CompanyInfoAction {
 	static async findAll() {
-		const result = await model.OverallInfor.findAll({
-			attributes: ["id", "companyName"],
+		const overallInfors = await model.OverallInfor.findAll({
+			attributes: [
+				"id",
+				"userId",
+				"companyName",
+				"dateFounder",
+				"mainAddress",
+				"mainPhoneNumber",
+				"companyWebsite",
+				"companySector",
+				"companyDescription",
+				"contactInformation",
+			],
+			raw: true,
 		});
+
+		const result = [];
+
+		for (const overallInfor of overallInfors) {
+			const siteInfors = await model.SiteInfor.findAll({
+				where: { overallInforId: overallInfor.id },
+			});
+			const productInfors = await model.ProductInfor.findAll({
+				where: { overallInforId: overallInfor.id },
+			});
+
+			result.push({
+				overallInfor,
+				siteInfors,
+				productInfors,
+			});
+		}
+
 		return result;
 	}
 

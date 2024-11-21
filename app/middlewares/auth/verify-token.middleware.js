@@ -1,5 +1,6 @@
 import { UnauthorizedResponse } from "../../core/ApiResponse.js";
 import config from "../../../config/config.js";
+import UserType from "../../constants/user-type.constant.js";
 import { verifyToken } from "../../utils/jwt.js";
 import model from "../../models/index.js";
 
@@ -38,8 +39,7 @@ const verifyTokenMiddleware = async (req, res, next) => {
 			raw: true,
 		});
 
-		if (user.type !== 1) {
-			console.log('user.type : ', user.type );
+		if (user.type !== UserType.USER) {
 			return new UnauthorizedResponse().send(req, res);
 		}
 

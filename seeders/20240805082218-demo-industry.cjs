@@ -6,7 +6,6 @@ module.exports = {
 			"Industries",
 			dummyData.map((company) => ({
 				level2: +company.level2,
-				level3: +company.level3,
 				industryName: company.industryName,
 				createdAt: new Date(),
 				updatedAt: new Date(),
