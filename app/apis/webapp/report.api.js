@@ -12,7 +12,7 @@ router.get(
 
 router.get(
 	"/webapp/report/download-report-template",
-	verifyApiKey,
+	// verifyApiKey,
 	ReportController.downloadReportTemplate
 );
 
