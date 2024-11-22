@@ -1,4 +1,5 @@
 import model from "../models/index.js";
+import UserService from "../services/user.services.js";
 
 export default class CompanyInfoAction {
 	static async findAll() {
@@ -43,6 +44,8 @@ export default class CompanyInfoAction {
 			where: { userId: userId },
 			raw: true,
 		});
+		const companyInfor = await UserService.getCompanyInfor(userId);
+		overallInfor.companyName = companyInfor.companyName;
 		if (overallInfor === null) {
 			return null;
 		}
@@ -67,6 +70,12 @@ export default class CompanyInfoAction {
 		productInfors,
 		userId
 	) {
+		const companyInfor = await UserService.getCompanyInfor(userId);
+		await model.Company.update(
+			{ companyName: overallInfor.companyName },
+			{ where: { companyCode: companyInfor.companyCode } }
+		);
+
 		await model.OverallInfor.upsert(
 			{
 				userId: userId,
