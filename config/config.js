@@ -35,6 +35,7 @@ const config = {
 	refreshTokenSecret: process.env.REFRESHTOKEN_SECRET,
 	accessTokenExpires: process.env.ACCESSTOKEN_EXPIRE,
 	refreshTokenExpires: process.env.REFRESHTOKEN_EXPIRE,
+	reportTemplateApiKey: process.env.REPORT_TEMPLATE_APIKEY,
 };
 
 export default config;

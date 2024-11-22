@@ -109,6 +109,7 @@ export default class QuestionAction {
 		answers,
 		sectionName
 	) {
+		console.log('answers: ', answers);
 		const userInfor = await model.User.findOne({
 			where: {
 				id: userId,
@@ -134,6 +135,7 @@ export default class QuestionAction {
 
 				if (dummyRecord) {
 					answer.answer = Number(dummyRecord.dataValues.dummy);
+					console.log('answer.answer: ', answer.answer);
 				} else {
 					console.warn(
 						`Không tìm thấy giá trị dummy cho questionCode: ${questionCode} và answer: ${answerValue}`
