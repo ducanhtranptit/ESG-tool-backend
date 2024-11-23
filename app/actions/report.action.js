@@ -269,7 +269,7 @@ export default class ReportActions {
 
 		const averageTrainingHoursPerEmployees =
 			await QuestionAction.calculateMetric(
-				"AS40/AS082",
+				"AS040/AS082",
 				answersOfCompany
 			);
 
