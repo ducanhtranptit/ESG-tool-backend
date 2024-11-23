@@ -166,7 +166,7 @@ export default class ReportActions {
 			attributes: ["questionCode", "answer"],
 			raw: true,
 		});
-		const waterComsume = await QuestionAction.calculateMetric(
+		const waterConsume = await QuestionAction.calculateMetric(
 			"(AS018+AS019)/AS194",
 			answersOfCompany
 		);
@@ -177,16 +177,16 @@ export default class ReportActions {
 		);
 
 		const totalWaste = await QuestionAction.calculateMetric(
-			"AS011 +12+13+15",
+			"AS011+AS012+AS013+AS015",
 			answersOfCompany
 		);
 
 		const recycleRatioWaste = await QuestionAction.calculateMetric(
-			"(AS013/(AS011 +12+13+15))*100",
+			"(AS013/(AS011+AS012+AS013+AS015))*100",
 			answersOfCompany
 		);
 
-		const recyclePakageRatio = await QuestionAction.calculateMetric(
+		const recyclePackageRatio = await QuestionAction.calculateMetric(
 			"(AS009/(AS009+AS008))*100",
 			answersOfCompany
 		);
@@ -341,11 +341,11 @@ export default class ReportActions {
 			newEmployee: newEmployee.answer,
 			industrialAccident: industrialAccident.answer,
 			independentMemberOnBodRatio: independentMemberOnBodRatio.answer,
-			waterComsume: waterComsume,
+			waterConsume: waterConsume,
 			percentRecycleWater: percentRecycleWater,
 			totalWaste: totalWaste,
 			recycleRatioWaste: recycleRatioWaste,
-			recyclePakageRatio: recyclePakageRatio,
+			recyclePackageRatio: recyclePackageRatio,
 			electricEnergy: electricEnergy,
 			energyPerRevenue: energyPerRevenue,
 			tapWater: tapWater,
