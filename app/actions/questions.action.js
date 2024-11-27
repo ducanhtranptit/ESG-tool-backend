@@ -26,6 +26,7 @@ export default class QuestionAction {
 		});
 		return questions
 	}
+	
 	static async calculateMetric(measurementMethod, dictionary) {
 		const regex = /AS\d+/g;
 		if (measurementMethod === null || dictionary === null) return null;

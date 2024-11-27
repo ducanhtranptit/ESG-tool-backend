@@ -157,6 +157,69 @@ export default class ReportActions {
 			attributes: ["answer"],
 			raw: true,
 		});
+		const totalWater = await model.Answer.findOne({
+			where: {
+				questionCode: "AS211",
+				year: year,
+				companyCode: companyInfor.companyCode,
+			},
+			attributes: ["answer"],
+			raw: true,
+		});
+		const surfaceWater = await model.Answer.findOne({
+			where: {
+				questionCode: "AS214",
+				year: year,
+				companyCode: companyInfor.companyCode,
+			},
+			attributes: ["answer"],
+			raw: true,
+		});
+		const undergroundWater = await model.Answer.findOne({
+			where: {
+				questionCode: "AS213",
+				year: year,
+				companyCode: companyInfor.companyCode,
+			},
+			attributes: ["answer"],
+			raw: true,
+		});
+		const hazardousWaste = await model.Answer.findOne({
+			where: {
+				questionCode: "AS215",
+				year: year,
+				companyCode: companyInfor.companyCode,
+			},
+			attributes: ["answer"],
+			raw: true,
+		});
+		const informationSecurityComplaint = await model.Answer.findOne({
+			where: {
+				questionCode: "AS209",
+				year: year,
+				companyCode: companyInfor.companyCode,
+			},
+			attributes: ["answer"],
+			raw: true,
+		});
+		const percentAntiCoruptionTrain = await model.Answer.findOne({
+			where: {
+				questionCode: "AS210",
+				year: year,
+				companyCode: companyInfor.companyCode,
+			},
+			attributes: ["answer"],
+			raw: true,
+		});
+		const fossilEnergy = await model.Answer.findOne({
+			where: {
+				questionCode: "AS208",
+				year: year,
+				companyCode: companyInfor.companyCode,
+			},
+			attributes: ["answer"],
+			raw: true,
+		});
 
 		const answersOfCompany = await model.Answer.findAll({
 			where: {
@@ -166,6 +229,7 @@ export default class ReportActions {
 			attributes: ["questionCode", "answer"],
 			raw: true,
 		});
+
 		const waterConsume = await QuestionAction.calculateMetric(
 			"(AS018+AS019)/AS194",
 			answersOfCompany
@@ -303,6 +367,21 @@ export default class ReportActions {
 			answersOfCompany
 		);
 
+		const totalEnergyComsume = await QuestionAction.calculateMetric(
+			"(AS021+AS022+AS023)*0.036+AS208",
+			answersOfCompany
+		);
+
+		const tax = await QuestionAction.calculateMetric(
+			"AS198+AS199+AS200+AS201+AS202+AS203+AS205",
+			answersOfCompany
+		);
+
+		const nonHazardousWaste = await QuestionAction.calculateMetric(
+			"AS011+AS012+AS013",
+			answersOfCompany
+		);
+
 		const increaseRevenue = await ReportActions.calculateIncreaseRevenue(
 			year
 		);
@@ -320,27 +399,34 @@ export default class ReportActions {
 
 		const result = {
 			year: year,
-			name: companyInfor.companyName,
-			industryName: companyIndustry.industryName,
-			dateFounded: companyOverallInfor.dateFounder,
-			mainAddress: companyOverallInfor.mainAddress,
-			companySector: companyOverallInfor.companySector,
-			revenue: revenue.answer,
-			profitAfterTax: profitAfterTax.answer,
-			fulltimeEmployees: fulltimeEmployees.answer,
-			totalRecyclePackage: totalRecyclePackage.answer,
-			recycleEnergy: recycleEnergy.answer,
-			recycleWater: recycleWater.answer,
-			wasteReduction: wasteReduction.answer,
-			totalEmployee: totalEmployee.answer,
-			satisfactionScore: satisfactionScore.answer,
-			trainingExpenditure: trainingExpenditure.answer,
-			socialExpenditure: socialExpenditure.answer,
+			name: companyInfor?.companyName,
+			industryName: companyIndustry?.industryName,
+			dateFounded: companyOverallInfor?.dateFounder,
+			mainAddress: companyOverallInfor?.mainAddress,
+			companySector: companyOverallInfor?.companySector,
+			revenue: revenue?.answer,
+			profitAfterTax: profitAfterTax?.answer,
+			fulltimeEmployees: fulltimeEmployees?.answer,
+			totalRecyclePackage: totalRecyclePackage?.answer,
+			recycleEnergy: recycleEnergy?.answer,
+			recycleWater: recycleWater?.answer,
+			wasteReduction: wasteReduction?.answer,
+			totalEmployee: totalEmployee?.answer,
+			satisfactionScore: satisfactionScore?.answer,
+			trainingExpenditure: trainingExpenditure?.answer,
+			socialExpenditure: socialExpenditure?.answer,
 			socialActivityPerEmployeeEachYear:
-				socialActivityPerEmployeeEachYear.answer,
-			newEmployee: newEmployee.answer,
-			industrialAccident: industrialAccident.answer,
-			independentMemberOnBodRatio: independentMemberOnBodRatio.answer,
+				socialActivityPerEmployeeEachYear?.answer,
+			newEmployee: newEmployee?.answer,
+			industrialAccident: industrialAccident?.answer,
+			totalWater: totalWater?.answer,
+			surfaceWater: surfaceWater?.answer,
+			undergroundWater: undergroundWater?.answer,
+			hazardousWaste: hazardousWaste?.answer,
+			informationSecurityComplaint: informationSecurityComplaint?.answer,
+			percentAntiCoruptionTrain: percentAntiCoruptionTrain?.answer,
+			independentMemberOnBodRatio: independentMemberOnBodRatio?.answer,
+			fossilEnergy: fossilEnergy?.answer,
 			waterConsume: waterConsume,
 			percentRecycleWater: percentRecycleWater,
 			totalWaste: totalWaste,
@@ -366,8 +452,11 @@ export default class ReportActions {
 			newEmployeeRate: newEmployeeRate,
 			industrialAccidentRatio: industrialAccidentRatio,
 			totalOfBod: totalOfBod,
-			maleBod: maleBod,
 			femaleBod: femaleBod,
+			maleBod: maleBod,
+			totalEnergyComsume: totalEnergyComsume,
+			tax: tax,
+			nonHazardousWaste: nonHazardousWaste,
 			increaseRevenue: increaseRevenue,
 			reductionEnergyComparePreviousYear:
 				reductionEnergyComparePreviousYear,

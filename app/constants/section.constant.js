@@ -33,6 +33,7 @@ const sections = {
 	VIOLATION_IN_ENTERPRISE: 32,
 	BOARD_OF_DIRECTORS_RATIO: 33,
 	SOURCES_AND_EMISSION: 34,
+	TAX: 35,
 };
 
 export default sections;

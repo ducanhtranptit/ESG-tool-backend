@@ -1800,4 +1800,32 @@ module.exports = [
 		language: "en",
 		name: "Average income of female employees at C-level in the previous year",
 	},
+	{
+		topicCode: "G54",
+		language: "vi",
+		name: "Tổng hợp các loại thuế doanh nghiệp đã đóng trong năm trước",
+		answerGuide:
+			"Doanh nghiệp cần cung cấp tổng số tiền nộp của từng loại thuế chính trong năm báo cáo. Đơn vị tính: triệu VND. Bao gồm:\n- Thuế thu nhập doanh nghiệp (CIT).\n- Thuế giá trị gia tăng (VAT).\n- Thuế xuất khẩu và nhập khẩu.\n- Thuế tài nguyên (nếu có).\n- Thuế tiêu thụ đặc biệt (nếu có).",
+	},
+	{
+		topicCode: "S72",
+		language: "vi",
+		name: "Thống kê nước đầu vào",
+		answerGuide:
+			"Doanh nghiệp cần cung cấp dữ liệu về lượng nước lấy vào từ từng nguồn (nước máy, nước ngầm, nước mặt, nguồn khác), tính bằng mét khối (m³). Phương pháp đo lường:\n\nNước máy: Tổng hợp từ hóa đơn nhà cung cấp nước hoặc đồng hồ đo nước tại điểm cấp.\nNước ngầm: Đo lưu lượng nước khai thác qua đồng hồ đo lưu lượng lắp đặt trên giếng khoan hoặc hệ thống bơm.\nNước mặt: Đo lưu lượng qua đồng hồ đo hoặc hệ thống bơm tại điểm lấy nước từ sông, hồ, suối.\nNguồn khác (nước mưa, tái sử dụng): Tổng hợp dữ liệu từ hệ thống thu gom, đồng hồ đo, hoặc hồ sơ quản lý nội bộ.\nTổng lượng nước lấy vào là tổng hợp dữ liệu từ tất cả các nguồn trên.",
+	},
+	{
+		topicCode: "G54",
+		language: "en",
+		name: " Summary of Taxes Paid by Enterprises in the Previous Year",
+		answerGuide:
+			"Enterprises need to provide the total amount paid for each main type of tax in the reporting year. Unit: million VND. Includes:\nCorporate Income Tax (CIT).\nValue Added Tax (VAT).\nExport and Import Taxes.\nNatural Resource Tax (if applicable).\nSpecial Consumption Tax (if applicable).",
+	},
+	{
+		topicCode: "S72",
+		language: "en",
+		name: " Statistics on Incoming Water",
+		answerGuide:
+			"Enterprises need to provide data on the volume of water intake from each source (tap water, groundwater, surface water, other sources), measured in cubic meters (m³). Measurement methods:\nTap water: Aggregated from supplier invoices or water meter readings at the supply point.\nGroundwater: Measure the flow of extracted water through flow meters installed on boreholes or pumping systems.\nSurface water: Measure the flow through flow meters or pumping systems at the water intake points from rivers, lakes, or streams.\nOther sources (rainwater, reused water): Aggregate data from collection systems, flow meters, or internal management records.\nThe total water intake is the aggregation of data from all the above sources.",
+	},
 ];
