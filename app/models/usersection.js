@@ -9,6 +9,7 @@ export default (sequelize, DataTypes) => {
 			sectionId: DataTypes.INTEGER,
 			sectionName: DataTypes.STRING,
 			userId: DataTypes.INTEGER,
+			year: DataTypes.INTEGER,
 			submitCount: DataTypes.INTEGER,
 		},
 		{

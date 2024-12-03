@@ -18,6 +18,9 @@ module.exports = {
 			userId: {
 				type: Sequelize.INTEGER,
 			},
+			year: {
+				type: Sequelize.INTEGER,
+			},
 			submitCount: {
 				type: Sequelize.INTEGER,
 			},

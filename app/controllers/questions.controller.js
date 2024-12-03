@@ -75,8 +75,17 @@ export default class QuestionController {
 	static async findAllSubmitCountOfSection(req, res) {
 		try {
 			const { id: userId } = req.data;
+			const { year } = req.query;
+			if (
+				!year ||
+				year < 2000 ||
+				year > 2100
+			) {
+				return new BadRequestResponse().send(req, res);
+			}
 			const data = await QuestionAction.findAllSubmitCountOfSection(
-				userId
+				userId,
+				year
 			);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {

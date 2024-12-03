@@ -239,6 +239,7 @@ export default class QuestionAction {
 			{
 				where: {
 					userId: userId,
+					year: year,
 					sectionName: sectionName,
 				},
 			}
@@ -303,9 +304,12 @@ export default class QuestionAction {
 		return result;
 	}
 
-	static async findAllSubmitCountOfSection(userId) {
+	static async findAllSubmitCountOfSection(userId, year) {
 		const result = await model.UserSection.findAll({
-			where: { userId: userId },
+			where: { 
+				userId: userId,
+				year: year
+			},
 			attributes: ["sectionName", "submitCount", "updatedAt"],
 			raw: true,
 		});
@@ -314,6 +318,7 @@ export default class QuestionAction {
 			for (const sectionName of Object.keys(sections)) {
 				const newRecord = await model.UserSection.create({
 					userId: userId,
+					year: year,
 					sectionName: sectionName,
 					sectionId: sections[sectionName],
 					submitCount: 0,
@@ -325,6 +330,7 @@ export default class QuestionAction {
 			return newRecords;
 		}
 
+		console.log('result: ', result);
 		return result;
 	}
 }
