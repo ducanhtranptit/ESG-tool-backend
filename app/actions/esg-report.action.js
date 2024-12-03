@@ -4,9 +4,59 @@ import ESGPillar from "../constants/esg-pillars.constant.js";
 import ESGRank from "../constants/esg-rank.constant.js";
 
 export default class EsgReportAction {
+	/**
+	 * Tính toán và cập nhật điểm số ESG (Môi trường, Xã hội và Quản trị) và xếp hạng cho các công ty
+	 * trong vòng năm năm qua. Quá trình bao gồm:
+	 * - Lấy và nhóm các chỉ số công ty theo năm, ngành và tiêu chí.
+	 * - Cập nhật các chỉ số với số lượng công ty có giá trị và xếp hạng chúng dựa trên tính chất (polarity).
+	 * - Tính toán điểm số cho mỗi công ty và cập nhật các bảng CriteriaScore và CompanyScore.
+	 * - Chuẩn hóa điểm số theo trọng số tiêu chí và cập nhật trọng số các trụ cột.
+	 * - Tính toán và cập nhật điểm số ESG và xếp hạng cho mỗi công ty trong ngành của chúng.
+	 * - Ghi lại tiến trình và hoàn tất quá trình tính toán điểm số ESG.
+	 *
+	 * Hàm này tương tác với nhiều model bao gồm CompanyMetric, Company, Criteria, CriteriaScore,
+	 * và CompanyScore để thực hiện các tính toán và cập nhật cần thiết.
+	 */
 	static async calculateESGReport() {
 		const currentYear = new Date().getFullYear();
 
+		await EsgReportAction.calculateNoOfCompaniesWithAWorseMetricValue(
+			currentYear
+		);
+
+		await EsgReportAction.calculateCompanyScore();
+
+		await EsgReportAction.calculatePillarWeight();
+
+		await EsgReportAction.calculateNewCriteriaWeight();
+
+		await EsgReportAction.calculateScoreMultipleNewCriteriaWeight();
+
+		await EsgReportAction.calculateScoreMultipleCriteriaWeight();
+
+		const companyCodes = await model.Company.findAll({
+			attributes: ["companyCode", "industryCodeLevel2"],
+		});
+
+		await EsgReportAction.calculateESGScore(companyCodes, currentYear);
+
+		await EsgReportAction.calculateESGRank(companyCodes, currentYear);
+
+		console.log("ESG score calculation has been completed successfully!");
+	}
+
+	/**
+	 * Tính toán và cập nhật số lượng công ty có giá trị chỉ số thấp hơn
+	 * so với từng công ty trong 5 năm qua. Quá trình bao gồm:
+	 * - Lấy và nhóm các chỉ số công ty theo năm, ngành và tiêu chí.
+	 * - Cập nhật các chỉ số với số lượng công ty có giá trị chỉ số cụ thể
+	 *   và xếp hạng chúng dựa trên tính chất (polarity).
+	 * - Nhóm các chỉ số theo giá trị chỉ số, năm và ID tiêu chí để cập nhật
+	 *   số lượng công ty có cùng giá trị chỉ số.
+	 *
+	 * @param {number} currentYear - Năm hiện tại để bắt đầu tính toán.
+	 */
+	static async calculateNoOfCompaniesWithAWorseMetricValue(currentYear) {
 		for (let year = currentYear; year > currentYear - 5; year--) {
 			// Lấy tất cả các metrics của công ty cho năm hiện tại
 			const companyMetrics = await model.CompanyMetric.findAll({
@@ -166,7 +216,19 @@ export default class EsgReportAction {
 				}
 			}
 		}
+	}
 
+	/**
+	 * Tính toán và cập nhật điểm ESG cho từng công ty dựa trên các chỉ số của họ.
+	 * Quá trình bao gồm:
+	 * - Lấy tất cả các chỉ số của công ty.
+	 * - Tính toán số lượng công ty có giá trị chỉ số thấp hơn.
+	 * - Tính toán điểm của công ty dựa trên các giá trị đã tính toán.
+	 * - Cập nhật bảng CompanyMetric và CriteriaScore với các điểm số mới.
+	 * - Ghi lại tiến trình của quá trình tính toán.
+	 * Nếu chỉ số hoặc số lượng công ty có giá trị bằng null, điểm số sẽ được đặt là 0.
+	 */
+	static async calculateCompanyScore() {
 		const companyMetricsToCalculateNoOfCompaniesWithAWorseValue =
 			await model.CompanyMetric.findAll();
 
@@ -252,7 +314,15 @@ export default class EsgReportAction {
 				`Finished calculating and updating company score for metricId ${metricId} by value: ${companyScore}`
 			);
 		}
+	}
 
+	/**
+	 * Tính toán và cập nhật tổng trọng số cho từng trụ cột ESG dựa trên trọng số các tiêu chí.
+	 * Lấy tất cả các tiêu chí, nhóm chúng theo trụ cột và mã ngành, cộng tổng trọng số của chúng,
+	 * và cập nhật trường pillarWeight trong cơ sở dữ liệu cho mỗi nhóm.
+	 * Ghi lại trọng số của trụ cột đã được cập nhật cho mỗi bộ criteriaIds.
+	 */
+	static async calculatePillarWeight() {
 		// Tính tổng weight và cập nhật pillarWeight
 		const criteriaList = await model.Criteria.findAll({
 			attributes: [
@@ -298,6 +368,15 @@ export default class EsgReportAction {
 				`Updated pillarWeight to ${totalWeight} for criteriaIds`
 			);
 		}
+	}
+
+	/**
+	 * Tính toán và cập nhật trọng số mới cho mỗi tiêu chí bằng cách chia trọng số của nó
+	 * cho trọng số của trụ cột. Phương thức này lấy tất cả các tiêu chí với trọng số hiện tại
+	 * và trọng số trụ cột của chúng, tính toán trọng số mới cho mỗi tiêu chí, và cập nhật cơ sở dữ liệu
+	 * tương ứng. Ghi lại trọng số mới của tiêu chí đã được cập nhật cho mỗi mã tiêu chí.
+	 */
+	static async calculateNewCriteriaWeight() {
 		const criteriasForCalculateNewCriteriaWeight =
 			await model.Criteria.findAll({
 				attributes: ["criteriaCode", "weight", "pillarWeight"],
@@ -317,7 +396,16 @@ export default class EsgReportAction {
 				`Updated newCriteriaWeight to ${newCriteriaWeight} for criteriaCode: ${criteriaCode}`
 			);
 		}
+	}
 
+	/**
+	 * Tính toán và cập nhật scoreMultipleNewCriteriaWeight cho mỗi điểm tiêu chí.
+	 * Phương thức này lấy tất cả các điểm tiêu chí, lấy trọng số mới của tiêu chí tương ứng
+	 * cho mỗi mã tiêu chí, tính toán tích giữa điểm và trọng số mới của tiêu chí,
+	 * và cập nhật mô hình CriteriaScore với giá trị đã tính toán.
+	 * Ghi lại scoreMultipleNewCriteriaWeight đã được cập nhật cho mỗi metricId.
+	 */
+	static async calculateScoreMultipleNewCriteriaWeight() {
 		// Tính scoreMultipleNewCriteriaWeight
 		const criteriaScoresToCalculatescoreMultipleNewCriteriaWeight =
 			await model.CriteriaScore.findAll({
@@ -351,7 +439,15 @@ export default class EsgReportAction {
 				`Updated scoreMultipleNewCriteriaWeight to ${scoreMultipleNewCriteriaWeight} for metricId ${metricId}`
 			);
 		}
+	}
 
+	/**
+	 * Tính toán và cập nhật scoreMultipleCriteriaWeight cho mỗi điểm tiêu chí.
+	 * Phương thức này lấy tất cả các điểm tiêu chí, lấy trọng số tương ứng cho mỗi
+	 * tiêu chí, tính toán tích giữa điểm và trọng số, và cập nhật mô hình CriteriaScore
+	 * với giá trị scoreMultipleCriteriaWeight đã tính toán. Ghi lại giá trị đã cập nhật cho mỗi metricId.
+	 */
+	static async calculateScoreMultipleCriteriaWeight() {
 		// Tính scoreMultipleCriteriaWeight
 		const criteriaScoresToCalculatescoreMultipleCriteriaWeight =
 			await model.CriteriaScore.findAll({
@@ -382,12 +478,20 @@ export default class EsgReportAction {
 				`Updated scoreMultipleCriteriaWeight to ${scoreMultipleCriteriaWeight} for metricId ${metricId}`
 			);
 		}
+	}
 
-		// Tính điểm E - S - G, ESG
-		const companyCodes = await model.Company.findAll({
-			attributes: ["companyCode", "industryCodeLevel2"],
-		});
-
+	/**
+	 * Tính toán và cập nhật điểm số ESG (Môi trường, Xã hội và Quản trị) cho danh sách các công ty
+	 * trong vòng năm năm qua. Quá trình này bao gồm:
+	 * - Lặp qua từng công ty và từng trụ cột ESG để tính toán điểm số chuẩn hóa dựa trên trọng số tiêu chí.
+	 * - Lưu hoặc cập nhật các điểm số này vào mô hình CompanyScore.
+	 * - Tính toán điểm ESG tổng thể bằng cách cộng dồn điểm số của tất cả các trụ cột.
+	 * - Ghi lại các điểm số đã tính toán cho từng công ty và năm.
+	 *
+	 * @param {Array} companyCodes - Mảng các đối tượng công ty chứa mã công ty.
+	 * @param {number} currentYear - Năm hiện tại để bắt đầu tính toán.
+	 */
+	static async calculateESGScore(companyCodes, currentYear) {
 		for (const company of companyCodes) {
 			const { companyCode } = company.dataValues;
 			// Tính điểm E - S - G
@@ -506,7 +610,20 @@ export default class EsgReportAction {
 				}
 			}
 		}
+	}
 
+	/**
+	 * Tính toán và cập nhật xếp hạng ESG cho danh sách các công ty trong vòng năm năm qua.
+	 * Quá trình này bao gồm:
+	 * - Lấy thông tin các công ty trong cùng ngành và tính toán điểm số của chúng.
+	 * - Lặp qua từng năm và từng loại xếp hạng ESG để xác định và cập nhật xếp hạng.
+	 * - Sắp xếp các công ty theo điểm số và gán xếp hạng dựa trên thứ tự điểm số.
+	 * - Cập nhật xếp hạng ESG tổng thể cho từng công ty dựa trên điểm số ESG của chúng.
+	 *
+	 * @param {Array} companyCodes - Mảng các đối tượng công ty chứa mã công ty và mã ngành của công ty.
+	 * @param {number} currentYear - Năm hiện tại để bắt đầu tính toán xếp hạng.
+	 */
+	static async calculateESGRank(companyCodes, currentYear) {
 		for (const company of companyCodes) {
 			const { companyCode, industryCodeLevel2 } = company.dataValues;
 			// Lấy tất cả các công ty có cùng industryCodeLevel2 từ bảng Company
@@ -596,7 +713,5 @@ export default class EsgReportAction {
 
 			console.log("Updated ranks for company:", companyCode);
 		}
-
-		console.log("ESG score calculation has been completed successfully!");
 	}
 }
