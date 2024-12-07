@@ -7,6 +7,7 @@ export default (sequelize) => {
 
 	Industry.init(
 		{
+			level1: DataTypes.STRING,
 			level2: DataTypes.INTEGER,
 			level3: DataTypes.INTEGER,
 			industryName: DataTypes.STRING,

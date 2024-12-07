@@ -5,7 +5,8 @@ module.exports = {
 		await queryInterface.bulkInsert(
 			"Industries",
 			dummyData.map((company) => ({
-				level2: +company.level2,
+				level1: company.level1,
+				level2: parseInt(company.level2),
 				industryName: company.industryName,
 				createdAt: new Date(),
 				updatedAt: new Date(),
