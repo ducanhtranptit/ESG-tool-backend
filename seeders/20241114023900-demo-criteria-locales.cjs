@@ -4,11 +4,11 @@ module.exports = {
 	async up(queryInterface, Sequelize) {
 		await queryInterface.bulkInsert(
 			"CriteriaLocales",
-			dummyData.map((company) => {
+			dummyData.map((index) => {
 				return {
-					criteriaCode: parseInt(company.criteriaCode),
-					name: company.name,
-					language: company.language,
+					criteriaCode: parseInt(index.criteriaCode),
+					name: index.name,
+					language: index.language,
 					createdAt: new Date(),
 					updatedAt: new Date(),
 				};

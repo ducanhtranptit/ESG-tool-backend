@@ -4,11 +4,11 @@ module.exports = {
 	async up(queryInterface, Sequelize) {
 		await queryInterface.bulkInsert(
 			"Items",
-			dummyData.map((company) => {
+			dummyData.map((index) => {
 				return {
-					itemId: company.itemId,
-					name: company.name,
-					categoryId: company.categoryId,
+					itemId: index.itemId,
+					name: index.name,
+					categoryId: index.categoryId,
 					createdAt: new Date(),
 					updatedAt: new Date(),
 				};

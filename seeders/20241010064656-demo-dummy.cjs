@@ -4,11 +4,11 @@ module.exports = {
 	async up(queryInterface, Sequelize) {
 		await queryInterface.bulkInsert(
 			"Dummies",
-			dummyData.map((company) => {
+			dummyData.map((index) => {
 				return {
-					questionCode: company.questionCode,
-					answer: company.answer,
-					dummy: parseFloat(company.dummy),
+					questionCode: index.questionCode,
+					answer: index.answer,
+					dummy: parseFloat(index.dummy),
 					createdAt: new Date(),
 					updatedAt: new Date(),
 				};

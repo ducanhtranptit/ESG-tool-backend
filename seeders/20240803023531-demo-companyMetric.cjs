@@ -4,18 +4,18 @@ module.exports = {
 	async up(queryInterface, Sequelize) {
 		await queryInterface.bulkInsert(
 			"CompanyMetrics",
-			dummyData.map((company) => {
+			dummyData.map((index) => {
 				return {
-					metricId: +company.metricId,
-					companyCode: company.companyCode,
-					year: +company.year,
+					metricId: +index.metricId,
+					companyCode: index.companyCode,
+					year: +index.year,
 					metric:
-						company.metric === ""
+						index.metric === ""
 							? null
-							: parseFloat(company.metric),
-					criteriaCode: +company.criteriaCode,
-					criteriaId: +company.criteriaId,
-					companyId: +company.companyId,
+							: parseFloat(index.metric),
+					criteriaCode: +index.criteriaCode,
+					criteriaId: +index.criteriaId,
+					companyId: +index.companyId,
 					createdAt: new Date(),
 					updatedAt: new Date(),
 				};
