@@ -1,7 +1,6 @@
 import model from "../models/index.js";
 import sections from "../constants/section.constant.js";
 import UserService from "../services/user.services.js";
-import { where } from "sequelize";
 export default class QuestionAction {
 	static async findAll() {
 		const questions = await model.Question.findAll({
@@ -24,9 +23,9 @@ export default class QuestionAction {
 			],
 			raw: true,
 		});
-		return questions
+		return questions;
 	}
-	
+
 	static async calculateMetric(measurementMethod, dictionary) {
 		const regex = /AS\d+/g;
 		if (measurementMethod === null || dictionary === null) return null;
@@ -110,7 +109,6 @@ export default class QuestionAction {
 		answers,
 		sectionName
 	) {
-		console.log('answers: ', answers);
 		const userInfor = await model.User.findOne({
 			where: {
 				id: userId,
@@ -136,7 +134,6 @@ export default class QuestionAction {
 
 				if (dummyRecord) {
 					answer.answer = Number(dummyRecord.dataValues.dummy);
-					console.log('answer.answer: ', answer.answer);
 				} else {
 					console.warn(
 						`Không tìm thấy giá trị dummy cho questionCode: ${questionCode} và answer: ${answerValue}`
@@ -251,7 +248,7 @@ export default class QuestionAction {
 		if (!sectionId) {
 			throw new Error("Invalid section name provided.");
 		}
-		const companyInfor = await UserService.getCompanyInfor(userId)
+		const companyInfor = await UserService.getCompanyInfor(userId);
 		const companyCode = companyInfor.companyCode;
 		const questions = await model.Question.findAll({
 			where: {
@@ -306,9 +303,9 @@ export default class QuestionAction {
 
 	static async findAllSubmitCountOfSection(userId, year) {
 		const result = await model.UserSection.findAll({
-			where: { 
+			where: {
 				userId: userId,
-				year: year
+				year: year,
 			},
 			attributes: ["sectionName", "submitCount", "updatedAt"],
 			raw: true,
@@ -329,8 +326,6 @@ export default class QuestionAction {
 			}
 			return newRecords;
 		}
-
-		console.log('result: ', result);
 		return result;
 	}
 }

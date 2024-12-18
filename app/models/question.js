@@ -9,6 +9,8 @@ export default (sequelize, DataTypes) => {
 			type: DataTypes.INTEGER,
 			language: DataTypes.STRING,
 			section: DataTypes.INTEGER,
+			polarityIndicating: DataTypes.STRING,
+			targetWeight: DataTypes.FLOAT,
 			answer1: DataTypes.STRING,
 			answer2: DataTypes.STRING,
 			answer3: DataTypes.STRING,

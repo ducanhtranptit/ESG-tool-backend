@@ -11,6 +11,8 @@ module.exports = {
 					name: index.name,
 					section: parseInt(index.section),
 					language: index.language,
+					polarityIndicating: index.polarityIndicating,
+					targetWeight: parseFloat(index.targetWeight),
 					answer1: index.answer1,
 					answer2: index.answer2,
 					answer3: index.answer3,

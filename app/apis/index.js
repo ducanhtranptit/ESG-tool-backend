@@ -15,11 +15,12 @@ import WebappSocialRouter from "./webapp/social.api.js";
 import WebappGovernanceRouter from "./webapp/governance.api.js";
 import WebappDashboardRouter from "./webapp/dashboard.api.js";
 import WebappCompanyInforRouter from "./webapp/companyinfor.api.js";
-import WebappReportRouter from "./webapp/report.api.js"
+import WebappReportRouter from "./webapp/report.api.js";
+import WebappTargetRouter from "./webapp/target.api.js";
 
 //Admin Router
 import AdminUserRouter from "./admin/user.api.js";
-import AdminQuestionRouter from "./admin/question.api.js"
+import AdminQuestionRouter from "./admin/question.api.js";
 
 const router = express.Router();
 
@@ -36,6 +37,7 @@ router.use("/", WebappGovernanceRouter);
 router.use("/", WebappDashboardRouter);
 router.use("/", WebappCompanyInforRouter);
 router.use("/", WebappReportRouter);
+router.use("/", WebappTargetRouter);
 
 router.use("/", AdminUserRouter);
 router.use("/", AdminQuestionRouter);

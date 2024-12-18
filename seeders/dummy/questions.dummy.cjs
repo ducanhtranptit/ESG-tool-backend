@@ -20,6 +20,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS196",
@@ -42,6 +44,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS195",
@@ -64,6 +68,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS193",
@@ -82,6 +88,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS194",
@@ -100,6 +108,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "0",
+		targetWeight: "0",
 	},
 	{
 		questionCode: "AS192",
@@ -118,6 +128,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS191",
@@ -136,6 +148,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.45",
 	},
 	{
 		questionCode: "AS190",
@@ -154,6 +168,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.4",
 	},
 	{
 		questionCode: "AS189",
@@ -172,6 +188,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.15",
 	},
 	{
 		questionCode: "AS187",
@@ -190,6 +208,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS186",
@@ -208,6 +228,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS185",
@@ -226,6 +248,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS184",
@@ -244,6 +268,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS183",
@@ -262,6 +288,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.3",
 	},
 	{
 		questionCode: "AS182",
@@ -280,6 +308,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.3",
 	},
 	{
 		questionCode: "AS181",
@@ -298,6 +328,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.4",
 	},
 	{
 		questionCode: "AS180",
@@ -316,6 +348,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS179",
@@ -334,6 +368,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS178",
@@ -352,6 +388,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS177",
@@ -370,6 +408,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS176",
@@ -388,6 +428,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.3",
 	},
 	{
 		questionCode: "AS175",
@@ -406,6 +448,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.3",
 	},
 	{
 		questionCode: "AS174",
@@ -424,6 +468,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.4",
 	},
 	{
 		questionCode: "AS173",
@@ -442,6 +488,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS169",
@@ -460,6 +508,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS168",
@@ -478,6 +528,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS167",
@@ -496,6 +548,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS166",
@@ -514,6 +568,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS165",
@@ -532,6 +588,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.3",
 	},
 	{
 		questionCode: "AS164",
@@ -550,6 +608,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.3",
 	},
 	{
 		questionCode: "AS163",
@@ -568,6 +628,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.4",
 	},
 	{
 		questionCode: "AS162",
@@ -586,6 +648,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS161",
@@ -604,6 +668,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS160",
@@ -622,6 +688,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS159",
@@ -640,6 +708,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS158",
@@ -658,6 +728,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS157",
@@ -676,6 +748,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS156",
@@ -694,6 +768,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS155",
@@ -712,6 +788,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS154",
@@ -730,6 +808,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS153",
@@ -748,6 +828,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS152",
@@ -766,6 +848,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS151",
@@ -784,6 +868,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS150",
@@ -802,6 +888,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS149",
@@ -820,6 +908,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS148",
@@ -838,6 +928,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS147",
@@ -856,6 +948,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS146",
@@ -874,6 +968,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS145",
@@ -892,6 +988,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS144",
@@ -910,6 +1008,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS143",
@@ -928,6 +1028,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS142",
@@ -946,6 +1048,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS141",
@@ -964,6 +1068,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS140",
@@ -982,6 +1088,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS139",
@@ -1000,6 +1108,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS138",
@@ -1018,6 +1128,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS137",
@@ -1036,6 +1148,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS136",
@@ -1054,6 +1168,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS135",
@@ -1072,6 +1188,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS134",
@@ -1090,6 +1208,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS133",
@@ -1108,6 +1228,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS132",
@@ -1126,6 +1248,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS131",
@@ -1144,6 +1268,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS130",
@@ -1162,6 +1288,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS129",
@@ -1180,6 +1308,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS128",
@@ -1198,6 +1328,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS127",
@@ -1216,6 +1348,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS126",
@@ -1234,6 +1368,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS125",
@@ -1252,6 +1388,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS124",
@@ -1270,6 +1408,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS123",
@@ -1288,6 +1428,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS122",
@@ -1306,6 +1448,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS121",
@@ -1324,6 +1468,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS120",
@@ -1342,6 +1488,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS119",
@@ -1360,6 +1508,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS118",
@@ -1378,6 +1528,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS117",
@@ -1396,6 +1548,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS116",
@@ -1414,6 +1568,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS115",
@@ -1432,6 +1588,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS114",
@@ -1450,6 +1608,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS113",
@@ -1468,6 +1628,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS112",
@@ -1486,6 +1648,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS111",
@@ -1504,6 +1668,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS110",
@@ -1522,6 +1688,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS109",
@@ -1541,6 +1709,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS107",
@@ -1559,6 +1729,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS106",
@@ -1577,6 +1749,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS105",
@@ -1595,6 +1769,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS104",
@@ -1613,6 +1789,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS103",
@@ -1631,6 +1809,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS102",
@@ -1649,6 +1829,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS101",
@@ -1667,6 +1849,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS100",
@@ -1685,6 +1869,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS099",
@@ -1703,6 +1889,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS098",
@@ -1721,6 +1909,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS097",
@@ -1739,6 +1929,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS096",
@@ -1757,6 +1949,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS095",
@@ -1775,6 +1969,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS094",
@@ -1793,6 +1989,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS093",
@@ -1811,6 +2009,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS092",
@@ -1829,6 +2029,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS091",
@@ -1847,6 +2049,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS090",
@@ -1865,6 +2069,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS089",
@@ -1883,6 +2089,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS088",
@@ -1901,6 +2109,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS087",
@@ -1919,6 +2129,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS086",
@@ -1937,6 +2149,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS085",
@@ -1955,6 +2169,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS084",
@@ -1973,6 +2189,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.5",
 	},
 	{
 		questionCode: "AS083",
@@ -1991,6 +2209,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS082",
@@ -2009,6 +2229,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0",
 	},
 	{
 		questionCode: "AS081",
@@ -2027,6 +2249,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS080",
@@ -2045,6 +2269,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS076",
@@ -2063,6 +2289,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS075",
@@ -2081,6 +2309,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.3",
 	},
 	{
 		questionCode: "AS073",
@@ -2099,6 +2329,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS072",
@@ -2117,6 +2349,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS071",
@@ -2135,6 +2369,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS070",
@@ -2153,6 +2389,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS069",
@@ -2171,6 +2409,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS068",
@@ -2191,6 +2431,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS066",
@@ -2209,6 +2451,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS065",
@@ -2229,6 +2473,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS063",
@@ -2247,6 +2493,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS062",
@@ -2265,6 +2513,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS061",
@@ -2283,6 +2533,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS059",
@@ -2302,6 +2554,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS058",
@@ -2320,6 +2574,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS057",
@@ -2340,6 +2596,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS056",
@@ -2358,6 +2616,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS055",
@@ -2376,6 +2636,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS028",
@@ -2394,6 +2656,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS027",
@@ -2412,6 +2676,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS026",
@@ -2430,6 +2696,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.5",
 	},
 	{
 		questionCode: "AS025",
@@ -2448,6 +2716,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS024",
@@ -2466,6 +2736,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS023",
@@ -2484,6 +2756,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS022",
@@ -2502,6 +2776,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.4",
 	},
 	{
 		questionCode: "AS021",
@@ -2520,6 +2796,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS019",
@@ -2538,6 +2816,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS018",
@@ -2556,6 +2836,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS017",
@@ -2574,6 +2856,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS015",
@@ -2592,6 +2876,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS014",
@@ -2610,6 +2896,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS013",
@@ -2628,6 +2916,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.3",
 	},
 	{
 		questionCode: "AS012",
@@ -2646,6 +2936,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS011",
@@ -2664,6 +2956,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS010",
@@ -2682,6 +2976,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS009",
@@ -2700,6 +2996,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.4",
 	},
 	{
 		questionCode: "AS008",
@@ -2718,6 +3016,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.4",
 	},
 	{
 		questionCode: "AS006",
@@ -2736,6 +3036,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS005",
@@ -2754,6 +3056,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS004",
@@ -2772,6 +3076,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS003",
@@ -2790,6 +3096,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS002",
@@ -2808,6 +3116,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS001",
@@ -2826,6 +3136,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS197",
@@ -2848,6 +3160,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS196",
@@ -2870,6 +3184,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS195",
@@ -2892,6 +3208,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS193",
@@ -2910,6 +3228,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS194",
@@ -2928,6 +3248,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "0",
+		targetWeight: "0",
 	},
 	{
 		questionCode: "AS192",
@@ -2946,6 +3268,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS191",
@@ -2964,6 +3288,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.45",
 	},
 	{
 		questionCode: "AS190",
@@ -2982,6 +3308,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.4",
 	},
 	{
 		questionCode: "AS189",
@@ -3000,6 +3328,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.15",
 	},
 	{
 		questionCode: "AS187",
@@ -3018,6 +3348,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS186",
@@ -3036,6 +3368,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS185",
@@ -3054,6 +3388,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS184",
@@ -3072,6 +3408,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS183",
@@ -3090,6 +3428,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.3",
 	},
 	{
 		questionCode: "AS182",
@@ -3108,6 +3448,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.3",
 	},
 	{
 		questionCode: "AS181",
@@ -3126,6 +3468,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.4",
 	},
 	{
 		questionCode: "AS180",
@@ -3144,6 +3488,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS179",
@@ -3162,6 +3508,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS178",
@@ -3180,6 +3528,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS177",
@@ -3198,6 +3548,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS176",
@@ -3216,6 +3568,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.3",
 	},
 	{
 		questionCode: "AS175",
@@ -3234,6 +3588,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.3",
 	},
 	{
 		questionCode: "AS174",
@@ -3252,6 +3608,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.4",
 	},
 	{
 		questionCode: "AS173",
@@ -3270,6 +3628,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS169",
@@ -3288,6 +3648,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS168",
@@ -3306,6 +3668,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS167",
@@ -3324,6 +3688,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS166",
@@ -3342,6 +3708,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS165",
@@ -3360,6 +3728,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.3",
 	},
 	{
 		questionCode: "AS164",
@@ -3378,6 +3748,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.3",
 	},
 	{
 		questionCode: "AS163",
@@ -3396,6 +3768,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.4",
 	},
 	{
 		questionCode: "AS162",
@@ -3414,6 +3788,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS161",
@@ -3432,6 +3808,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS160",
@@ -3450,6 +3828,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS159",
@@ -3468,6 +3848,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS158",
@@ -3486,6 +3868,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS157",
@@ -3504,6 +3888,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS156",
@@ -3522,6 +3908,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS155",
@@ -3540,6 +3928,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS154",
@@ -3558,6 +3948,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS153",
@@ -3576,6 +3968,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS152",
@@ -3594,6 +3988,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS151",
@@ -3612,6 +4008,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS150",
@@ -3630,6 +4028,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS149",
@@ -3648,6 +4048,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS148",
@@ -3666,6 +4068,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS147",
@@ -3684,6 +4088,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS146",
@@ -3702,6 +4108,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS145",
@@ -3720,6 +4128,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS144",
@@ -3738,6 +4148,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS143",
@@ -3756,6 +4168,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS142",
@@ -3774,6 +4188,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS141",
@@ -3792,6 +4208,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS140",
@@ -3810,6 +4228,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS139",
@@ -3828,6 +4248,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS138",
@@ -3846,6 +4268,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS137",
@@ -3864,6 +4288,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS136",
@@ -3882,6 +4308,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS135",
@@ -3900,6 +4328,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS134",
@@ -3918,6 +4348,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS133",
@@ -3936,6 +4368,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS132",
@@ -3954,6 +4388,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS131",
@@ -3972,6 +4408,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS130",
@@ -3990,6 +4428,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS129",
@@ -4008,6 +4448,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS128",
@@ -4026,6 +4468,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS127",
@@ -4045,6 +4489,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS126",
@@ -4063,6 +4509,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS125",
@@ -4081,6 +4529,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS124",
@@ -4099,6 +4549,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS123",
@@ -4117,6 +4569,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS122",
@@ -4135,6 +4589,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS121",
@@ -4153,6 +4609,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS120",
@@ -4171,6 +4629,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS119",
@@ -4189,6 +4649,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS118",
@@ -4207,6 +4669,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS117",
@@ -4225,6 +4689,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS116",
@@ -4244,6 +4710,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS115",
@@ -4262,6 +4730,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS114",
@@ -4280,6 +4750,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS113",
@@ -4298,6 +4770,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS112",
@@ -4316,6 +4790,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS111",
@@ -4334,6 +4810,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS110",
@@ -4352,6 +4830,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS109",
@@ -4371,6 +4851,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS107",
@@ -4389,6 +4871,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS106",
@@ -4407,6 +4891,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS105",
@@ -4425,6 +4911,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS104",
@@ -4443,6 +4931,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS103",
@@ -4461,6 +4951,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS102",
@@ -4479,6 +4971,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS101",
@@ -4497,6 +4991,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS100",
@@ -4515,6 +5011,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS099",
@@ -4533,6 +5031,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS098",
@@ -4551,6 +5051,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS097",
@@ -4569,6 +5071,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS096",
@@ -4587,6 +5091,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS095",
@@ -4605,6 +5111,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS094",
@@ -4623,6 +5131,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS093",
@@ -4641,6 +5151,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS092",
@@ -4659,6 +5171,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS091",
@@ -4677,6 +5191,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS090",
@@ -4695,6 +5211,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS089",
@@ -4713,6 +5231,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS088",
@@ -4731,6 +5251,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS087",
@@ -4749,6 +5271,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS086",
@@ -4767,6 +5291,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS085",
@@ -4785,6 +5311,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS084",
@@ -4803,6 +5331,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.5",
 	},
 	{
 		questionCode: "AS083",
@@ -4821,6 +5351,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS082",
@@ -4839,6 +5371,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0",
 	},
 	{
 		questionCode: "AS081",
@@ -4857,6 +5391,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS080",
@@ -4875,6 +5411,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS076",
@@ -4893,6 +5431,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS075",
@@ -4911,6 +5451,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.3",
 	},
 	{
 		questionCode: "AS073",
@@ -4929,6 +5471,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS072",
@@ -4947,6 +5491,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS071",
@@ -4965,6 +5511,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS070",
@@ -4983,6 +5531,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS069",
@@ -5001,6 +5551,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS068",
@@ -5021,6 +5573,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS066",
@@ -5040,6 +5594,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS065",
@@ -5060,6 +5616,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS063",
@@ -5078,6 +5636,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS062",
@@ -5096,6 +5656,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS061",
@@ -5114,6 +5676,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS059",
@@ -5133,6 +5697,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS058",
@@ -5151,6 +5717,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS057",
@@ -5172,6 +5740,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "2",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS056",
@@ -5190,6 +5760,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS055",
@@ -5208,6 +5780,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS028",
@@ -5226,6 +5800,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS027",
@@ -5244,6 +5820,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS026",
@@ -5262,6 +5840,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.5",
 	},
 	{
 		questionCode: "AS025",
@@ -5280,6 +5860,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS024",
@@ -5298,6 +5880,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS023",
@@ -5316,6 +5900,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS022",
@@ -5334,6 +5920,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.4",
 	},
 	{
 		questionCode: "AS021",
@@ -5352,6 +5940,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS019",
@@ -5370,6 +5960,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS018",
@@ -5388,6 +5980,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS017",
@@ -5406,6 +6000,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS015",
@@ -5424,6 +6020,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS014",
@@ -5442,6 +6040,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS013",
@@ -5460,6 +6060,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.3",
 	},
 	{
 		questionCode: "AS012",
@@ -5478,6 +6080,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS011",
@@ -5496,6 +6100,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS010",
@@ -5514,6 +6120,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "1",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS009",
@@ -5532,6 +6140,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.4",
 	},
 	{
 		questionCode: "AS008",
@@ -5550,6 +6160,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.4",
 	},
 	{
 		questionCode: "AS006",
@@ -5568,6 +6180,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS005",
@@ -5586,6 +6200,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS004",
@@ -5604,6 +6220,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS003",
@@ -5622,6 +6240,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS002",
@@ -5640,6 +6260,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS001",
@@ -5658,6 +6280,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS199",
@@ -5676,6 +6300,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.125",
 	},
 	{
 		questionCode: "AS200",
@@ -5694,6 +6320,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.125",
 	},
 	{
 		questionCode: "AS201",
@@ -5712,6 +6340,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.125",
 	},
 	{
 		questionCode: "AS202",
@@ -5730,6 +6360,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.125",
 	},
 	{
 		questionCode: "AS203",
@@ -5748,6 +6380,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.125",
 	},
 	{
 		questionCode: "AS205",
@@ -5766,6 +6400,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.125",
 	},
 	{
 		questionCode: "AS207",
@@ -5784,6 +6420,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.125",
 	},
 	{
 		questionCode: "AS208",
@@ -5802,6 +6440,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS209",
@@ -5820,6 +6460,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS210",
@@ -5838,6 +6480,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS211",
@@ -5856,6 +6500,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS212",
@@ -5874,6 +6520,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS213",
@@ -5892,6 +6540,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS214",
@@ -5910,6 +6560,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS215",
@@ -5928,6 +6580,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS198",
@@ -5946,6 +6600,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.125",
 	},
 	{
 		questionCode: "AS199",
@@ -5964,6 +6620,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.125",
 	},
 	{
 		questionCode: "AS200",
@@ -5982,6 +6640,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.125",
 	},
 	{
 		questionCode: "AS201",
@@ -6000,6 +6660,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.125",
 	},
 	{
 		questionCode: "AS202",
@@ -6018,6 +6680,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.125",
 	},
 	{
 		questionCode: "AS203",
@@ -6036,6 +6700,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.125",
 	},
 	{
 		questionCode: "AS205",
@@ -6054,6 +6720,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.125",
 	},
 	{
 		questionCode: "AS207",
@@ -6072,6 +6740,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.125",
 	},
 	{
 		questionCode: "AS208",
@@ -6090,6 +6760,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.25",
 	},
 	{
 		questionCode: "AS209",
@@ -6108,6 +6780,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS210",
@@ -6126,6 +6800,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS211",
@@ -6144,6 +6820,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.2",
 	},
 	{
 		questionCode: "AS212",
@@ -6162,6 +6840,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS213",
@@ -6180,6 +6860,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS214",
@@ -6198,6 +6880,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS215",
@@ -6216,6 +6900,8 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "negative",
+		targetWeight: "0.1",
 	},
 	{
 		questionCode: "AS198",
@@ -6234,5 +6920,7 @@ module.exports = [
 		answer9: "0",
 		answer10: "0",
 		type: "3",
+		polarityIndicating: "positive",
+		targetWeight: "0.125",
 	},
 ];

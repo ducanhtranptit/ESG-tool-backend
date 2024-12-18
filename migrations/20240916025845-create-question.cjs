@@ -24,6 +24,12 @@ module.exports = {
 			section: {
 				type: Sequelize.INTEGER,
 			},
+			polarityIndicating: {
+				type: Sequelize.STRING,
+			},
+			targetWeight: {
+				type: Sequelize.FLOAT,
+			},
 			answer1: {
 				type: Sequelize.STRING,
 			},
