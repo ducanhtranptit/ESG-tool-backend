@@ -8,14 +8,39 @@ import {
 export default class AuthController {
 	static async register(req, res) {
 		try {
-			const { username, password } = req.body;
+			const {
+				username,
+				password,
+				companyName,
+				foundingYear,
+				mainPhoneNumber,
+				sector,
+				companyCode,
+			} = req.body;
 			if (!username?.trim() || !password?.trim()) {
 				return new BadRequestResponse().send(req, res);
 			}
-			const isRegister = await AuthActions.register(username, password);
+			const existingUser = await AuthActions.checkExist(username);
+			if (existingUser) {
+				return new BadRequestResponse().send(
+					req,
+					res,
+					"User already exists"
+				);
+			}
+			await AuthActions.handleRegister(
+				username,
+				password,
+				companyName,
+				foundingYear,
+				mainPhoneNumber,
+				sector,
+				companyCode
+			);
+			return new SuccessResponse().send(req, res);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 
@@ -32,7 +57,7 @@ export default class AuthController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 	static async logout(req, res) {
@@ -48,7 +73,7 @@ export default class AuthController {
 			return new SuccessResponse().send(req, res);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 }

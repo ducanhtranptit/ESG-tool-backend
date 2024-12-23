@@ -8,7 +8,7 @@ class EsgReportController {
 			return new SuccessResponse().send(req, res);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 }

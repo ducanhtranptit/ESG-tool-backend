@@ -12,7 +12,7 @@ export default class ReportController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 
@@ -30,7 +30,7 @@ export default class ReportController {
 			});
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 }

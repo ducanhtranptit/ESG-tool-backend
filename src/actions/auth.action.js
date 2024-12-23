@@ -4,30 +4,45 @@ import { signToken } from "../utils/jwt.js";
 import config from "../../config/config.js";
 
 export default class AuthActions {
-	static async handleRegister(username, password) {
-		const existingUser = await this.checkExist(username);
-		if (existingUser) {
-			return false;
-		}
+	static async handleRegister(
+		username,
+		password,
+		companyName,
+		foundingYear,
+		mainPhoneNumber,
+		sector,
+		companyCode
+	) {
 		const hashedPassword = await hashPassword(password);
 		const newUser = await model.User.create({
+			type: 3,
 			username,
 			password: hashedPassword,
 		});
-		if (newUser) {
+		const newOverallInfor = await model.OverallInfor.create({
+			companyName,
+			dateFounder: foundingYear,
+			mainPhoneNumber,
+			companySector: sector,
+			userId: newUser.id,
+		});
+		const newCompany = await model.Company.create({
+			companyName,
+			companyCode,
+			userId: newUser.id,
+		});
+		if (newUser && newOverallInfor && newCompany) {
 			const tokens = this.signToken({ id: newUser.id });
 			if (tokens) {
 				await model.User.update(
-					{ refreshToken: tokens.refreshToken },
+					{
+						refreshToken: tokens.refreshToken,
+						companyId: newCompany.id,
+					},
 					{ where: { id: newUser.id } }
 				);
-				return { id: newUser.id, ...tokens };
-			} else {
-				return false;
 			}
 		}
-
-		return false;
 	}
 
 	static async handleLogin(username, password) {

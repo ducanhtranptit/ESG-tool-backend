@@ -13,7 +13,7 @@ export default class SocialController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 	static async dataTrainingChart(req, res) {
@@ -27,7 +27,7 @@ export default class SocialController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 	static async dataSalaryChangeChart(req, res) {
@@ -41,7 +41,7 @@ export default class SocialController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 	static async dataRiskChart(req, res) {
@@ -55,7 +55,7 @@ export default class SocialController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 	static async dataExpenditureChart(req, res) {
@@ -69,7 +69,7 @@ export default class SocialController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 }

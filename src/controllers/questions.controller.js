@@ -12,7 +12,7 @@ export default class QuestionController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 
@@ -29,7 +29,7 @@ export default class QuestionController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 
@@ -46,7 +46,7 @@ export default class QuestionController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 
@@ -68,7 +68,7 @@ export default class QuestionController {
 			return new SuccessResponse().send(req, res);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 
@@ -76,11 +76,7 @@ export default class QuestionController {
 		try {
 			const { id: userId } = req.data;
 			const { year } = req.query;
-			if (
-				!year ||
-				year < 2000 ||
-				year > 2100
-			) {
+			if (!year || year < 2000 || year > 2100) {
 				return new BadRequestResponse().send(req, res);
 			}
 			const data = await QuestionAction.findAllSubmitCountOfSection(
@@ -90,7 +86,7 @@ export default class QuestionController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 }

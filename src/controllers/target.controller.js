@@ -20,7 +20,7 @@ export default class TargetController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 
@@ -38,7 +38,7 @@ export default class TargetController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 
@@ -58,7 +58,7 @@ export default class TargetController {
 			return new SuccessResponse().send(req, res);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 
@@ -70,12 +70,12 @@ export default class TargetController {
 				userId,
 				section,
 				year,
-				lang,
+				lang
 			);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 }

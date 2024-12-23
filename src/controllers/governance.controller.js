@@ -13,7 +13,7 @@ export default class GovernanceController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 	static async dataSupplierRatioChart(req, res) {
@@ -23,11 +23,14 @@ export default class GovernanceController {
 			if (!userId || !lang) {
 				return new BadRequestResponse().send(req, res);
 			}
-			const data = await GovernanceAction.dataSupplierRatioChart(userId, lang);
+			const data = await GovernanceAction.dataSupplierRatioChart(
+				userId,
+				lang
+			);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 	static async dataViolateChart(req, res) {
@@ -41,7 +44,7 @@ export default class GovernanceController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 }

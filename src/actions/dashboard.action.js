@@ -26,7 +26,7 @@ export default class DashboardAction {
 		);
 
 		const [environmentWeight, socialWeight, governanceWeight] =
-			pillarWeights.map((w) => w.pillarWeight);
+			pillarWeights.map((w) => w?.pillarWeight);
 
 		const data = companyScoreESG.map((score) => ({
 			year: score.dataValues.year,

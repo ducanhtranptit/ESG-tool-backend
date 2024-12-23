@@ -27,10 +27,10 @@ export class SuccessResponse {
 }
 
 export class BadRequestResponse {
-	send(req, res) {
+	send(req, res, message = apiMessage.BAD_REQUEST) {
 		return res.status(apiStatusCode.BAD_REQUEST).json({
 			status: apiStatusCode.BAD_REQUEST,
-			message: apiMessage.BAD_REQUEST,
+			message,
 		});
 	}
 }
@@ -63,10 +63,10 @@ export class NotFoundResponse {
 }
 
 export class ErrorResponse {
-	send(req, res) {
+	send(req, res, message = apiMessage.INTERNAL_ERROR) {
 		return res.status(apiStatusCode.INTERNAL_ERROR).json({
 			status: apiStatusCode.INTERNAL_ERROR,
-			message: apiMessage.INTERNAL_ERROR,
+			message,
 		});
 	}
 }

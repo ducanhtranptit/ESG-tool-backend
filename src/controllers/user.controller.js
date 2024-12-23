@@ -13,7 +13,7 @@ export default class UserController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 	static async getProfile(req, res) {
@@ -29,7 +29,7 @@ export default class UserController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (err) {
 			console.error(err);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 	static async refreshToken(req, res) {
@@ -46,7 +46,7 @@ export default class UserController {
 			return new SuccessResponse().send(req, res, newToken);
 		} catch (err) {
 			console.error(err);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 }

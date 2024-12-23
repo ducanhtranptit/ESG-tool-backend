@@ -4,6 +4,21 @@ import model from "../models/index.js";
 import UserType from "../constants/user-type.constant.js";
 
 export default class UserActions {
+	static buildSearchConditions(filters) {
+		const conditions = {};
+		if (filters.username) {
+			conditions.username = {
+				[Sequelize.Op.like]: `%${filters.username}%`,
+			};
+		}
+		if (filters.id) {
+			conditions.id = filters.id;
+		}
+		if (filters.companyId) {
+			conditions.companyId = filters.companyId;
+		}
+		return conditions;
+	}
 	static async findAll() {
 		const users = await model.User.findAll({
 			where: { type: UserType.USER },
@@ -20,6 +35,7 @@ export default class UserActions {
 			});
 
 			result.push({
+				userId: user.id,
 				username: user.username,
 				company: company.companyCode,
 			});

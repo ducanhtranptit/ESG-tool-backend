@@ -9,11 +9,14 @@ export default class EnvironmentController {
 			if (!userId || !lang) {
 				return new BadRequestResponse().send(req, res);
 			}
-			const data = await EnvironmentAction.dataEmissionChart(userId, lang);
+			const data = await EnvironmentAction.dataEmissionChart(
+				userId,
+				lang
+			);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 
@@ -28,7 +31,7 @@ export default class EnvironmentController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 
@@ -43,7 +46,7 @@ export default class EnvironmentController {
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 
@@ -54,11 +57,14 @@ export default class EnvironmentController {
 			if (!userId || !lang) {
 				return new BadRequestResponse().send(req, res);
 			}
-			const data = await EnvironmentAction.dataElectricityChart(userId, lang);
+			const data = await EnvironmentAction.dataElectricityChart(
+				userId,
+				lang
+			);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 
@@ -69,11 +75,14 @@ export default class EnvironmentController {
 			if (!userId || !lang) {
 				return new BadRequestResponse().send(req, res);
 			}
-			const data = await EnvironmentAction.dataInkPapersChart(userId, lang);
+			const data = await EnvironmentAction.dataInkPapersChart(
+				userId,
+				lang
+			);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);
-			return new ErrorResponse().send(req, res);
+			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
 }
