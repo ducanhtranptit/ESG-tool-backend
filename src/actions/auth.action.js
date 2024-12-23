@@ -78,6 +78,11 @@ export default class AuthActions {
 		return user;
 	}
 
+	static async checkCompanyExist(companyCode) {
+		const company = model.Company.findOne({ where: { companyCode } });
+		return company;
+	}
+
 	static verifyPassword(password, hashPassword) {
 		return comparePassword(password, hashPassword);
 	}

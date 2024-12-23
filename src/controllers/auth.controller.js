@@ -21,6 +21,16 @@ export default class AuthController {
 				return new BadRequestResponse().send(req, res);
 			}
 			const existingUser = await AuthActions.checkExist(username);
+			const existingCompany = await AuthActions.checkCompanyExist(
+				companyCode
+			);
+			if (existingCompany) {
+				return new BadRequestResponse().send(
+					req,
+					res,
+					"The code already belongs to a listed company!"
+				);
+			}
 			if (existingUser) {
 				return new BadRequestResponse().send(
 					req,
