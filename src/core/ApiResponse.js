@@ -36,10 +36,10 @@ export class BadRequestResponse {
 }
 
 export class UnauthorizedResponse {
-	send(req, res) {
+	send(req, res, message = apiMessage.UNAUTHORIZED) {
 		return res.status(apiStatusCode.UNAUTHORIZED).json({
 			status: apiStatusCode.UNAUTHORIZED,
-			message: apiMessage.UNAUTHORIZED,
+			message,
 		});
 	}
 }

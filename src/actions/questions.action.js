@@ -1,5 +1,6 @@
 import model from "../models/index.js";
 import sections from "../constants/section.constant.js";
+import UserType from "../constants/user-type.constant.js";
 import UserService from "../services/user.services.js";
 export default class QuestionAction {
 	static async findAll() {
@@ -170,6 +171,11 @@ export default class QuestionAction {
 					answer: answer.answer,
 				});
 			}
+		}
+
+		if (userInfor.dataValues.type === UserType.USER_NOT_ACTIVE) {
+			console.log("User is not active");
+			return;
 		}
 
 		const company = await model.Company.findOne({

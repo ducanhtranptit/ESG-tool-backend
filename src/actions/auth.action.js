@@ -62,7 +62,15 @@ export default class AuthActions {
 			{ refreshToken: tokens.refreshToken },
 			{ where: { id: user.id } }
 		);
-		return { id: user.id, ...tokens };
+		return {
+			user: {
+				username: user.dataValues.username,
+				userId: user.dataValues.id,
+				companyId: user.dataValues.companyId,
+				userType: user.dataValues.type,
+			},
+			...tokens,
+		};
 	}
 
 	static async handleLogout(accessToken, expiresIn, userId) {

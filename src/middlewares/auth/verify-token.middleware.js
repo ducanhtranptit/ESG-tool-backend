@@ -12,13 +12,21 @@ const verifyTokenMiddleware = async (req, res, next) => {
 			!authorizationHeader.startsWith("Bearer ")
 		) {
 			console.log("Authorization header not found");
-			return new UnauthorizedResponse().send(req, res);
+			return new UnauthorizedResponse().send(
+				req,
+				res,
+				"Authorization header not found"
+			);
 		}
 
 		const accessToken = authorizationHeader.split("Bearer ")[1];
 		if (!accessToken) {
 			console.log("Access token not found");
-			return new UnauthorizedResponse().send(req, res);
+			return new UnauthorizedResponse().send(
+				req,
+				res,
+				"Access token not found"
+			);
 		}
 
 		const tokenIsBlacklisted = await model.BlackList.findOne({
@@ -27,13 +35,17 @@ const verifyTokenMiddleware = async (req, res, next) => {
 
 		if (tokenIsBlacklisted) {
 			console.log("Token is blacklisted");
-			return new UnauthorizedResponse().send(req, res);
+			return new UnauthorizedResponse().send(
+				req,
+				res,
+				"Token is blacklisted"
+			);
 		}
 
 		const payload = verifyToken(accessToken, config.accessTokenSecret);
 		if (!payload || !payload.decoded) {
 			console.log("Invalid token");
-			return new UnauthorizedResponse().send(req, res);
+			return new UnauthorizedResponse().send(req, res, "Invalid token");
 		}
 
 		const user = await model.User.findOne({
@@ -42,13 +54,11 @@ const verifyTokenMiddleware = async (req, res, next) => {
 			},
 			raw: true,
 		});
-
-		if (user.type !== UserType.USER && user.type !== 3) {
-			console.log("Invalid user type");
-			return new UnauthorizedResponse().send(req, res);
-		}
-
-		req.data = payload.decoded;
+		
+		req.data = {
+			...payload.decoded,
+			type: user.type,
+		};
 		next();
 	} catch (error) {
 		console.error(error);
