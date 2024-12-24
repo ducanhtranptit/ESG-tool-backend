@@ -174,6 +174,16 @@ export default class QuestionAction {
 		}
 
 		if (userInfor.dataValues.type === UserType.USER_NOT_ACTIVE) {
+			await model.UserSection.increment(
+				{ submitCount: 1 },
+				{
+					where: {
+						userId: userId,
+						year: year,
+						sectionName: sectionName,
+					},
+				}
+			);	
 			console.log("User is not active");
 			return;
 		}
