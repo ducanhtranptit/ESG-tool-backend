@@ -87,6 +87,7 @@ export default class CompanyInfoAction {
 				companySector: overallInfor.companySector,
 				companyDescription: overallInfor.companyDescription,
 				totalRevenue: parseInt(overallInfor.totalRevenue),
+				contactInformation: overallInfor.contactInformation,
 			},
 			{
 				where: { userId: userId },

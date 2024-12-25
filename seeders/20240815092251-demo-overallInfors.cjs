@@ -12,7 +12,7 @@ module.exports = {
 					dateFounder: 2000,
 					mainAddress:
 						"567 Openfield Avenue, Bigburg, Ontario,  L0L 1C9",
-					mainPhoneNumber: "705-555-6666",
+					mainPhoneNumber: "0987654321",
 					companyWebsite: "www.lcproducts.com",
 					companySector: "Manufacturing",
 					companyDescription:

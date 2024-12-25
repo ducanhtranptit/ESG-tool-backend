@@ -43,6 +43,8 @@ export default class CompanyInfoController {
 			companyDescription: data.companyDescription,
 			contactInformation: data.contactInformation,
 		};
+		if (overallInfor.companyName.leghth > 250)
+			return new BadRequestResponse().send(req, res);
 		const siteInfors = data.siteInformation;
 		const productInfors = data.productInformation;
 		await CompanyInfoAction.updateCompanyInfor(
