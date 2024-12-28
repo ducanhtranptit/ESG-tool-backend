@@ -8,11 +8,7 @@ export default class TargetAction {
 				userId: userId,
 				year: year,
 			},
-			attributes: [
-				"sectionName",
-				"updatedAt",
-				"percentileCompleted",
-			],
+			attributes: ["sectionName", "updatedAt", "percentileCompleted"],
 			raw: true,
 		});
 		if (result.length === 0) {
@@ -98,6 +94,7 @@ export default class TargetAction {
 				where: {
 					questionCode: questionCode,
 					year: currentYear,
+					companyCode: companyCode,
 				},
 				attributes: ["answer"],
 				raw: true,
