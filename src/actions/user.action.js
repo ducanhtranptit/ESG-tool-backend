@@ -27,7 +27,7 @@ export default class UserActions {
 					[Op.not]: UserType.ADMIN,
 				},
 			},
-			attibutes: ["username", "companyId"],
+			attibutes: ["username", "companyId", "type"],
 			raw: true,
 		});
 		const result = [];
@@ -43,6 +43,7 @@ export default class UserActions {
 				userId: user.id,
 				username: user.username,
 				company: company.companyCode,
+				status: user.type === 3 ? "Inactive" : "Active",
 			});
 		}
 

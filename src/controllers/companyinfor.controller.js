@@ -51,7 +51,7 @@ export default class CompanyInfoController {
 			overallInfor,
 			siteInfors,
 			productInfors,
-			userId
+			userIdpm2
 		);
 		return new SuccessResponse().send(req, res);
 	}

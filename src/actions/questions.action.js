@@ -2,7 +2,36 @@ import model from "../models/index.js";
 import sections from "../constants/section.constant.js";
 import UserType from "../constants/user-type.constant.js";
 import UserService from "../services/user.services.js";
+import { Sequelize } from "sequelize";
 export default class QuestionAction {
+	static buildSearchConditions(filters) {
+		const conditions = {};
+		if (filters.name) {
+			conditions.name = {
+				[Sequelize.Op.like]: `%${filters.name}%`,
+			};
+		}
+		if (filters.topicCode) {
+			conditions.topicCode = filters.topicCode;
+		}
+		if (filters.questionCode) {
+			conditions.questionCode = filters.questionCode;
+		}
+		if (filters.section) {
+			conditions.section = filters.section;
+		}
+		if (filters.type) {
+			conditions.type = filters.type;
+		}
+		if (filters.page) {
+			conditions.page = filters.page;
+		}
+		if (filters.limit) {
+			conditions.limit = filters.limit;
+		}
+		return conditions;
+	}
+
 	static async findAll() {
 		const questions = await model.Question.findAll({
 			attributes: [
@@ -25,6 +54,14 @@ export default class QuestionAction {
 			raw: true,
 		});
 		return questions;
+	}
+
+	static async findAllTopics() {
+		const topics = await model.Topic.findAll({
+			attributes: ["topicCode", "name", "answerGuide", "language"],
+			raw: true,
+		});
+		return topics;
 	}
 
 	static async calculateMetric(measurementMethod, dictionary) {
@@ -183,7 +220,7 @@ export default class QuestionAction {
 						sectionName: sectionName,
 					},
 				}
-			);	
+			);
 			console.log("User is not active");
 			return;
 		}
@@ -343,5 +380,93 @@ export default class QuestionAction {
 			return newRecords;
 		}
 		return result;
+	}
+
+	static async findAllAnswers(filter) {
+		const conditions = QuestionAction.buildSearchConditions(filter);
+		const offset = (conditions.page - 1) * conditions.limit;
+
+		// Lấy dữ liệu từ bảng Answer
+		const answers = await model.Answer.findAll({
+			attributes: ["companyCode", "year", "questionCode", "answer"],
+			raw: true,
+			offset: parseInt(offset, 10),
+			limit: parseInt(conditions.limit, 10),
+		});
+
+		// Lấy dữ liệu câu hỏi tương ứng với questionCode
+		const questionCodes = answers.map((answer) => answer.questionCode);
+		const questions = await model.Question.findAll({
+			attributes: ["questionCode", "name", "type"],
+			where: {
+				questionCode: {
+					[Sequelize.Op.in]: questionCodes,
+				},
+				language: "vi",
+			},
+			raw: true,
+		});
+
+		// Tạo map để ánh xạ questionCode với name và type
+		const questionMap = questions.reduce((acc, question) => {
+			acc[question.questionCode] = {
+				name: question.name,
+				type: question.type,
+			};
+			return acc;
+		}, {});
+
+		// Chuẩn bị dữ liệu kết quả
+		const result = await Promise.all(
+			answers.map(async (answer) => {
+				const question = questionMap[answer.questionCode];
+				let finalAnswer = answer.answer;
+
+				// Nếu question.type là 1 hoặc 2, lấy dữ liệu từ bảng Dummy
+				if (question?.type === 1 || question?.type === 2) {
+					const dummyAnswer = await model.Dummy.findOne({
+						where: {
+							questionCode: answer.questionCode,
+							dummy: answer.answer,
+						},
+						attributes: ["answer"],
+						raw: true,
+					});
+
+					const answerText = await model.Question.findOne({
+						where: {
+							questionCode: answer.questionCode,
+							language: "vi",
+						},
+						attributes: [
+							[`answer${dummyAnswer.answer}`, "answerText"],
+						],
+						raw: true,
+					});
+					if (answerText) {
+						finalAnswer = answerText.answerText;
+					}
+				}
+
+				return {
+					companyCode: answer.companyCode,
+					year: answer.year,
+					questionCode: answer.questionCode,
+					questionName: question?.name || "Câu hỏi không tồn tại",
+					questionType: question?.type || "Không xác định",
+					answer: finalAnswer,
+				};
+			})
+		);
+		// Tính tổng số bản ghi
+		const total = await model.Answer.count();
+
+		// Trả về dữ liệu
+		return {
+			data: result,
+			total,
+			totalPages: Math.ceil(total / conditions.limit),
+			currentPage: conditions.page,
+		};
 	}
 }

@@ -89,4 +89,28 @@ export default class QuestionController {
 			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
+	static async getAllTopic(req, res) {
+		try {
+			const data = await QuestionAction.findAllTopics();
+			return new SuccessResponse().send(req, res, data);
+		} catch (error) {
+			console.error(error);
+			return new ErrorResponse().send(req, res, error.message);
+		}
+	}
+
+	static async getAllAnswersForAdmin(req, res) {
+		try {
+			const {page, limit} = req.query;
+			const filter = {
+				page: parseInt(page, 10) || 1,
+				limit: parseInt(limit, 10) || 10,
+			};
+			const data = await QuestionAction.findAllAnswers(filter);
+			return new SuccessResponse().send(req, res, data);
+		} catch (error) {
+			console.error(error.message);
+			return new ErrorResponse().send(req, res, error.message);
+		}
+	}
 }

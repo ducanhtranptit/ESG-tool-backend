@@ -1,48 +1,24 @@
 import { UnauthorizedResponse } from "../../core/ApiResponse.js";
-import config from "../../../config/config.js";
-import { verifyToken } from "../../utils/jwt.js";
-import model from "../../models/index.js";
+import UserType from "../../constants/user-type.constant.js";
 
-const adminVerifyTokenMiddleware = async (req, res, next) => {
+const verifyAdminMiddleware = (req, res, next) => {
 	try {
-		const authorizationHeader = req.headers["authorization"];
-		if (
-			!authorizationHeader ||
-			!authorizationHeader.startsWith("Bearer ")
-		) {
-			return new UnauthorizedResponse().send(req, res);
+		if (!req.data || !req.data.id || req.data.type === undefined) {
+			console.log("User data not found in request");
+			return new UnauthorizedResponse().send(
+				req,
+				res,
+				"User data not found"
+			);
 		}
-
-		const accessToken = authorizationHeader.split("Bearer ")[1];
-		if (!accessToken) {
-			return new UnauthorizedResponse().send(req, res);
+		if (req.data.type !== UserType.ADMIN) {
+			console.log("Access denied");
+			return new UnauthorizedResponse().send(
+				req,
+				res,
+				"Access denied"
+			);
 		}
-
-		const tokenIsBlacklisted = await model.BlackList.findOne({
-			where: { token: accessToken },
-		});
-
-		if (tokenIsBlacklisted) {
-			return new UnauthorizedResponse().send(req, res);
-		}
-
-		const payload = verifyToken(accessToken, config.accessTokenSecret);
-		if (!payload || !payload.decoded) {
-			return new UnauthorizedResponse().send(req, res);
-		}
-
-		const user = await model.User.findOne({
-			where: {
-				id: payload.decoded.id,
-			},
-			raw: true,
-		});
-
-		if (user.type !== 2) {
-			return new UnauthorizedResponse().send(req, res);
-		}
-
-		req.data = payload.decoded;
 		next();
 	} catch (error) {
 		console.error(error);
@@ -50,4 +26,4 @@ const adminVerifyTokenMiddleware = async (req, res, next) => {
 	}
 };
 
-export default adminVerifyTokenMiddleware;
+export default verifyAdminMiddleware;
