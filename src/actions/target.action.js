@@ -245,30 +245,33 @@ export default class TargetAction {
 		console.log("polarity: ", polarity);
 		console.log("T_target: ", T_target);
 		console.log("T_actual: ", T_actual);
-		let questionPercentileCompleted;
-		if (T_target === 0) {
-			if (T_actual === 0) {
-				questionPercentileCompleted = 100;
-			} else if (polarity === "positive") {
-				questionPercentileCompleted =
-					100 * (1 - Math.exp(-Math.log(1 + T_actual / T_target)));
-			} else if (polarity === "negative") {
-				questionPercentileCompleted =
-					100 * Math.exp(-Math.log(1 + T_actual));
+		let questionPercentileCompleted = 0;
+		const absTTarget = Math.abs(T_target);
+		if (polarity === "positive") {
+			if (T_target === 0) {
+				if (T_actual === 0) {
+					questionPercentileCompleted = 100;
+				} else {
+					questionPercentileCompleted = 0;
+				}
+			} else if (T_target > 0) {
+				questionPercentileCompleted = (T_actual / T_target) * 100;
 			} else {
-				questionPercentileCompleted = 0;
+				questionPercentileCompleted =
+					((2 * absTTarget + T_actual) / absTTarget) * 100;
 			}
-		} else {
-			if (polarity === "positive") {
+		} else if (polarity === "negative") {
+			if (T_target === 0) {
+				if (T_actual === 0) {
+					questionPercentileCompleted = 100;
+				} else {
+					questionPercentileCompleted = 0;
+				}
+			} else if (T_target > 0) {
 				questionPercentileCompleted =
-					T_actual / T_target !== Infinity
-						? (T_actual / T_target) * 100
-						: null;
-			} else if (polarity === "negative") {
-				questionPercentileCompleted =
-					T_actual / T_target !== Infinity
-						? (1 - T_actual / T_target) * 100
-						: null;
+					((2 * T_target - T_actual) / T_target) * 100;
+			} else {
+				questionPercentileCompleted = (T_actual / T_target) * 100;
 			}
 		}
 

@@ -23,5 +23,11 @@ router.get(
 	verifyAdminMiddleware,
 	QuestionController.getAllAnswersForAdmin
 );
+router.get(
+	"/admin/dummies",
+	verifyTokenMiddleware,
+	verifyAdminMiddleware,
+	QuestionController.getAllDummiesForAdmin
+);
 
 export default router;

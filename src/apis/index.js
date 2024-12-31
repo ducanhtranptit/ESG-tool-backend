@@ -21,6 +21,7 @@ import WebappTargetRouter from "./webapp/target.api.js";
 //Admin Router
 import AdminUserRouter from "./admin/user.api.js";
 import AdminQuestionRouter from "./admin/question.api.js";
+import AdminCompanyRouter from "./admin/company.api.js"
 
 const router = express.Router();
 
@@ -41,5 +42,6 @@ router.use("/", WebappTargetRouter);
 
 router.use("/", AdminUserRouter);
 router.use("/", AdminQuestionRouter);
+router.use("/", AdminCompanyRouter);
 
 export default router;

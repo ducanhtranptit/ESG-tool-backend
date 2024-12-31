@@ -23,12 +23,6 @@ export default class QuestionAction {
 		if (filters.type) {
 			conditions.type = filters.type;
 		}
-		if (filters.page) {
-			conditions.page = filters.page;
-		}
-		if (filters.limit) {
-			conditions.limit = filters.limit;
-		}
 		return conditions;
 	}
 
@@ -384,14 +378,15 @@ export default class QuestionAction {
 
 	static async findAllAnswers(filter) {
 		const conditions = QuestionAction.buildSearchConditions(filter);
-		const offset = (conditions.page - 1) * conditions.limit;
+		const offset = (filter.page - 1) * filter.limit;
 
 		// Lấy dữ liệu từ bảng Answer
 		const answers = await model.Answer.findAll({
+			where: conditions,
 			attributes: ["companyCode", "year", "questionCode", "answer"],
 			raw: true,
 			offset: parseInt(offset, 10),
-			limit: parseInt(conditions.limit, 10),
+			limit: parseInt(filter.limit, 10),
 		});
 
 		// Lấy dữ liệu câu hỏi tương ứng với questionCode
@@ -460,13 +455,59 @@ export default class QuestionAction {
 		);
 		// Tính tổng số bản ghi
 		const total = await model.Answer.count();
-
 		// Trả về dữ liệu
 		return {
 			data: result,
 			total,
-			totalPages: Math.ceil(total / conditions.limit),
-			currentPage: conditions.page,
+			totalPages: Math.ceil(total / filter.limit),
+			currentPage: filter.page,
+		};
+	}
+
+	static async findAllDummies(filter) {
+		const conditions = QuestionAction.buildSearchConditions(filter);
+		const offset = (filter.page - 1) * filter.limit;
+		const dummies = await model.Dummy.findAll({
+			where: conditions,
+			attributes: ["questionCode", "dummy", "answer"],
+			offset: parseInt(offset, 10),
+			limit: parseInt(filter.limit, 10),
+		});
+		const questionCodes = dummies.map((answer) => answer.questionCode);
+		const questions = await model.Question.findAll({
+			attributes: ["questionCode", "name", "type"],
+			where: {
+				questionCode: {
+					[Sequelize.Op.in]: questionCodes,
+				},
+				language: "vi",
+			},
+			raw: true,
+		});
+		const questionMap = questions.reduce((acc, question) => {
+			acc[question.questionCode] = {
+				name: question.name,
+				type: question.type,
+			};
+			return acc;
+		}, {});
+		const result = await Promise.all(
+			dummies.map(async (dummy) => {
+				const question = questionMap[dummy.questionCode];
+				return {
+					questionCode: dummy.questionCode,
+					questionName: question?.name || "Câu hỏi không tồn tại",
+					answer: dummy.answer,
+					dummy: dummy.dummy,
+				};
+			})
+		);
+		const total = await model.Dummy.count();
+		return {
+			data: result,
+			total,
+			totalPages: Math.ceil(total / filter.limit),
+			currentPage: filter.page,
 		};
 	}
 }
