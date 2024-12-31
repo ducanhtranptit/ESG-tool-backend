@@ -109,7 +109,7 @@ export default class QuestionController {
 			const data = await QuestionAction.findAllAnswers(filter);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
-			console.error(error.message);
+			console.error(error);
 			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
