@@ -42,7 +42,10 @@ export default class DashboardAction {
 			governanceRank: score.dataValues.governanceRank,
 			governanceWeight,
 		}));
-
-		return { company: { name: companyCode, data } };
+		const maxYear = Math.max(...data.map((item) => item.year));
+		const filteredData = data
+			.filter((item) => item.year >= maxYear - 4)
+			.sort((a, b) => a.year - b.year);
+		return { company: { name: companyCode, data: filteredData } };
 	}
 }

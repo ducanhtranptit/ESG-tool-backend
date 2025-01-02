@@ -1,3 +1,4 @@
+import { Sequelize } from "sequelize";
 import model from "../models/index.js";
 import UserService from "../services/user.services.js";
 
@@ -22,6 +23,7 @@ export default class CompanyInfoAction {
 		}
 		return conditions;
 	}
+
 	static async findAll() {
 		const overallInfors = await model.OverallInfor.findAll({
 			attributes: [
@@ -166,6 +168,58 @@ export default class CompanyInfoAction {
 		const total = await model.Dummy.count();
 		return {
 			data: companies,
+			total,
+			totalPages: Math.ceil(total / filter.limit),
+			currentPage: filter.page,
+		};
+	}
+
+	static async findAllCompanyMetrics(filter) {
+		const conditions = CompanyInfoAction.buildSearchConditions(filter);
+		const offset = (filter.page - 1) * filter.limit;
+		const total = await model.CompanyMetric.count();
+		const companyMetrics = await model.CompanyMetric.findAll({
+			where: conditions,
+			attributes: [
+				"metricId",
+				"companyCode",
+				"year",
+				"metric",
+				"criteriaId",
+			],
+			offset: parseInt(offset, 10),
+			limit: parseInt(filter.limit, 10),
+			raw: true,
+		});
+		const criteriaIds = companyMetrics.map((metric) => metric.criteriaId);
+		const criterias = await model.Criteria.findAll({
+			where: {
+				criteriaId: {
+					[Sequelize.Op.in]: criteriaIds,
+				},
+			},
+			raw: true,
+		});
+		const criteriaMap = criterias.reduce((acc, criteria) => {
+			acc[criteria.criteriaId] = {
+				name: criteria.name,
+			};
+			return acc;
+		}, {});
+		const result = await Promise.all(
+			companyMetrics.map(async (companyMetric) => {
+				const criteria = criteriaMap[companyMetric.criteriaId];
+				return {
+					metricId: companyMetric.metricId,
+					criteriaName: criteria?.name,
+					companyCode: companyMetric.companyCode,
+					year: companyMetric.year,
+					metric: companyMetric.metric,
+				};
+			})
+		);
+		return {
+			data: result,
 			total,
 			totalPages: Math.ceil(total / filter.limit),
 			currentPage: filter.page,

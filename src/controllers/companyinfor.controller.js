@@ -63,9 +63,22 @@ export default class CompanyInfoController {
 				page: parseInt(page, 10) || 1,
 				limit: parseInt(limit, 10) || 10,
 			};
-			const data = await CompanyInfoAction.getAllCompany(
-				filter
-			);
+			const data = await CompanyInfoAction.getAllCompany(filter);
+			return new SuccessResponse().send(req, res, data);
+		} catch (error) {
+			console.error(error);
+			return new ErrorResponse().send(req, res, error.message);
+		}
+	}
+
+	static async getAllCompanyMetricsForAdmin(req, res) {
+		try {
+			const { page, limit } = req.query;
+			const filter = {
+				page: parseInt(page, 10) || 1,
+				limit: parseInt(limit, 10) || 10,
+			};
+			const data = await CompanyInfoAction.findAllCompanyMetrics(filter);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
 			console.error(error);

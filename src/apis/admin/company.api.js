@@ -12,4 +12,11 @@ router.get(
 	CompanyInforController.getAllCompaniesForAdmin
 );
 
+router.get(
+	"/admin/conpany-metric-all",
+	verifyTokenMiddleware,
+	verifyAdminMiddleware,
+	CompanyInforController.getAllCompanyMetricsForAdmin
+);
+
 export default router;

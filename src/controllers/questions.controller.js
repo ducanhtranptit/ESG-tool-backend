@@ -89,6 +89,7 @@ export default class QuestionController {
 			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
+
 	static async getAllTopic(req, res) {
 		try {
 			const data = await QuestionAction.findAllTopics();
@@ -101,11 +102,15 @@ export default class QuestionController {
 
 	static async getAllAnswersForAdmin(req, res) {
 		try {
-			const { page, limit } = req.query;
+			const { page, limit, companyCode, year } = req.query;
 			const filter = {
 				page: parseInt(page, 10) || 1,
 				limit: parseInt(limit, 10) || 10,
+				companyCode,
+				year
 			};
+			console.log(filter);
+			
 			const data = await QuestionAction.findAllAnswers(filter);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {
@@ -113,6 +118,7 @@ export default class QuestionController {
 			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
+
 	static async getAllDummiesForAdmin(req, res) {
 		try {
 			const { page, limit } = req.query;

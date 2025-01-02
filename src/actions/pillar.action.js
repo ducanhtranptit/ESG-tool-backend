@@ -1,5 +1,4 @@
 import model from "../models/index.js";
-import UserService from "../services/user.services.js";
 export default class PillarActions {
 	static async dataForChart(userId, pillarId, itemId, lang) {
 		const userInfor = await model.User.findOne({
@@ -43,6 +42,9 @@ export default class PillarActions {
 				raw: true,
 			});
 			dataChart.sort((a, b) => a.year - b.year);
+			// const top5DataChart = dataChart.slice(0, 5);
+			// top5DataChart.sort((a, b) => a.year - b.year);
+
 			const criteriaItem = criteriaItems.find(
 				(item) => item.criteriaId === criteria.criteriaId
 			);
@@ -51,7 +53,7 @@ export default class PillarActions {
 			const criteriaLocale = await model.CriteriaLocale.findOne({
 				where: {
 					criteriaCode: criteria.criteriaCode,
-					language: lang
+					language: lang,
 				},
 				raw: true,
 			});

@@ -14,11 +14,19 @@ export default class QuestionAction {
 		if (filters.topicCode) {
 			conditions.topicCode = filters.topicCode;
 		}
+		if (filters.companyCode) {
+			conditions.companyCode = {
+				[Sequelize.Op.like]: `%${filters.companyCode}%`,
+			};
+		}
 		if (filters.questionCode) {
 			conditions.questionCode = filters.questionCode;
 		}
 		if (filters.section) {
 			conditions.section = filters.section;
+		}
+		if (filters.year) {
+			conditions.year = filters.year;
 		}
 		if (filters.type) {
 			conditions.type = filters.type;
@@ -454,7 +462,7 @@ export default class QuestionAction {
 			})
 		);
 		// Tính tổng số bản ghi
-		const total = await model.Answer.count();
+		const total = await model.Answer.count({ where: conditions });
 		// Trả về dữ liệu
 		return {
 			data: result,
