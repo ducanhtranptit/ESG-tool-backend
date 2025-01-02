@@ -85,4 +85,34 @@ export default class CompanyInfoController {
 			return new ErrorResponse().send(req, res, error.message);
 		}
 	}
+
+	static async getAllCompanyScoreForAdmin(req, res) {
+		try {
+			const { page, limit } = req.query;
+			const filter = {
+				page: parseInt(page, 10) || 1,
+				limit: parseInt(limit, 10) || 10,
+			};
+			const data = await CompanyInfoAction.findAllCompanyScore(filter);
+			return new SuccessResponse().send(req, res, data);
+		} catch (error) {
+			console.error(error);
+			return new ErrorResponse().send(req, res, error.message);
+		}
+	}
+
+	static async getAllIndustriesForAdmin(req, res) {
+		try {
+			const { page, limit } = req.query;
+			const filter = {
+				page: parseInt(page, 10) || 1,
+				limit: parseInt(limit, 10) || 10,
+			};
+			const data = await CompanyInfoAction.findAllIndustries(filter);
+			return new SuccessResponse().send(req, res, data);
+		} catch (error) {
+			console.error(error);
+			return new ErrorResponse().send(req, res, error.message);
+		}
+	}
 }

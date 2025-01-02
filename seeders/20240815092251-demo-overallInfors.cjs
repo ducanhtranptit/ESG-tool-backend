@@ -7,18 +7,18 @@ module.exports = {
 			"OverallInfors",
 			[
 				{
-					companyName: "LC Products Ltd.",
+					companyName: "Công ty Cổ phần Thế Giới Di Động",
 					userId: 1,
-					dateFounder: 2000,
+					dateFounder: 2004,
 					mainAddress:
-						"567 Openfield Avenue, Bigburg, Ontario,  L0L 1C9",
-					mainPhoneNumber: "0987654321",
-					companyWebsite: "www.lcproducts.com",
-					companySector: "Manufacturing",
+						"128 Trần Quang Khải, P. Tân Định, Quận 1, TP. Hồ Chí Minh",
+					mainPhoneNumber: "1800 1060",
+					companyWebsite: "www.thegioididong.com",
+					companySector: "Retail",
 					companyDescription:
-						"We provide sustainable appliances, equipment and services that enable our customers to fulfill their purpose.",
+						"Công ty Cổ phần Thế Giới Di Động là nhà bán lẻ hàng đầu Việt Nam, chuyên cung cấp các sản phẩm công nghệ như điện thoại, laptop, phụ kiện và dịch vụ sửa chữa.",
 					contactInformation:
-						"<p><span>Doug Wilson, Board Chair</span></p><p><span>dougw@lcproducts.com</span></p><p><span>905-666-7774&nbsp;&nbsp;x88</span></p>",
+						"<p><span>Nguyễn Đức Tài, Chủ tịch Hội đồng Quản trị</span></p><p><span>Email: contact@thegioididong.com</span></p><p><span>Hotline: 1800 1060</span></p>",
 					createdAt: new Date(),
 					updatedAt: new Date(),
 				},

@@ -1,6 +1,7 @@
 import { Sequelize } from "sequelize";
 import model from "../models/index.js";
 import UserService from "../services/user.services.js";
+import { Op } from "sequelize";
 
 export default class CompanyInfoAction {
 	static buildSearchConditions(filters) {
@@ -186,6 +187,7 @@ export default class CompanyInfoAction {
 				"year",
 				"metric",
 				"criteriaId",
+				"rank",
 			],
 			offset: parseInt(offset, 10),
 			limit: parseInt(filter.limit, 10),
@@ -215,11 +217,66 @@ export default class CompanyInfoAction {
 					companyCode: companyMetric.companyCode,
 					year: companyMetric.year,
 					metric: companyMetric.metric,
+					rank: companyMetric.rank,
 				};
 			})
 		);
 		return {
 			data: result,
+			total,
+			totalPages: Math.ceil(total / filter.limit),
+			currentPage: filter.page,
+		};
+	}
+	static async findAllCompanyScore(filter) {
+		const currentYear = new Date().getFullYear();
+		const startYear = currentYear - 4;
+		const conditions = {
+			...CompanyInfoAction.buildSearchConditions(filter),
+			year: { [Op.between]: [startYear, currentYear] },
+		};
+		const offset = (filter.page - 1) * filter.limit;
+		const total = await model.CompanyScore.count({ where: conditions });
+		const companyScores = await model.CompanyScore.findAll({
+			where: conditions,
+			attributes: [
+				"companyCode",
+				"year",
+				"environmentScore",
+				"environmentRank",
+				"socialScore",
+				"socialRank",
+				"governanceScore",
+				"governanceRank",
+				"esgScore",
+				"esgRank",
+			],
+			offset: parseInt(offset, 10),
+			limit: parseInt(filter.limit, 10),
+			raw: true,
+		});
+
+		return {
+			data: companyScores,
+			total,
+			totalPages: Math.ceil(total / filter.limit),
+			currentPage: filter.page,
+		};
+	}
+
+	static async findAllIndustries(filter) {
+		const conditions = CompanyInfoAction.buildSearchConditions(filter);
+		const offset = (filter.page - 1) * filter.limit;
+		const total = await model.Industry.count();
+		const companyIndustries = await model.Industry.findAll({
+			where: conditions,
+			attributes: ["level1", "level2", "industryName"],
+			offset: parseInt(offset, 10),
+			limit: parseInt(filter.limit, 10),
+			raw: true,
+		});
+		return {
+			data: companyIndustries,
 			total,
 			totalPages: Math.ceil(total / filter.limit),
 			currentPage: filter.page,

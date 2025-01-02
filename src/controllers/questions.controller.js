@@ -109,8 +109,6 @@ export default class QuestionController {
 				companyCode,
 				year
 			};
-			console.log(filter);
-			
 			const data = await QuestionAction.findAllAnswers(filter);
 			return new SuccessResponse().send(req, res, data);
 		} catch (error) {

@@ -19,4 +19,18 @@ router.get(
 	CompanyInforController.getAllCompanyMetricsForAdmin
 );
 
+router.get(
+	"/admin/conpany-score-all",
+	verifyTokenMiddleware,
+	verifyAdminMiddleware,
+	CompanyInforController.getAllCompanyScoreForAdmin
+);
+
+router.get(
+	"/admin/industry-all",
+	verifyTokenMiddleware,
+	verifyAdminMiddleware,
+	CompanyInforController.getAllIndustriesForAdmin
+);
+
 export default router;
