@@ -58,10 +58,19 @@ export default class CompanyInfoController {
 
 	static async getAllCompaniesForAdmin(req, res) {
 		try {
-			const { page, limit } = req.query;
+			const {
+				page,
+				limit,
+				companyCode,
+				companyName,
+				industryCodeLevel2,
+			} = req.query;
 			const filter = {
 				page: parseInt(page, 10) || 1,
 				limit: parseInt(limit, 10) || 10,
+				companyCode,
+				companyName,
+				industryCodeLevel2,
 			};
 			const data = await CompanyInfoAction.getAllCompany(filter);
 			return new SuccessResponse().send(req, res, data);
@@ -73,10 +82,13 @@ export default class CompanyInfoController {
 
 	static async getAllCompanyMetricsForAdmin(req, res) {
 		try {
-			const { page, limit } = req.query;
+			const { page, limit, criteriaName, companyCode, year } = req.query;
 			const filter = {
 				page: parseInt(page, 10) || 1,
 				limit: parseInt(limit, 10) || 10,
+				criteriaName,
+				companyCode,
+				year,
 			};
 			const data = await CompanyInfoAction.findAllCompanyMetrics(filter);
 			return new SuccessResponse().send(req, res, data);
@@ -88,10 +100,12 @@ export default class CompanyInfoController {
 
 	static async getAllCompanyScoreForAdmin(req, res) {
 		try {
-			const { page, limit } = req.query;
+			const { page, limit, companyCode, year } = req.query;
 			const filter = {
 				page: parseInt(page, 10) || 1,
 				limit: parseInt(limit, 10) || 10,
+				companyCode,
+				year
 			};
 			const data = await CompanyInfoAction.findAllCompanyScore(filter);
 			return new SuccessResponse().send(req, res, data);
@@ -103,10 +117,13 @@ export default class CompanyInfoController {
 
 	static async getAllIndustriesForAdmin(req, res) {
 		try {
-			const { page, limit } = req.query;
+			const { page, limit, level1, level2, industryName } = req.query;
 			const filter = {
 				page: parseInt(page, 10) || 1,
 				limit: parseInt(limit, 10) || 10,
+				level1,
+				level2,
+				industryName,
 			};
 			const data = await CompanyInfoAction.findAllIndustries(filter);
 			return new SuccessResponse().send(req, res, data);

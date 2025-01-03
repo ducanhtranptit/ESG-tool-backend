@@ -387,15 +387,71 @@ export default class QuestionAction {
 	static async findAllAnswers(filter) {
 		const conditions = QuestionAction.buildSearchConditions(filter);
 		const offset = (filter.page - 1) * filter.limit;
+		const limit = parseInt(filter.limit, 10);
 
-		// Lấy dữ liệu từ bảng Answer
+		let questionCodeCondition = {};
+
+		// Nếu filter.questionName được truyền vào, tìm các questionCode tương ứng
+		if (filter.questionName) {
+			// Tìm tất cả các questionCode từ bảng Question thỏa mãn điều kiện filter.questionName
+			const matchingQuestions = await model.Question.findAll({
+				attributes: ["questionCode"],
+				where: {
+					name: {
+						[Sequelize.Op.like]: `%${filter.questionName}%`,
+					},
+					language: "vi",
+				},
+				raw: true,
+			});
+
+			const matchingQuestionCodes = matchingQuestions.map(
+				(q) => q.questionCode
+			);
+
+			// Nếu không có question nào thỏa mãn, trả về kết quả rỗng
+			if (matchingQuestionCodes.length === 0) {
+				return {
+					data: [],
+					total: 0,
+					totalPages: 0,
+					currentPage: filter.page,
+				};
+			}
+
+			// Thêm điều kiện questionCode phải nằm trong danh sách matchingQuestionCodes
+			questionCodeCondition = {
+				questionCode: {
+					[Sequelize.Op.in]: matchingQuestionCodes,
+				},
+			};
+		}
+
+		// Kết hợp điều kiện từ filter và điều kiện questionCode (nếu có)
+		const finalConditions = {
+			...conditions,
+			...questionCodeCondition,
+		};
+
+		// Lấy dữ liệu từ bảng Answer với điều kiện đã được cập nhật
 		const answers = await model.Answer.findAll({
-			where: conditions,
+			where: finalConditions,
 			attributes: ["companyCode", "year", "questionCode", "answer"],
 			raw: true,
-			offset: parseInt(offset, 10),
-			limit: parseInt(filter.limit, 10),
+			offset: offset,
+			limit: limit,
 		});
+
+		// Nếu không có bản ghi nào, trả về kết quả rỗng
+		if (answers.length === 0) {
+			const total = await model.Answer.count({ where: finalConditions });
+			return {
+				data: [],
+				total,
+				totalPages: Math.ceil(total / limit),
+				currentPage: filter.page,
+			};
+		}
 
 		// Lấy dữ liệu câu hỏi tương ứng với questionCode
 		const questionCodes = answers.map((answer) => answer.questionCode);
@@ -436,18 +492,20 @@ export default class QuestionAction {
 						raw: true,
 					});
 
-					const answerText = await model.Question.findOne({
-						where: {
-							questionCode: answer.questionCode,
-							language: "vi",
-						},
-						attributes: [
-							[`answer${dummyAnswer.answer}`, "answerText"],
-						],
-						raw: true,
-					});
-					if (answerText) {
-						finalAnswer = answerText.answerText;
+					if (dummyAnswer) {
+						const answerText = await model.Question.findOne({
+							where: {
+								questionCode: answer.questionCode,
+								language: "vi",
+							},
+							attributes: [
+								[`answer${dummyAnswer.answer}`, "answerText"],
+							],
+							raw: true,
+						});
+						if (answerText) {
+							finalAnswer = answerText.answerText;
+						}
 					}
 				}
 
@@ -461,13 +519,18 @@ export default class QuestionAction {
 				};
 			})
 		);
+
 		// Tính tổng số bản ghi
-		const total = await model.Answer.count({ where: conditions });
+		const total = await model.Answer.count({ where: finalConditions });
+
+		// Tính tổng số trang
+		const totalPages = Math.ceil(total / limit);
+
 		// Trả về dữ liệu
 		return {
 			data: result,
 			total,
-			totalPages: Math.ceil(total / filter.limit),
+			totalPages,
 			currentPage: filter.page,
 		};
 	}
@@ -475,13 +538,74 @@ export default class QuestionAction {
 	static async findAllDummies(filter) {
 		const conditions = QuestionAction.buildSearchConditions(filter);
 		const offset = (filter.page - 1) * filter.limit;
+		const limit = parseInt(filter.limit, 10);
+
+		let questionCodeCondition = {};
+
+		// Nếu filter.questionName được truyền vào, tìm các questionCode tương ứng
+		if (filter.questionName) {
+			// Tìm tất cả các questionCode từ bảng Question thỏa mãn điều kiện filter.questionName
+			const matchingQuestions = await model.Question.findAll({
+				attributes: ["questionCode"],
+				where: {
+					name: {
+						[Sequelize.Op.like]: `%${filter.questionName}%`,
+					},
+					language: "vi",
+				},
+				raw: true,
+			});
+
+			const matchingQuestionCodes = matchingQuestions.map(
+				(q) => q.questionCode
+			);
+
+			// Nếu không có question nào thỏa mãn, trả về kết quả rỗng
+			if (matchingQuestionCodes.length === 0) {
+				return {
+					data: [],
+					total: 0,
+					totalPages: 0,
+					currentPage: filter.page,
+				};
+			}
+
+			// Thêm điều kiện questionCode phải nằm trong danh sách matchingQuestionCodes
+			questionCodeCondition = {
+				questionCode: {
+					[Sequelize.Op.in]: matchingQuestionCodes,
+				},
+			};
+		}
+
+		// Kết hợp điều kiện từ filter và điều kiện questionCode (nếu có)
+		const finalConditions = {
+			...conditions,
+			...questionCodeCondition,
+		};
+
+		// Lấy dữ liệu từ bảng Dummy với điều kiện đã được cập nhật
 		const dummies = await model.Dummy.findAll({
-			where: conditions,
+			where: finalConditions,
 			attributes: ["questionCode", "dummy", "answer"],
-			offset: parseInt(offset, 10),
-			limit: parseInt(filter.limit, 10),
+			offset: offset,
+			limit: limit,
+			raw: true,
 		});
-		const questionCodes = dummies.map((answer) => answer.questionCode);
+
+		// Nếu không có bản ghi nào, trả về kết quả rỗng
+		if (dummies.length === 0) {
+			const total = await model.Dummy.count({ where: finalConditions });
+			return {
+				data: [],
+				total,
+				totalPages: Math.ceil(total / limit),
+				currentPage: filter.page,
+			};
+		}
+
+		// Lấy dữ liệu câu hỏi tương ứng với questionCode
+		const questionCodes = dummies.map((dummy) => dummy.questionCode);
 		const questions = await model.Question.findAll({
 			attributes: ["questionCode", "name", "type"],
 			where: {
@@ -492,6 +616,8 @@ export default class QuestionAction {
 			},
 			raw: true,
 		});
+
+		// Tạo map để ánh xạ questionCode với name và type
 		const questionMap = questions.reduce((acc, question) => {
 			acc[question.questionCode] = {
 				name: question.name,
@@ -499,22 +625,29 @@ export default class QuestionAction {
 			};
 			return acc;
 		}, {});
-		const result = await Promise.all(
-			dummies.map(async (dummy) => {
-				const question = questionMap[dummy.questionCode];
-				return {
-					questionCode: dummy.questionCode,
-					questionName: question?.name || "Câu hỏi không tồn tại",
-					answer: dummy.answer,
-					dummy: dummy.dummy,
-				};
-			})
-		);
-		const total = await model.Dummy.count();
+
+		// Chuẩn bị dữ liệu kết quả
+		const result = dummies.map((dummy) => {
+			const question = questionMap[dummy.questionCode];
+			return {
+				questionCode: dummy.questionCode,
+				questionName: question?.name || "Câu hỏi không tồn tại",
+				answer: dummy.answer,
+				dummy: dummy.dummy,
+			};
+		});
+
+		// Tính tổng số bản ghi thỏa mãn điều kiện
+		const total = await model.Dummy.count({ where: finalConditions });
+
+		// Tính tổng số trang
+		const totalPages = Math.ceil(total / limit);
+
+		// Trả về dữ liệu
 		return {
 			data: result,
 			total,
-			totalPages: Math.ceil(total / filter.limit),
+			totalPages,
 			currentPage: filter.page,
 		};
 	}

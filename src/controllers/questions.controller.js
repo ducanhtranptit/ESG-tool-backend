@@ -102,12 +102,21 @@ export default class QuestionController {
 
 	static async getAllAnswersForAdmin(req, res) {
 		try {
-			const { page, limit, companyCode, year } = req.query;
+			const {
+				page,
+				limit,
+				companyCode,
+				year,
+				questionCode,
+				questionName,
+			} = req.query;
 			const filter = {
 				page: parseInt(page, 10) || 1,
 				limit: parseInt(limit, 10) || 10,
 				companyCode,
-				year
+				year,
+				questionCode,
+				questionName,
 			};
 			const data = await QuestionAction.findAllAnswers(filter);
 			return new SuccessResponse().send(req, res, data);
@@ -119,10 +128,12 @@ export default class QuestionController {
 
 	static async getAllDummiesForAdmin(req, res) {
 		try {
-			const { page, limit } = req.query;
+			const { page, limit, questionCode, questionName } = req.query;
 			const filter = {
 				page: parseInt(page, 10) || 1,
 				limit: parseInt(limit, 10) || 10,
+				questionCode,
+				questionName,
 			};
 			const data = await QuestionAction.findAllDummies(filter);
 			return new SuccessResponse().send(req, res, data);

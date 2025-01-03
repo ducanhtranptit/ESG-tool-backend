@@ -11,16 +11,35 @@ export default class CompanyInfoAction {
 				[Sequelize.Op.like]: `%${filters.companyName}%`,
 			};
 		}
+
 		if (filters.companyCode) {
 			conditions.companyCode = {
 				[Sequelize.Op.like]: `%${filters.companyCode}%`,
 			};
 		}
+
 		if (filters.industryId) {
 			conditions.industryId = filters.industryId;
 		}
+
 		if (filters.industryCodeLevel2) {
 			conditions.industryCodeLevel2 = filters.industryCodeLevel2;
+		}
+
+		if (filters.level1) {
+			conditions.level1 = filters.level1;
+		}
+
+		if (filters.level2) {
+			conditions.level2 = filters.level2;
+		}
+
+		if (filters.industryName) {
+			conditions.industryName = filters.industryName;
+		}
+
+		if (filters.year) {
+			conditions.year = filters.year;
 		}
 		return conditions;
 	}
@@ -166,7 +185,7 @@ export default class CompanyInfoAction {
 			limit: parseInt(filter.limit, 10),
 			raw: true,
 		});
-		const total = await model.Dummy.count();
+		const total = await model.Company.count({ where: conditions });
 		return {
 			data: companies,
 			total,
@@ -176,65 +195,154 @@ export default class CompanyInfoAction {
 	}
 
 	static async findAllCompanyMetrics(filter) {
-		const conditions = CompanyInfoAction.buildSearchConditions(filter);
-		const offset = (filter.page - 1) * filter.limit;
-		const total = await model.CompanyMetric.count();
-		const companyMetrics = await model.CompanyMetric.findAll({
-			where: conditions,
-			attributes: [
-				"metricId",
-				"companyCode",
-				"year",
-				"metric",
-				"criteriaId",
-				"rank",
-			],
-			offset: parseInt(offset, 10),
-			limit: parseInt(filter.limit, 10),
-			raw: true,
-		});
-		const criteriaIds = companyMetrics.map((metric) => metric.criteriaId);
-		const criterias = await model.Criteria.findAll({
-			where: {
-				criteriaId: {
-					[Sequelize.Op.in]: criteriaIds,
-				},
-			},
-			raw: true,
-		});
-		const criteriaMap = criterias.reduce((acc, criteria) => {
-			acc[criteria.criteriaId] = {
-				name: criteria.name,
+		try {
+			const conditions = CompanyInfoAction.buildSearchConditions(filter);
+			const offset = (filter.page - 1) * filter.limit;
+			const limit = parseInt(filter.limit, 10);
+
+			let criteriaCondition = {};
+
+			// Nếu filter.criteriaName được truyền vào, tìm các criteriaId tương ứng
+			if (filter.criteriaName) {
+				// Tìm tất cả các criteriaId từ bảng Criteria thỏa mãn điều kiện filter.criteriaName
+				const matchingCriterias = await model.Criteria.findAll({
+					attributes: ["criteriaId"],
+					where: {
+						name: {
+							[Sequelize.Op.like]: `%${filter.criteriaName}%`,
+						},
+					},
+					raw: true,
+				});
+
+				const matchingCriteriaIds = matchingCriterias.map(
+					(c) => c.criteriaId
+				);
+
+				// Nếu không có criteria nào thỏa mãn, trả về kết quả rỗng
+				if (matchingCriteriaIds.length === 0) {
+					return {
+						data: [],
+						total: 0,
+						totalPages: 0,
+						currentPage: filter.page,
+					};
+				}
+
+				// Thêm điều kiện criteriaId phải nằm trong danh sách matchingCriteriaIds
+				criteriaCondition = {
+					criteriaId: {
+						[Sequelize.Op.in]: matchingCriteriaIds,
+					},
+				};
+			}
+
+			// Kết hợp điều kiện từ filter và điều kiện criteriaId (nếu có)
+			const finalConditions = {
+				...conditions,
+				...criteriaCondition,
 			};
-			return acc;
-		}, {});
-		const result = await Promise.all(
-			companyMetrics.map(async (companyMetric) => {
+
+			// Tính tổng số bản ghi thỏa mãn điều kiện
+			const total = await model.CompanyMetric.count({
+				where: finalConditions,
+			});
+
+			// Nếu total là 0, trả về kết quả rỗng
+			if (total === 0) {
+				return {
+					data: [],
+					total,
+					totalPages: 0,
+					currentPage: filter.page,
+				};
+			}
+
+			// Lấy dữ liệu từ bảng CompanyMetric với điều kiện đã được cập nhật
+			const companyMetrics = await model.CompanyMetric.findAll({
+				where: finalConditions,
+				attributes: [
+					"metricId",
+					"companyCode",
+					"year",
+					"metric",
+					"criteriaId",
+					"rank",
+				],
+				offset: offset,
+				limit: limit,
+				raw: true,
+			});
+
+			// Lấy dữ liệu criteria tương ứng với criteriaId
+			const criteriaIds = companyMetrics.map(
+				(metric) => metric.criteriaId
+			);
+			const criterias = await model.Criteria.findAll({
+				attributes: ["criteriaId", "name"],
+				where: {
+					criteriaId: {
+						[Sequelize.Op.in]: criteriaIds,
+					},
+				},
+				raw: true,
+			});
+
+			// Tạo map để ánh xạ criteriaId với name
+			const criteriaMap = criterias.reduce((acc, criteria) => {
+				acc[criteria.criteriaId] = {
+					name: criteria.name,
+				};
+				return acc;
+			}, {});
+
+			// Chuẩn bị dữ liệu kết quả
+			const result = companyMetrics.map((companyMetric) => {
 				const criteria = criteriaMap[companyMetric.criteriaId];
 				return {
 					metricId: companyMetric.metricId,
-					criteriaName: criteria?.name,
+					criteriaName: criteria?.name || "Tiêu chí không tồn tại",
 					companyCode: companyMetric.companyCode,
 					year: companyMetric.year,
 					metric: companyMetric.metric,
 					rank: companyMetric.rank,
 				};
-			})
-		);
-		return {
-			data: result,
-			total,
-			totalPages: Math.ceil(total / filter.limit),
-			currentPage: filter.page,
-		};
+			});
+
+			// Tính tổng số trang
+			const totalPages = Math.ceil(total / limit);
+
+			// Trả về dữ liệu
+			return {
+				data: result,
+				total,
+				totalPages,
+				currentPage: filter.page,
+			};
+		} catch (error) {
+			console.error("Error in findAllCompanyMetrics:", error);
+			throw new Error("Có lỗi xảy ra khi tìm kiếm company metrics.");
+		}
 	}
+
 	static async findAllCompanyScore(filter) {
+		let conditions = CompanyInfoAction.buildSearchConditions(filter);
 		const currentYear = new Date().getFullYear();
 		const startYear = currentYear - 4;
-		const conditions = {
-			...CompanyInfoAction.buildSearchConditions(filter),
-			year: { [Op.between]: [startYear, currentYear] },
-		};
+		if (filter.year && filter.year < startYear) {
+			return {
+				data: [],
+				total: 0,
+				totalPages: 0,
+				currentPage: filter.page,
+			};
+		}
+		if (!filter.year) {
+			conditions = {
+				...conditions,
+				year: { [Op.between]: [startYear, currentYear] },
+			};
+		}
 		const offset = (filter.page - 1) * filter.limit;
 		const total = await model.CompanyScore.count({ where: conditions });
 		const companyScores = await model.CompanyScore.findAll({
