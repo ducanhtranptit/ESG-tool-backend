@@ -41,9 +41,15 @@ export default class PillarActions {
 				attributes: ["year", "metric"],
 				raw: true,
 			});
-			dataChart.sort((a, b) => a.year - b.year);
-			// const top5DataChart = dataChart.slice(0, 5);
-			// top5DataChart.sort((a, b) => a.year - b.year);
+
+			// Sắp xếp theo năm giảm dần
+			dataChart.sort((a, b) => b.year - a.year);
+
+			// Lấy 5 năm gần nhất
+			const top5DataChart = dataChart.slice(0, 5);
+
+			// Sắp xếp lại theo năm tăng dần
+			top5DataChart.sort((a, b) => a.year - b.year);
 
 			const criteriaItem = criteriaItems.find(
 				(item) => item.criteriaId === criteria.criteriaId
@@ -61,7 +67,7 @@ export default class PillarActions {
 				criteriaId: criteria.criteriaId,
 				name: criteriaLocale.name,
 				IChart: IChart,
-				dataChart: dataChart,
+				dataChart: top5DataChart, // Chỉ trả về 5 năm gần nhất
 			});
 		}
 		return result;
