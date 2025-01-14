@@ -684,7 +684,7 @@ export default class EsgReportAction {
 						year: year,
 					},
 					attributes: ["companyCode", "esgScore"],
-					order: [["esgScore", "ASC"]],
+					order: [["esgScore", "DESC"]],
 				});
 
 				let esgCurrentRank = 1;
