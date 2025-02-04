@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
     mysql:
-        image: arm64v8/mysql
+        image: mysql
         container_name: mysql_esg_tool
         environment:
             MYSQL_ROOT_PASSWORD: hxtfl9RM1fgUEbk
