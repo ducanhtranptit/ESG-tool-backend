@@ -105,7 +105,7 @@ export default class CompanyInfoController {
 				page: parseInt(page, 10) || 1,
 				limit: parseInt(limit, 10) || 10,
 				companyCode,
-				year
+				year,
 			};
 			const data = await CompanyInfoAction.findAllCompanyScore(filter);
 			return new SuccessResponse().send(req, res, data);

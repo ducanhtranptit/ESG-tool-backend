@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+    mysql:
+        image: arm64v8/mysql
+        container_name: mysql_esg_tool
+        environment:
+            MYSQL_ROOT_PASSWORD: hxtfl9RM1fgUEbk
+            MYSQL_DATABASE: mysql_esg_tool
+        ports:
+            - "3307:3306"
+        volumes:
+            - db_data:/var/lib/mysql
+        command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+    app:
+        build: .
+        image: esg_tool_app
+        container_name: esg_tool
+        ports:
+            - "8057:8057"
+        depends_on:
+            - mysql
+        environment:
+            DB_HOST: mysql_esg_tool
+            DB_USER: root
+            DB_PASSWORD: hxtfl9RM1fgUEbk
+            DB_NAME: mysql_esg_tool
+        volumes:
+            - .:/app
+        command: sh -c "npm install && npm start"
+volumes:
+    db_data:
